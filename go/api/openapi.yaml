@@ -1,0 +1,802 @@
+openapi: 3.1.0
+info:
+  description: "This API CRUDs SLO objects for the Grafana plugin. \nModifying an\
+    \ SLO object will create or update recording and alerting rules in a connected\
+    \ Prometheus instance and create or update dashboards in Grafana."
+  title: Grafana SLO API
+  version: 0.1.0
+servers:
+- description: API Subpath
+  url: /api/plugins/grafana-slo-app/resources
+paths:
+  /v1/slo:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SLOListResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/SLOListResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/SLOListResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Slo'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Slo'
+          application/yaml:
+            schema:
+              $ref: '#/components/schemas/Slo'
+        required: true
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+  /v1/slo/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Slo'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Slo'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/Slo'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Slo'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Slo'
+          application/yaml:
+            schema:
+              $ref: '#/components/schemas/Slo'
+        required: true
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+components:
+  schemas:
+    Alerting:
+      additionalProperties: false
+      example:
+        annotations:
+        - value: value
+          key: key
+        - value: value
+          key: key
+        slowBurn:
+          annotations:
+          - value: value
+            key: key
+          - value: value
+            key: key
+          labels: ""
+        fastBurn:
+          annotations:
+          - value: value
+            key: key
+          - value: value
+            key: key
+          labels: ""
+        labels: ""
+      properties:
+        annotations:
+          items:
+            $ref: '#/components/schemas/Label'
+          type: array
+        fastBurn:
+          $ref: '#/components/schemas/AlertingMetadata'
+        labels:
+          items:
+            $ref: '#/components/schemas/Label'
+        slowBurn:
+          $ref: '#/components/schemas/AlertingMetadata'
+    AlertingMetadata:
+      additionalProperties: false
+      example:
+        annotations:
+        - value: value
+          key: key
+        - value: value
+          key: key
+        labels: ""
+      properties:
+        annotations:
+          items:
+            $ref: '#/components/schemas/Label'
+          type: array
+        labels:
+          items:
+            $ref: '#/components/schemas/Label'
+    DashboardRef:
+      additionalProperties: false
+      example:
+        UID: UID
+      properties:
+        UID:
+          type: string
+      required:
+      - UID
+    DestinationDatasource:
+      additionalProperties: false
+      example:
+        uid: uid
+        type: type
+      properties:
+        type:
+          type: string
+        uid:
+          type: string
+    ErrorResponse:
+      additionalProperties: false
+      properties:
+        code:
+          format: int64
+          type: integer
+        error:
+          type: string
+      required:
+      - code
+      - error
+    FreeformQuery:
+      additionalProperties: false
+      example:
+        query: query
+      properties:
+        query:
+          type: string
+      required:
+      - query
+    HistogramQuery:
+      additionalProperties: false
+      example:
+        percentile: 6.027456183070403
+        metric:
+          prometheusMetric: prometheusMetric
+          type: type
+        groupByLabels:
+        - groupByLabels
+        - groupByLabels
+        threshold:
+          value: 1.4658129805029452
+          operator: operator
+      properties:
+        groupByLabels:
+          items:
+            type: string
+          type: array
+        metric:
+          $ref: '#/components/schemas/MetricDef'
+        percentile:
+          format: double
+          type: number
+        threshold:
+          $ref: '#/components/schemas/Threshold'
+      required:
+      - metric
+      - percentile
+      - threshold
+    Label:
+      additionalProperties: false
+      example:
+        value: value
+        key: key
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      required:
+      - key
+      - value
+    MetricDef:
+      additionalProperties: false
+      example:
+        prometheusMetric: prometheusMetric
+        type: type
+      properties:
+        prometheusMetric:
+          type: string
+        type:
+          type: string
+      required:
+      - prometheusMetric
+    Objective:
+      additionalProperties: false
+      example:
+        window: window
+        value: 0.8008281904610115
+      properties:
+        value:
+          format: double
+          type: number
+        window:
+          type: string
+      required:
+      - value
+      - window
+    Query:
+      additionalProperties: false
+      example:
+        histogram:
+          percentile: 6.027456183070403
+          metric:
+            prometheusMetric: prometheusMetric
+            type: type
+          groupByLabels:
+          - groupByLabels
+          - groupByLabels
+          threshold:
+            value: 1.4658129805029452
+            operator: operator
+        freeform:
+          query: query
+        threshold:
+          metric:
+            prometheusMetric: prometheusMetric
+            type: type
+          groupByLabels:
+          - groupByLabels
+          - groupByLabels
+          threshold:
+            value: 1.4658129805029452
+            operator: operator
+        type: type
+        ratio:
+          successMetric:
+            prometheusMetric: prometheusMetric
+            type: type
+          groupByLabels:
+          - groupByLabels
+          - groupByLabels
+          totalMetric:
+            prometheusMetric: prometheusMetric
+            type: type
+      properties:
+        freeform:
+          $ref: '#/components/schemas/FreeformQuery'
+        histogram:
+          $ref: '#/components/schemas/HistogramQuery'
+        ratio:
+          $ref: '#/components/schemas/RatioQuery'
+        threshold:
+          $ref: '#/components/schemas/ThresholdQuery'
+        type:
+          type: string
+      required:
+      - type
+    RatioQuery:
+      additionalProperties: false
+      example:
+        successMetric:
+          prometheusMetric: prometheusMetric
+          type: type
+        groupByLabels:
+        - groupByLabels
+        - groupByLabels
+        totalMetric:
+          prometheusMetric: prometheusMetric
+          type: type
+      properties:
+        groupByLabels:
+          items:
+            type: string
+          type: array
+        successMetric:
+          $ref: '#/components/schemas/MetricDef'
+        totalMetric:
+          $ref: '#/components/schemas/MetricDef'
+      required:
+      - successMetric
+      - totalMetric
+    ReadOnly:
+      additionalProperties: false
+      example:
+        provenance: provenance
+        drillDownDashboardRef:
+          UID: UID
+        status:
+          message: message
+          type: type
+      properties:
+        drillDownDashboardRef:
+          $ref: '#/components/schemas/DashboardRef'
+        provenance:
+          type: string
+        status:
+          $ref: '#/components/schemas/Status'
+    SLOListResponse:
+      additionalProperties: false
+      example:
+        slos:
+        - query:
+            histogram:
+              percentile: 6.027456183070403
+              metric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: operator
+            freeform:
+              query: query
+            threshold:
+              metric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: operator
+            type: type
+            ratio:
+              successMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              totalMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+          name: name
+          description: description
+          objectives:
+          - window: window
+            value: 0.8008281904610115
+          - window: window
+            value: 0.8008281904610115
+          readOnly:
+            provenance: provenance
+            drillDownDashboardRef:
+              UID: UID
+            status:
+              message: message
+              type: type
+          destinationDatasource:
+            uid: uid
+            type: type
+          uuid: uuid
+          alerting:
+            annotations:
+            - value: value
+              key: key
+            - value: value
+              key: key
+            slowBurn:
+              annotations:
+              - value: value
+                key: key
+              - value: value
+                key: key
+              labels: ""
+            fastBurn:
+              annotations:
+              - value: value
+                key: key
+              - value: value
+                key: key
+              labels: ""
+            labels: ""
+          labels:
+          - value: value
+            key: key
+          - value: value
+            key: key
+        - query:
+            histogram:
+              percentile: 6.027456183070403
+              metric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: operator
+            freeform:
+              query: query
+            threshold:
+              metric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: operator
+            type: type
+            ratio:
+              successMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              totalMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+          name: name
+          description: description
+          objectives:
+          - window: window
+            value: 0.8008281904610115
+          - window: window
+            value: 0.8008281904610115
+          readOnly:
+            provenance: provenance
+            drillDownDashboardRef:
+              UID: UID
+            status:
+              message: message
+              type: type
+          destinationDatasource:
+            uid: uid
+            type: type
+          uuid: uuid
+          alerting:
+            annotations:
+            - value: value
+              key: key
+            - value: value
+              key: key
+            slowBurn:
+              annotations:
+              - value: value
+                key: key
+              - value: value
+                key: key
+              labels: ""
+            fastBurn:
+              annotations:
+              - value: value
+                key: key
+              - value: value
+                key: key
+              labels: ""
+            labels: ""
+          labels:
+          - value: value
+            key: key
+          - value: value
+            key: key
+      properties:
+        slos:
+          items:
+            $ref: '#/components/schemas/Slo'
+          type: array
+      required:
+      - slos
+    Slo:
+      additionalProperties: false
+      example:
+        query:
+          histogram:
+            percentile: 6.027456183070403
+            metric:
+              prometheusMetric: prometheusMetric
+              type: type
+            groupByLabels:
+            - groupByLabels
+            - groupByLabels
+            threshold:
+              value: 1.4658129805029452
+              operator: operator
+          freeform:
+            query: query
+          threshold:
+            metric:
+              prometheusMetric: prometheusMetric
+              type: type
+            groupByLabels:
+            - groupByLabels
+            - groupByLabels
+            threshold:
+              value: 1.4658129805029452
+              operator: operator
+          type: type
+          ratio:
+            successMetric:
+              prometheusMetric: prometheusMetric
+              type: type
+            groupByLabels:
+            - groupByLabels
+            - groupByLabels
+            totalMetric:
+              prometheusMetric: prometheusMetric
+              type: type
+        name: name
+        description: description
+        objectives:
+        - window: window
+          value: 0.8008281904610115
+        - window: window
+          value: 0.8008281904610115
+        readOnly:
+          provenance: provenance
+          drillDownDashboardRef:
+            UID: UID
+          status:
+            message: message
+            type: type
+        destinationDatasource:
+          uid: uid
+          type: type
+        uuid: uuid
+        alerting:
+          annotations:
+          - value: value
+            key: key
+          - value: value
+            key: key
+          slowBurn:
+            annotations:
+            - value: value
+              key: key
+            - value: value
+              key: key
+            labels: ""
+          fastBurn:
+            annotations:
+            - value: value
+              key: key
+            - value: value
+              key: key
+            labels: ""
+          labels: ""
+        labels:
+        - value: value
+          key: key
+        - value: value
+          key: key
+      properties:
+        alerting:
+          $ref: '#/components/schemas/Alerting'
+        description:
+          type: string
+        destinationDatasource:
+          $ref: '#/components/schemas/DestinationDatasource'
+        labels:
+          items:
+            $ref: '#/components/schemas/Label'
+          type: array
+        name:
+          type: string
+        objectives:
+          items:
+            $ref: '#/components/schemas/Objective'
+          type: array
+        query:
+          $ref: '#/components/schemas/Query'
+        readOnly:
+          $ref: '#/components/schemas/ReadOnly'
+        uuid:
+          type: string
+      required:
+      - description
+      - name
+      - objectives
+      - query
+      - uuid
+    Status:
+      additionalProperties: false
+      example:
+        message: message
+        type: type
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+      required:
+      - type
+    Threshold:
+      additionalProperties: false
+      example:
+        value: 1.4658129805029452
+        operator: operator
+      properties:
+        operator:
+          type: string
+        value:
+          format: double
+          type: number
+      required:
+      - operator
+      - value
+    ThresholdQuery:
+      additionalProperties: false
+      example:
+        metric:
+          prometheusMetric: prometheusMetric
+          type: type
+        groupByLabels:
+        - groupByLabels
+        - groupByLabels
+        threshold:
+          value: 1.4658129805029452
+          operator: operator
+      properties:
+        groupByLabels:
+          items:
+            type: string
+          type: array
+        metric:
+          $ref: '#/components/schemas/MetricDef'
+        threshold:
+          $ref: '#/components/schemas/Threshold'
+      required:
+      - metric
+      - threshold
