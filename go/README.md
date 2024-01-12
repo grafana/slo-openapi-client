@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
  - [Query](docs/Query.md)
  - [RatioQuery](docs/RatioQuery.md)
  - [ReadOnly](docs/ReadOnly.md)
+ - [SLOCreateResponse](docs/SLOCreateResponse.md)
  - [SLOListResponse](docs/SLOListResponse.md)
  - [Slo](docs/Slo.md)
  - [Status](docs/Status.md)

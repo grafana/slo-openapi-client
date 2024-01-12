@@ -63,6 +63,16 @@ paths:
         required: true
       responses:
         "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SLOCreateResponse'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/SLOCreateResponse'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/SLOCreateResponse'
           description: Accepted
         "400":
           content:
@@ -470,6 +480,19 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/Status'
+    SLOCreateResponse:
+      additionalProperties: false
+      example:
+        message: message
+        uuid: uuid
+      properties:
+        message:
+          type: string
+        uuid:
+          type: string
+      required:
+      - message
+      - uuid
     SLOListResponse:
       additionalProperties: false
       example:

@@ -19,6 +19,7 @@ docs/Objective.md
 docs/Query.md
 docs/RatioQuery.md
 docs/ReadOnly.md
+docs/SLOCreateResponse.md
 docs/SLOListResponse.md
 docs/Slo.md
 docs/Status.md
@@ -41,10 +42,10 @@ model_query.go
 model_ratio_query.go
 model_read_only.go
 model_slo.go
+model_slo_create_response.go
 model_slo_list_response.go
 model_status.go
 model_threshold.go
 model_threshold_query.go
 response.go
-test/api_default_test.go
 utils.go

@@ -275,7 +275,7 @@ No authorization required
 
 ## V1SloPost
 
-> V1SloPost(ctx).Slo(slo).Execute()
+> SLOCreateResponse V1SloPost(ctx).Slo(slo).Execute()
 
 
 
@@ -296,11 +296,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DefaultAPI.V1SloPost(context.Background()).Slo(slo).Execute()
+	resp, r, err := apiClient.DefaultAPI.V1SloPost(context.Background()).Slo(slo).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.V1SloPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `V1SloPost`: SLOCreateResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.V1SloPost`: %v\n", resp)
 }
 ```
 
@@ -319,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**SLOCreateResponse**](SLOCreateResponse.md)
 
 ### Authorization
 
