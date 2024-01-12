@@ -8,6 +8,8 @@ info:
 servers:
 - description: API Subpath
   url: /api/plugins/grafana-slo-app/resources
+security:
+- bearerAuth: []
 paths:
   /v1/slo:
     get:
@@ -823,3 +825,7 @@ components:
       required:
       - metric
       - threshold
+  securitySchemes:
+    bearerAuth:
+      scheme: bearer
+      type: http
