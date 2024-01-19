@@ -4,7 +4,7 @@ info:
     \ SLO object will create or update recording and alerting rules in a connected\
     \ Prometheus instance and create or update dashboards in Grafana."
   title: Grafana SLO API
-  version: 0.1.0
+  version: 1.0.0
 servers:
 - description: API Subpath
   url: /api/plugins/grafana-slo-app/resources
