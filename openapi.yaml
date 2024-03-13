@@ -56,6 +56,12 @@ components:
       - code
       - error
       type: object
+    Folder:
+      additionalProperties: false
+      properties:
+        uid:
+          type: string
+      type: object
     FreeformQuery:
       additionalProperties: false
       properties:
@@ -192,6 +198,8 @@ components:
           type: string
         destinationDatasource:
           $ref: '#/components/schemas/DestinationDatasource'
+        folder:
+          $ref: '#/components/schemas/Folder'
         labels:
           items:
             $ref: '#/components/schemas/Label'
