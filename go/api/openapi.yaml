@@ -315,6 +315,13 @@ components:
       required:
       - code
       - error
+    Folder:
+      additionalProperties: false
+      example:
+        uid: uid
+      properties:
+        uid:
+          type: string
     FreeformQuery:
       additionalProperties: false
       example:
@@ -504,7 +511,9 @@ components:
       additionalProperties: false
       example:
         slos:
-        - query:
+        - folder:
+            uid: uid
+          query:
             histogram:
               percentile: 6.027456183070403
               metric:
@@ -583,7 +592,9 @@ components:
             key: key
           - value: value
             key: key
-        - query:
+        - folder:
+            uid: uid
+          query:
             histogram:
               percentile: 6.027456183070403
               metric:
@@ -672,6 +683,8 @@ components:
     Slo:
       additionalProperties: false
       example:
+        folder:
+          uid: uid
         query:
           histogram:
             percentile: 6.027456183070403
@@ -758,6 +771,8 @@ components:
           type: string
         destinationDatasource:
           $ref: '#/components/schemas/DestinationDatasource'
+        folder:
+          $ref: '#/components/schemas/Folder'
         labels:
           items:
             $ref: '#/components/schemas/Label'

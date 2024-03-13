@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Alerting** | Pointer to [**Alerting**](Alerting.md) |  | [optional] 
 **Description** | **string** |  | 
 **DestinationDatasource** | Pointer to [**DestinationDatasource**](DestinationDatasource.md) |  | [optional] 
+**Folder** | Pointer to [**Folder**](Folder.md) |  | [optional] 
 **Labels** | Pointer to [**[]Label**](Label.md) |  | [optional] 
 **Name** | **string** |  | 
 **Objectives** | [**[]Objective**](Objective.md) |  | 
@@ -102,6 +103,31 @@ SetDestinationDatasource sets DestinationDatasource field to given value.
 `func (o *Slo) HasDestinationDatasource() bool`
 
 HasDestinationDatasource returns a boolean if a field has been set.
+
+### GetFolder
+
+`func (o *Slo) GetFolder() Folder`
+
+GetFolder returns the Folder field if non-nil, zero value otherwise.
+
+### GetFolderOk
+
+`func (o *Slo) GetFolderOk() (*Folder, bool)`
+
+GetFolderOk returns a tuple with the Folder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFolder
+
+`func (o *Slo) SetFolder(v Folder)`
+
+SetFolder sets Folder field to given value.
+
+### HasFolder
+
+`func (o *Slo) HasFolder() bool`
+
+HasFolder returns a boolean if a field has been set.
 
 ### GetLabels
 

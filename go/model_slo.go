@@ -24,6 +24,7 @@ type Slo struct {
 	Alerting *Alerting `json:"alerting,omitempty"`
 	Description string `json:"description"`
 	DestinationDatasource *DestinationDatasource `json:"destinationDatasource,omitempty"`
+	Folder *Folder `json:"folder,omitempty"`
 	Labels []Label `json:"labels,omitempty"`
 	Name string `json:"name"`
 	Objectives []Objective `json:"objectives"`
@@ -142,6 +143,38 @@ func (o *Slo) HasDestinationDatasource() bool {
 // SetDestinationDatasource gets a reference to the given DestinationDatasource and assigns it to the DestinationDatasource field.
 func (o *Slo) SetDestinationDatasource(v DestinationDatasource) {
 	o.DestinationDatasource = &v
+}
+
+// GetFolder returns the Folder field value if set, zero value otherwise.
+func (o *Slo) GetFolder() Folder {
+	if o == nil || IsNil(o.Folder) {
+		var ret Folder
+		return ret
+	}
+	return *o.Folder
+}
+
+// GetFolderOk returns a tuple with the Folder field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Slo) GetFolderOk() (*Folder, bool) {
+	if o == nil || IsNil(o.Folder) {
+		return nil, false
+	}
+	return o.Folder, true
+}
+
+// HasFolder returns a boolean if a field has been set.
+func (o *Slo) HasFolder() bool {
+	if o != nil && !IsNil(o.Folder) {
+		return true
+	}
+
+	return false
+}
+
+// SetFolder gets a reference to the given Folder and assigns it to the Folder field.
+func (o *Slo) SetFolder(v Folder) {
+	o.Folder = &v
 }
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
@@ -320,6 +353,9 @@ func (o Slo) ToMap() (map[string]interface{}, error) {
 	toSerialize["description"] = o.Description
 	if !IsNil(o.DestinationDatasource) {
 		toSerialize["destinationDatasource"] = o.DestinationDatasource
+	}
+	if !IsNil(o.Folder) {
+		toSerialize["folder"] = o.Folder
 	}
 	if !IsNil(o.Labels) {
 		toSerialize["labels"] = o.Labels

@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
  - [DashboardRef](docs/DashboardRef.md)
  - [DestinationDatasource](docs/DestinationDatasource.md)
  - [ErrorResponse](docs/ErrorResponse.md)
+ - [Folder](docs/Folder.md)
  - [FreeformQuery](docs/FreeformQuery.md)
  - [HistogramQuery](docs/HistogramQuery.md)
  - [Label](docs/Label.md)
