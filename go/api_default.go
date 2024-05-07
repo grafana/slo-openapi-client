@@ -28,7 +28,7 @@ type ApiV1SloGetRequest struct {
 	ApiService *DefaultAPIService
 }
 
-func (r ApiV1SloGetRequest) Execute() (*SLOListResponse, *http.Response, error) {
+func (r ApiV1SloGetRequest) Execute() (*ApiSLOListResponse, *http.Response, error) {
 	return r.ApiService.V1SloGetExecute(r)
 }
 
@@ -46,13 +46,13 @@ func (a *DefaultAPIService) V1SloGet(ctx context.Context) ApiV1SloGetRequest {
 }
 
 // Execute executes the request
-//  @return SLOListResponse
-func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*SLOListResponse, *http.Response, error) {
+//  @return ApiSLOListResponse
+func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*ApiSLOListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SLOListResponse
+		localVarReturnValue  *ApiSLOListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.V1SloGet")
@@ -106,7 +106,7 @@ func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*SLOListRespo
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -117,7 +117,7 @@ func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*SLOListRespo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -226,7 +226,7 @@ func (a *DefaultAPIService) V1SloIdDeleteExecute(r ApiV1SloIdDeleteRequest) (*ht
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -237,7 +237,7 @@ func (a *DefaultAPIService) V1SloIdDeleteExecute(r ApiV1SloIdDeleteRequest) (*ht
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -258,7 +258,7 @@ type ApiV1SloIdGetRequest struct {
 	id string
 }
 
-func (r ApiV1SloIdGetRequest) Execute() (*Slo, *http.Response, error) {
+func (r ApiV1SloIdGetRequest) Execute() (*SloV00Slo, *http.Response, error) {
 	return r.ApiService.V1SloIdGetExecute(r)
 }
 
@@ -278,13 +278,13 @@ func (a *DefaultAPIService) V1SloIdGet(ctx context.Context, id string) ApiV1SloI
 }
 
 // Execute executes the request
-//  @return Slo
-func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*Slo, *http.Response, error) {
+//  @return SloV00Slo
+func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*SloV00Slo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Slo
+		localVarReturnValue  *SloV00Slo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.V1SloIdGet")
@@ -339,7 +339,7 @@ func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*Slo, *ht
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -350,7 +350,7 @@ func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*Slo, *ht
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -378,11 +378,11 @@ type ApiV1SloIdPutRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
 	id string
-	slo *Slo
+	sloV00Slo *SloV00Slo
 }
 
-func (r ApiV1SloIdPutRequest) Slo(slo Slo) ApiV1SloIdPutRequest {
-	r.slo = &slo
+func (r ApiV1SloIdPutRequest) SloV00Slo(sloV00Slo SloV00Slo) ApiV1SloIdPutRequest {
+	r.sloV00Slo = &sloV00Slo
 	return r
 }
 
@@ -424,8 +424,8 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.slo == nil {
-		return nil, reportError("slo is required and must be specified")
+	if r.sloV00Slo == nil {
+		return nil, reportError("sloV00Slo is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -446,7 +446,7 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.slo
+	localVarPostBody = r.sloV00Slo
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -470,7 +470,7 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -481,7 +481,7 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -499,15 +499,15 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 type ApiV1SloPostRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	slo *Slo
+	sloV00Slo *SloV00Slo
 }
 
-func (r ApiV1SloPostRequest) Slo(slo Slo) ApiV1SloPostRequest {
-	r.slo = &slo
+func (r ApiV1SloPostRequest) SloV00Slo(sloV00Slo SloV00Slo) ApiV1SloPostRequest {
+	r.sloV00Slo = &sloV00Slo
 	return r
 }
 
-func (r ApiV1SloPostRequest) Execute() (*SLOCreateResponse, *http.Response, error) {
+func (r ApiV1SloPostRequest) Execute() (*ApiSLOCreateResponse, *http.Response, error) {
 	return r.ApiService.V1SloPostExecute(r)
 }
 
@@ -525,13 +525,13 @@ func (a *DefaultAPIService) V1SloPost(ctx context.Context) ApiV1SloPostRequest {
 }
 
 // Execute executes the request
-//  @return SLOCreateResponse
-func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*SLOCreateResponse, *http.Response, error) {
+//  @return ApiSLOCreateResponse
+func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*ApiSLOCreateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SLOCreateResponse
+		localVarReturnValue  *ApiSLOCreateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.V1SloPost")
@@ -544,8 +544,8 @@ func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*SLOCreateR
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.slo == nil {
-		return localVarReturnValue, nil, reportError("slo is required and must be specified")
+	if r.sloV00Slo == nil {
+		return localVarReturnValue, nil, reportError("sloV00Slo is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -566,7 +566,7 @@ func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*SLOCreateR
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.slo
+	localVarPostBody = r.sloV00Slo
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -590,7 +590,7 @@ func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*SLOCreateR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -601,7 +601,7 @@ func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*SLOCreateR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

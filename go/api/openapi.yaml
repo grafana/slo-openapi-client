@@ -18,87 +18,87 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SLOListResponse'
+                $ref: '#/components/schemas/api.SLOListResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/SLOListResponse'
+                $ref: '#/components/schemas/api.SLOListResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/SLOListResponse'
+                $ref: '#/components/schemas/api.SLOListResponse'
           description: OK
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Slo'
+              $ref: '#/components/schemas/slo.v0_0.Slo'
           application/x-yaml:
             schema:
-              $ref: '#/components/schemas/Slo'
+              $ref: '#/components/schemas/slo.v0_0.Slo'
           application/yaml:
             schema:
-              $ref: '#/components/schemas/Slo'
+              $ref: '#/components/schemas/slo.v0_0.Slo'
         required: true
       responses:
         "202":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SLOCreateResponse'
+                $ref: '#/components/schemas/api.SLOCreateResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/SLOCreateResponse'
+                $ref: '#/components/schemas/api.SLOCreateResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/SLOCreateResponse'
+                $ref: '#/components/schemas/api.SLOCreateResponse'
           description: Accepted
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
   /v1/slo/{id}:
     delete:
@@ -117,25 +117,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
     get:
       parameters:
@@ -151,37 +151,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Slo'
+                $ref: '#/components/schemas/slo.v0_0.Slo'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/Slo'
+                $ref: '#/components/schemas/slo.v0_0.Slo'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/Slo'
+                $ref: '#/components/schemas/slo.v0_0.Slo'
           description: OK
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
     put:
       parameters:
@@ -196,13 +196,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Slo'
+              $ref: '#/components/schemas/slo.v0_0.Slo'
           application/x-yaml:
             schema:
-              $ref: '#/components/schemas/Slo'
+              $ref: '#/components/schemas/slo.v0_0.Slo'
           application/yaml:
             schema:
-              $ref: '#/components/schemas/Slo'
+              $ref: '#/components/schemas/slo.v0_0.Slo'
         required: true
       responses:
         "202":
@@ -211,100 +211,29 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
 components:
   schemas:
-    Alerting:
-      additionalProperties: false
-      example:
-        annotations:
-        - value: value
-          key: key
-        - value: value
-          key: key
-        slowBurn:
-          annotations:
-          - value: value
-            key: key
-          - value: value
-            key: key
-          labels: ""
-        fastBurn:
-          annotations:
-          - value: value
-            key: key
-          - value: value
-            key: key
-          labels: ""
-        labels: ""
-      properties:
-        annotations:
-          items:
-            $ref: '#/components/schemas/Label'
-          type: array
-        fastBurn:
-          $ref: '#/components/schemas/AlertingMetadata'
-        labels:
-          items:
-            $ref: '#/components/schemas/Label'
-        slowBurn:
-          $ref: '#/components/schemas/AlertingMetadata'
-    AlertingMetadata:
-      additionalProperties: false
-      example:
-        annotations:
-        - value: value
-          key: key
-        - value: value
-          key: key
-        labels: ""
-      properties:
-        annotations:
-          items:
-            $ref: '#/components/schemas/Label'
-          type: array
-        labels:
-          items:
-            $ref: '#/components/schemas/Label'
-    DashboardRef:
-      additionalProperties: false
-      example:
-        UID: UID
-      properties:
-        UID:
-          type: string
-      required:
-      - UID
-    DestinationDatasource:
-      additionalProperties: false
-      example:
-        uid: uid
-        type: type
-      properties:
-        type:
-          type: string
-        uid:
-          type: string
-    ErrorResponse:
+    api.ErrorResponse:
       additionalProperties: false
       properties:
         code:
@@ -315,14 +244,271 @@ components:
       required:
       - code
       - error
-    Folder:
+    api.SLOCreateResponse:
+      additionalProperties: false
+      example:
+        message: message
+        uuid: uuid
+      properties:
+        message:
+          type: string
+        uuid:
+          type: string
+      required:
+      - message
+      - uuid
+    api.SLOListResponse:
+      additionalProperties: false
+      example:
+        slos:
+        - folder:
+            uid: uid
+          query:
+            histogram:
+              percentile: 6.027456183070403
+              metric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: <
+            freeform:
+              query: query
+            threshold:
+              metric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: <
+            type: freeform
+            ratio:
+              successMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              totalMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+          name: name
+          description: description
+          objectives:
+          - window: window
+            value: 0.8008281904610115
+          - window: window
+            value: 0.8008281904610115
+          readOnly:
+            provenance: provenance
+            drillDownDashboardRef:
+              UID: UID
+            status:
+              message: message
+              type: created
+          destinationDatasource:
+            uid: uid
+            type: type
+          uuid: uuid
+          alerting:
+            annotations:
+            - value: value
+              key: key
+            - value: value
+              key: key
+            slowBurn:
+              annotations:
+              - value: value
+                key: key
+              - value: value
+                key: key
+              labels: ""
+            fastBurn:
+              annotations:
+              - value: value
+                key: key
+              - value: value
+                key: key
+              labels: ""
+            labels: ""
+          labels:
+          - value: value
+            key: key
+          - value: value
+            key: key
+        - folder:
+            uid: uid
+          query:
+            histogram:
+              percentile: 6.027456183070403
+              metric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: <
+            freeform:
+              query: query
+            threshold:
+              metric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: <
+            type: freeform
+            ratio:
+              successMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              totalMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+          name: name
+          description: description
+          objectives:
+          - window: window
+            value: 0.8008281904610115
+          - window: window
+            value: 0.8008281904610115
+          readOnly:
+            provenance: provenance
+            drillDownDashboardRef:
+              UID: UID
+            status:
+              message: message
+              type: created
+          destinationDatasource:
+            uid: uid
+            type: type
+          uuid: uuid
+          alerting:
+            annotations:
+            - value: value
+              key: key
+            - value: value
+              key: key
+            slowBurn:
+              annotations:
+              - value: value
+                key: key
+              - value: value
+                key: key
+              labels: ""
+            fastBurn:
+              annotations:
+              - value: value
+                key: key
+              - value: value
+                key: key
+              labels: ""
+            labels: ""
+          labels:
+          - value: value
+            key: key
+          - value: value
+            key: key
+      properties:
+        slos:
+          items:
+            $ref: '#/components/schemas/slo.v0_0.Slo'
+          type: array
+      required:
+      - slos
+    slo.v0_0.Alerting:
+      additionalProperties: false
+      example:
+        annotations:
+        - value: value
+          key: key
+        - value: value
+          key: key
+        slowBurn:
+          annotations:
+          - value: value
+            key: key
+          - value: value
+            key: key
+          labels: ""
+        fastBurn:
+          annotations:
+          - value: value
+            key: key
+          - value: value
+            key: key
+          labels: ""
+        labels: ""
+      properties:
+        annotations:
+          items:
+            $ref: '#/components/schemas/slo.v0_0.Label'
+          type: array
+        fastBurn:
+          $ref: '#/components/schemas/slo.v0_0.AlertingMetadata'
+        labels:
+          items:
+            $ref: '#/components/schemas/slo.v0_0.Label'
+        slowBurn:
+          $ref: '#/components/schemas/slo.v0_0.AlertingMetadata'
+    slo.v0_0.AlertingMetadata:
+      additionalProperties: false
+      example:
+        annotations:
+        - value: value
+          key: key
+        - value: value
+          key: key
+        labels: ""
+      properties:
+        annotations:
+          items:
+            $ref: '#/components/schemas/slo.v0_0.Label'
+          type: array
+        labels:
+          items:
+            $ref: '#/components/schemas/slo.v0_0.Label'
+    slo.v0_0.DashboardRef:
+      additionalProperties: false
+      example:
+        UID: UID
+      properties:
+        UID:
+          type: string
+      required:
+      - UID
+    slo.v0_0.DestinationDatasource:
+      additionalProperties: false
+      example:
+        uid: uid
+        type: type
+      properties:
+        type:
+          type: string
+        uid:
+          type: string
+    slo.v0_0.Folder:
       additionalProperties: false
       example:
         uid: uid
       properties:
         uid:
           type: string
-    FreeformQuery:
+    slo.v0_0.FreeformQuery:
       additionalProperties: false
       example:
         query: query
@@ -331,7 +517,7 @@ components:
           type: string
       required:
       - query
-    HistogramQuery:
+    slo.v0_0.HistogramQuery:
       additionalProperties: false
       example:
         percentile: 6.027456183070403
@@ -350,17 +536,17 @@ components:
             type: string
           type: array
         metric:
-          $ref: '#/components/schemas/MetricDef'
+          $ref: '#/components/schemas/slo.v0_0.MetricDef'
         percentile:
           format: double
           type: number
         threshold:
-          $ref: '#/components/schemas/Threshold'
+          $ref: '#/components/schemas/slo.v0_0.Threshold'
       required:
       - metric
       - percentile
       - threshold
-    Label:
+    slo.v0_0.Label:
       additionalProperties: false
       example:
         value: value
@@ -373,7 +559,7 @@ components:
       required:
       - key
       - value
-    MetricDef:
+    slo.v0_0.MetricDef:
       additionalProperties: false
       example:
         prometheusMetric: prometheusMetric
@@ -385,7 +571,7 @@ components:
           type: string
       required:
       - prometheusMetric
-    Objective:
+    slo.v0_0.Objective:
       additionalProperties: false
       example:
         window: window
@@ -399,7 +585,7 @@ components:
       required:
       - value
       - window
-    Query:
+    slo.v0_0.Query:
       additionalProperties: false
       example:
         histogram:
@@ -438,13 +624,13 @@ components:
             type: type
       properties:
         freeform:
-          $ref: '#/components/schemas/FreeformQuery'
+          $ref: '#/components/schemas/slo.v0_0.FreeformQuery'
         histogram:
-          $ref: '#/components/schemas/HistogramQuery'
+          $ref: '#/components/schemas/slo.v0_0.HistogramQuery'
         ratio:
-          $ref: '#/components/schemas/RatioQuery'
+          $ref: '#/components/schemas/slo.v0_0.RatioQuery'
         threshold:
-          $ref: '#/components/schemas/ThresholdQuery'
+          $ref: '#/components/schemas/slo.v0_0.ThresholdQuery'
         type:
           enum:
           - freeform
@@ -454,7 +640,7 @@ components:
           type: string
       required:
       - type
-    RatioQuery:
+    slo.v0_0.RatioQuery:
       additionalProperties: false
       example:
         successMetric:
@@ -472,13 +658,13 @@ components:
             type: string
           type: array
         successMetric:
-          $ref: '#/components/schemas/MetricDef'
+          $ref: '#/components/schemas/slo.v0_0.MetricDef'
         totalMetric:
-          $ref: '#/components/schemas/MetricDef'
+          $ref: '#/components/schemas/slo.v0_0.MetricDef'
       required:
       - successMetric
       - totalMetric
-    ReadOnly:
+    slo.v0_0.ReadOnly:
       additionalProperties: false
       example:
         provenance: provenance
@@ -489,198 +675,12 @@ components:
           type: created
       properties:
         drillDownDashboardRef:
-          $ref: '#/components/schemas/DashboardRef'
+          $ref: '#/components/schemas/slo.v0_0.DashboardRef'
         provenance:
           type: string
         status:
-          $ref: '#/components/schemas/Status'
-    SLOCreateResponse:
-      additionalProperties: false
-      example:
-        message: message
-        uuid: uuid
-      properties:
-        message:
-          type: string
-        uuid:
-          type: string
-      required:
-      - message
-      - uuid
-    SLOListResponse:
-      additionalProperties: false
-      example:
-        slos:
-        - folder:
-            uid: uid
-          query:
-            histogram:
-              percentile: 6.027456183070403
-              metric:
-                prometheusMetric: prometheusMetric
-                type: type
-              groupByLabels:
-              - groupByLabels
-              - groupByLabels
-              threshold:
-                value: 1.4658129805029452
-                operator: <
-            freeform:
-              query: query
-            threshold:
-              metric:
-                prometheusMetric: prometheusMetric
-                type: type
-              groupByLabels:
-              - groupByLabels
-              - groupByLabels
-              threshold:
-                value: 1.4658129805029452
-                operator: <
-            type: freeform
-            ratio:
-              successMetric:
-                prometheusMetric: prometheusMetric
-                type: type
-              groupByLabels:
-              - groupByLabels
-              - groupByLabels
-              totalMetric:
-                prometheusMetric: prometheusMetric
-                type: type
-          name: name
-          description: description
-          objectives:
-          - window: window
-            value: 0.8008281904610115
-          - window: window
-            value: 0.8008281904610115
-          readOnly:
-            provenance: provenance
-            drillDownDashboardRef:
-              UID: UID
-            status:
-              message: message
-              type: created
-          destinationDatasource:
-            uid: uid
-            type: type
-          uuid: uuid
-          alerting:
-            annotations:
-            - value: value
-              key: key
-            - value: value
-              key: key
-            slowBurn:
-              annotations:
-              - value: value
-                key: key
-              - value: value
-                key: key
-              labels: ""
-            fastBurn:
-              annotations:
-              - value: value
-                key: key
-              - value: value
-                key: key
-              labels: ""
-            labels: ""
-          labels:
-          - value: value
-            key: key
-          - value: value
-            key: key
-        - folder:
-            uid: uid
-          query:
-            histogram:
-              percentile: 6.027456183070403
-              metric:
-                prometheusMetric: prometheusMetric
-                type: type
-              groupByLabels:
-              - groupByLabels
-              - groupByLabels
-              threshold:
-                value: 1.4658129805029452
-                operator: <
-            freeform:
-              query: query
-            threshold:
-              metric:
-                prometheusMetric: prometheusMetric
-                type: type
-              groupByLabels:
-              - groupByLabels
-              - groupByLabels
-              threshold:
-                value: 1.4658129805029452
-                operator: <
-            type: freeform
-            ratio:
-              successMetric:
-                prometheusMetric: prometheusMetric
-                type: type
-              groupByLabels:
-              - groupByLabels
-              - groupByLabels
-              totalMetric:
-                prometheusMetric: prometheusMetric
-                type: type
-          name: name
-          description: description
-          objectives:
-          - window: window
-            value: 0.8008281904610115
-          - window: window
-            value: 0.8008281904610115
-          readOnly:
-            provenance: provenance
-            drillDownDashboardRef:
-              UID: UID
-            status:
-              message: message
-              type: created
-          destinationDatasource:
-            uid: uid
-            type: type
-          uuid: uuid
-          alerting:
-            annotations:
-            - value: value
-              key: key
-            - value: value
-              key: key
-            slowBurn:
-              annotations:
-              - value: value
-                key: key
-              - value: value
-                key: key
-              labels: ""
-            fastBurn:
-              annotations:
-              - value: value
-                key: key
-              - value: value
-                key: key
-              labels: ""
-            labels: ""
-          labels:
-          - value: value
-            key: key
-          - value: value
-            key: key
-      properties:
-        slos:
-          items:
-            $ref: '#/components/schemas/Slo'
-          type: array
-      required:
-      - slos
-    Slo:
+          $ref: '#/components/schemas/slo.v0_0.Status'
+    slo.v0_0.Slo:
       additionalProperties: false
       example:
         folder:
@@ -766,27 +766,27 @@ components:
           key: key
       properties:
         alerting:
-          $ref: '#/components/schemas/Alerting'
+          $ref: '#/components/schemas/slo.v0_0.Alerting'
         description:
           type: string
         destinationDatasource:
-          $ref: '#/components/schemas/DestinationDatasource'
+          $ref: '#/components/schemas/slo.v0_0.DestinationDatasource'
         folder:
-          $ref: '#/components/schemas/Folder'
+          $ref: '#/components/schemas/slo.v0_0.Folder'
         labels:
           items:
-            $ref: '#/components/schemas/Label'
+            $ref: '#/components/schemas/slo.v0_0.Label'
           type: array
         name:
           type: string
         objectives:
           items:
-            $ref: '#/components/schemas/Objective'
+            $ref: '#/components/schemas/slo.v0_0.Objective'
           type: array
         query:
-          $ref: '#/components/schemas/Query'
+          $ref: '#/components/schemas/slo.v0_0.Query'
         readOnly:
-          $ref: '#/components/schemas/ReadOnly'
+          $ref: '#/components/schemas/slo.v0_0.ReadOnly'
         uuid:
           type: string
       required:
@@ -795,7 +795,7 @@ components:
       - objectives
       - query
       - uuid
-    Status:
+    slo.v0_0.Status:
       additionalProperties: false
       example:
         message: message
@@ -815,7 +815,7 @@ components:
           type: string
       required:
       - type
-    Threshold:
+    slo.v0_0.Threshold:
       additionalProperties: false
       example:
         value: 1.4658129805029452
@@ -835,7 +835,7 @@ components:
       required:
       - operator
       - value
-    ThresholdQuery:
+    slo.v0_0.ThresholdQuery:
       additionalProperties: false
       example:
         metric:
@@ -853,9 +853,9 @@ components:
             type: string
           type: array
         metric:
-          $ref: '#/components/schemas/MetricDef'
+          $ref: '#/components/schemas/slo.v0_0.MetricDef'
         threshold:
-          $ref: '#/components/schemas/Threshold'
+          $ref: '#/components/schemas/slo.v0_0.Threshold'
       required:
       - metric
       - threshold

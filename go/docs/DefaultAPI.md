@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## V1SloGet
 
-> SLOListResponse V1SloGet(ctx).Execute()
+> ApiSLOListResponse V1SloGet(ctx).Execute()
 
 
 
@@ -39,7 +39,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.V1SloGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `V1SloGet`: SLOListResponse
+	// response from `V1SloGet`: ApiSLOListResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.V1SloGet`: %v\n", resp)
 }
 ```
@@ -55,7 +55,7 @@ Other parameters are passed through a pointer to a apiV1SloGetRequest struct via
 
 ### Return type
 
-[**SLOListResponse**](SLOListResponse.md)
+[**ApiSLOListResponse**](ApiSLOListResponse.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ## V1SloIdGet
 
-> Slo V1SloIdGet(ctx, id).Execute()
+> SloV00Slo V1SloIdGet(ctx, id).Execute()
 
 
 
@@ -165,7 +165,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.V1SloIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `V1SloIdGet`: Slo
+	// response from `V1SloIdGet`: SloV00Slo
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.V1SloIdGet`: %v\n", resp)
 }
 ```
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Slo**](Slo.md)
+[**SloV00Slo**](SloV00Slo.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ## V1SloIdPut
 
-> V1SloIdPut(ctx, id).Slo(slo).Execute()
+> V1SloIdPut(ctx, id).SloV00Slo(sloV00Slo).Execute()
 
 
 
@@ -225,11 +225,11 @@ import (
 
 func main() {
 	id := "id_example" // string | 
-	slo := *openapiclient.NewSlo("Description_example", "Name_example", []openapiclient.Objective{*openapiclient.NewObjective(float64(123), "Window_example")}, *openapiclient.NewQuery("Type_example"), "Uuid_example") // Slo | 
+	sloV00Slo := *openapiclient.NewSloV00Slo("Description_example", "Name_example", []openapiclient.SloV00Objective{*openapiclient.NewSloV00Objective(float64(123), "Window_example")}, *openapiclient.NewSloV00Query("Type_example"), "Uuid_example") // SloV00Slo | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DefaultAPI.V1SloIdPut(context.Background(), id).Slo(slo).Execute()
+	r, err := apiClient.DefaultAPI.V1SloIdPut(context.Background(), id).SloV00Slo(sloV00Slo).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.V1SloIdPut``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -253,7 +253,7 @@ Other parameters are passed through a pointer to a apiV1SloIdPutRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **slo** | [**Slo**](Slo.md) |  | 
+ **sloV00Slo** | [**SloV00Slo**](SloV00Slo.md) |  | 
 
 ### Return type
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ## V1SloPost
 
-> SLOCreateResponse V1SloPost(ctx).Slo(slo).Execute()
+> ApiSLOCreateResponse V1SloPost(ctx).SloV00Slo(sloV00Slo).Execute()
 
 
 
@@ -292,16 +292,16 @@ import (
 )
 
 func main() {
-	slo := *openapiclient.NewSlo("Description_example", "Name_example", []openapiclient.Objective{*openapiclient.NewObjective(float64(123), "Window_example")}, *openapiclient.NewQuery("Type_example"), "Uuid_example") // Slo | 
+	sloV00Slo := *openapiclient.NewSloV00Slo("Description_example", "Name_example", []openapiclient.SloV00Objective{*openapiclient.NewSloV00Objective(float64(123), "Window_example")}, *openapiclient.NewSloV00Query("Type_example"), "Uuid_example") // SloV00Slo | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.V1SloPost(context.Background()).Slo(slo).Execute()
+	resp, r, err := apiClient.DefaultAPI.V1SloPost(context.Background()).SloV00Slo(sloV00Slo).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.V1SloPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `V1SloPost`: SLOCreateResponse
+	// response from `V1SloPost`: ApiSLOCreateResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.V1SloPost`: %v\n", resp)
 }
 ```
@@ -317,11 +317,11 @@ Other parameters are passed through a pointer to a apiV1SloPostRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **slo** | [**Slo**](Slo.md) |  | 
+ **sloV00Slo** | [**SloV00Slo**](SloV00Slo.md) |  | 
 
 ### Return type
 
-[**SLOCreateResponse**](SLOCreateResponse.md)
+[**ApiSLOCreateResponse**](ApiSLOCreateResponse.md)
 
 ### Authorization
 
