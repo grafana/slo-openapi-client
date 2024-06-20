@@ -33,9 +33,18 @@ components:
       required:
       - slos
       type: object
+    slo.v0_0.AdvancedOptions:
+      additionalProperties: false
+      properties:
+        minFailures:
+          format: int64
+          type: integer
+      type: object
     slo.v0_0.Alerting:
       additionalProperties: false
       properties:
+        advancedOptions:
+          $ref: '#/components/schemas/slo.v0_0.AdvancedOptions'
         annotations:
           items:
             $ref: '#/components/schemas/slo.v0_0.Label'
