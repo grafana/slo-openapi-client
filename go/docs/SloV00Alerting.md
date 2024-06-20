@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdvancedOptions** | Pointer to [**SloV00AdvancedOptions**](SloV00AdvancedOptions.md) |  | [optional] 
 **Annotations** | Pointer to [**[]SloV00Label**](SloV00Label.md) |  | [optional] 
 **FastBurn** | Pointer to [**SloV00AlertingMetadata**](SloV00AlertingMetadata.md) |  | [optional] 
 **Labels** | Pointer to **interface{}** |  | [optional] 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewSloV00AlertingWithDefaults instantiates a new SloV00Alerting object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAdvancedOptions
+
+`func (o *SloV00Alerting) GetAdvancedOptions() SloV00AdvancedOptions`
+
+GetAdvancedOptions returns the AdvancedOptions field if non-nil, zero value otherwise.
+
+### GetAdvancedOptionsOk
+
+`func (o *SloV00Alerting) GetAdvancedOptionsOk() (*SloV00AdvancedOptions, bool)`
+
+GetAdvancedOptionsOk returns a tuple with the AdvancedOptions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdvancedOptions
+
+`func (o *SloV00Alerting) SetAdvancedOptions(v SloV00AdvancedOptions)`
+
+SetAdvancedOptions sets AdvancedOptions field to given value.
+
+### HasAdvancedOptions
+
+`func (o *SloV00Alerting) HasAdvancedOptions() bool`
+
+HasAdvancedOptions returns a boolean if a field has been set.
 
 ### GetAnnotations
 

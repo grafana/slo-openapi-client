@@ -9,6 +9,7 @@ docs/ApiErrorResponse.md
 docs/ApiSLOCreateResponse.md
 docs/ApiSLOListResponse.md
 docs/DefaultAPI.md
+docs/SloV00AdvancedOptions.md
 docs/SloV00Alerting.md
 docs/SloV00AlertingMetadata.md
 docs/SloV00DashboardRef.md
@@ -32,6 +33,7 @@ go.sum
 model_api_error_response.go
 model_api_slo_create_response.go
 model_api_slo_list_response.go
+model_slo_v0_0_advanced_options.go
 model_slo_v0_0_alerting.go
 model_slo_v0_0_alerting_metadata.go
 model_slo_v0_0_dashboard_ref.go

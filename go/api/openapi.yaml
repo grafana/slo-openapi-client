@@ -265,7 +265,7 @@ components:
             uid: uid
           query:
             histogram:
-              percentile: 6.027456183070403
+              percentile: 1.4658129805029452
               metric:
                 prometheusMetric: prometheusMetric
                 type: type
@@ -273,7 +273,7 @@ components:
               - groupByLabels
               - groupByLabels
               threshold:
-                value: 1.4658129805029452
+                value: 5.962133916683182
                 operator: <
             freeform:
               query: query
@@ -285,7 +285,7 @@ components:
               - groupByLabels
               - groupByLabels
               threshold:
-                value: 1.4658129805029452
+                value: 5.962133916683182
                 operator: <
             type: freeform
             ratio:
@@ -302,9 +302,9 @@ components:
           description: description
           objectives:
           - window: window
-            value: 0.8008281904610115
+            value: 6.027456183070403
           - window: window
-            value: 0.8008281904610115
+            value: 6.027456183070403
           readOnly:
             provenance: provenance
             drillDownDashboardRef:
@@ -317,6 +317,8 @@ components:
             type: type
           uuid: uuid
           alerting:
+            advancedOptions:
+              minFailures: 0
             annotations:
             - value: value
               key: key
@@ -346,7 +348,7 @@ components:
             uid: uid
           query:
             histogram:
-              percentile: 6.027456183070403
+              percentile: 1.4658129805029452
               metric:
                 prometheusMetric: prometheusMetric
                 type: type
@@ -354,7 +356,7 @@ components:
               - groupByLabels
               - groupByLabels
               threshold:
-                value: 1.4658129805029452
+                value: 5.962133916683182
                 operator: <
             freeform:
               query: query
@@ -366,7 +368,7 @@ components:
               - groupByLabels
               - groupByLabels
               threshold:
-                value: 1.4658129805029452
+                value: 5.962133916683182
                 operator: <
             type: freeform
             ratio:
@@ -383,9 +385,9 @@ components:
           description: description
           objectives:
           - window: window
-            value: 0.8008281904610115
+            value: 6.027456183070403
           - window: window
-            value: 0.8008281904610115
+            value: 6.027456183070403
           readOnly:
             provenance: provenance
             drillDownDashboardRef:
@@ -398,6 +400,8 @@ components:
             type: type
           uuid: uuid
           alerting:
+            advancedOptions:
+              minFailures: 0
             annotations:
             - value: value
               key: key
@@ -430,9 +434,19 @@ components:
           type: array
       required:
       - slos
+    slo.v0_0.AdvancedOptions:
+      additionalProperties: false
+      example:
+        minFailures: 0
+      properties:
+        minFailures:
+          format: int64
+          type: integer
     slo.v0_0.Alerting:
       additionalProperties: false
       example:
+        advancedOptions:
+          minFailures: 0
         annotations:
         - value: value
           key: key
@@ -454,6 +468,8 @@ components:
           labels: ""
         labels: ""
       properties:
+        advancedOptions:
+          $ref: '#/components/schemas/slo.v0_0.AdvancedOptions'
         annotations:
           items:
             $ref: '#/components/schemas/slo.v0_0.Label'
@@ -520,7 +536,7 @@ components:
     slo.v0_0.HistogramQuery:
       additionalProperties: false
       example:
-        percentile: 6.027456183070403
+        percentile: 1.4658129805029452
         metric:
           prometheusMetric: prometheusMetric
           type: type
@@ -528,7 +544,7 @@ components:
         - groupByLabels
         - groupByLabels
         threshold:
-          value: 1.4658129805029452
+          value: 5.962133916683182
           operator: <
       properties:
         groupByLabels:
@@ -575,7 +591,7 @@ components:
       additionalProperties: false
       example:
         window: window
-        value: 0.8008281904610115
+        value: 6.027456183070403
       properties:
         value:
           format: double
@@ -589,7 +605,7 @@ components:
       additionalProperties: false
       example:
         histogram:
-          percentile: 6.027456183070403
+          percentile: 1.4658129805029452
           metric:
             prometheusMetric: prometheusMetric
             type: type
@@ -597,7 +613,7 @@ components:
           - groupByLabels
           - groupByLabels
           threshold:
-            value: 1.4658129805029452
+            value: 5.962133916683182
             operator: <
         freeform:
           query: query
@@ -609,7 +625,7 @@ components:
           - groupByLabels
           - groupByLabels
           threshold:
-            value: 1.4658129805029452
+            value: 5.962133916683182
             operator: <
         type: freeform
         ratio:
@@ -687,7 +703,7 @@ components:
           uid: uid
         query:
           histogram:
-            percentile: 6.027456183070403
+            percentile: 1.4658129805029452
             metric:
               prometheusMetric: prometheusMetric
               type: type
@@ -695,7 +711,7 @@ components:
             - groupByLabels
             - groupByLabels
             threshold:
-              value: 1.4658129805029452
+              value: 5.962133916683182
               operator: <
           freeform:
             query: query
@@ -707,7 +723,7 @@ components:
             - groupByLabels
             - groupByLabels
             threshold:
-              value: 1.4658129805029452
+              value: 5.962133916683182
               operator: <
           type: freeform
           ratio:
@@ -724,9 +740,9 @@ components:
         description: description
         objectives:
         - window: window
-          value: 0.8008281904610115
+          value: 6.027456183070403
         - window: window
-          value: 0.8008281904610115
+          value: 6.027456183070403
         readOnly:
           provenance: provenance
           drillDownDashboardRef:
@@ -739,6 +755,8 @@ components:
           type: type
         uuid: uuid
         alerting:
+          advancedOptions:
+            minFailures: 0
           annotations:
           - value: value
             key: key
@@ -818,7 +836,7 @@ components:
     slo.v0_0.Threshold:
       additionalProperties: false
       example:
-        value: 1.4658129805029452
+        value: 5.962133916683182
         operator: <
       properties:
         operator:
@@ -845,7 +863,7 @@ components:
         - groupByLabels
         - groupByLabels
         threshold:
-          value: 1.4658129805029452
+          value: 5.962133916683182
           operator: <
       properties:
         groupByLabels:

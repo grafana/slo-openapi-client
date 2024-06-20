@@ -19,6 +19,7 @@ var _ MappedNullable = &SloV00Alerting{}
 
 // SloV00Alerting struct for SloV00Alerting
 type SloV00Alerting struct {
+	AdvancedOptions *SloV00AdvancedOptions `json:"advancedOptions,omitempty"`
 	Annotations []SloV00Label `json:"annotations,omitempty"`
 	FastBurn *SloV00AlertingMetadata `json:"fastBurn,omitempty"`
 	Labels interface{} `json:"labels,omitempty"`
@@ -40,6 +41,38 @@ func NewSloV00Alerting() *SloV00Alerting {
 func NewSloV00AlertingWithDefaults() *SloV00Alerting {
 	this := SloV00Alerting{}
 	return &this
+}
+
+// GetAdvancedOptions returns the AdvancedOptions field value if set, zero value otherwise.
+func (o *SloV00Alerting) GetAdvancedOptions() SloV00AdvancedOptions {
+	if o == nil || IsNil(o.AdvancedOptions) {
+		var ret SloV00AdvancedOptions
+		return ret
+	}
+	return *o.AdvancedOptions
+}
+
+// GetAdvancedOptionsOk returns a tuple with the AdvancedOptions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00Alerting) GetAdvancedOptionsOk() (*SloV00AdvancedOptions, bool) {
+	if o == nil || IsNil(o.AdvancedOptions) {
+		return nil, false
+	}
+	return o.AdvancedOptions, true
+}
+
+// HasAdvancedOptions returns a boolean if a field has been set.
+func (o *SloV00Alerting) HasAdvancedOptions() bool {
+	if o != nil && !IsNil(o.AdvancedOptions) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvancedOptions gets a reference to the given SloV00AdvancedOptions and assigns it to the AdvancedOptions field.
+func (o *SloV00Alerting) SetAdvancedOptions(v SloV00AdvancedOptions) {
+	o.AdvancedOptions = &v
 }
 
 // GetAnnotations returns the Annotations field value if set, zero value otherwise.
@@ -181,6 +214,9 @@ func (o SloV00Alerting) MarshalJSON() ([]byte, error) {
 
 func (o SloV00Alerting) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AdvancedOptions) {
+		toSerialize["advancedOptions"] = o.AdvancedOptions
+	}
 	if !IsNil(o.Annotations) {
 		toSerialize["annotations"] = o.Annotations
 	}

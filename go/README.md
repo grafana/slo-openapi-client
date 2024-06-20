@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
  - [ApiErrorResponse](docs/ApiErrorResponse.md)
  - [ApiSLOCreateResponse](docs/ApiSLOCreateResponse.md)
  - [ApiSLOListResponse](docs/ApiSLOListResponse.md)
+ - [SloV00AdvancedOptions](docs/SloV00AdvancedOptions.md)
  - [SloV00Alerting](docs/SloV00Alerting.md)
  - [SloV00AlertingMetadata](docs/SloV00AlertingMetadata.md)
  - [SloV00DashboardRef](docs/SloV00DashboardRef.md)
