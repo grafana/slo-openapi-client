@@ -263,30 +263,25 @@ components:
         slos:
         - folder:
             uid: uid
+          assertsEntitySearch: assertsEntitySearch
           query:
-            histogram:
-              percentile: 1.4658129805029452
-              metric:
-                prometheusMetric: prometheusMetric
-                type: type
-              groupByLabels:
-              - groupByLabels
-              - groupByLabels
-              threshold:
-                value: 5.962133916683182
-                operator: <
             freeform:
               query: query
-            threshold:
-              metric:
+            failureRatio:
+              failureMetric:
                 prometheusMetric: prometheusMetric
                 type: type
               groupByLabels:
               - groupByLabels
               - groupByLabels
+              totalMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+            threshold:
               threshold:
-                value: 5.962133916683182
+                value: 1.4658129805029452
                 operator: <
+              thresholdExpression: thresholdExpression
             type: freeform
             ratio:
               successMetric:
@@ -346,30 +341,25 @@ components:
             key: key
         - folder:
             uid: uid
+          assertsEntitySearch: assertsEntitySearch
           query:
-            histogram:
-              percentile: 1.4658129805029452
-              metric:
-                prometheusMetric: prometheusMetric
-                type: type
-              groupByLabels:
-              - groupByLabels
-              - groupByLabels
-              threshold:
-                value: 5.962133916683182
-                operator: <
             freeform:
               query: query
-            threshold:
-              metric:
+            failureRatio:
+              failureMetric:
                 prometheusMetric: prometheusMetric
                 type: type
               groupByLabels:
               - groupByLabels
               - groupByLabels
+              totalMetric:
+                prometheusMetric: prometheusMetric
+                type: type
+            threshold:
               threshold:
-                value: 5.962133916683182
+                value: 1.4658129805029452
                 operator: <
+              thresholdExpression: thresholdExpression
             type: freeform
             ratio:
               successMetric:
@@ -517,6 +507,30 @@ components:
           type: string
         uid:
           type: string
+    slo.v0_0.FailureRatioQuery:
+      additionalProperties: false
+      example:
+        failureMetric:
+          prometheusMetric: prometheusMetric
+          type: type
+        groupByLabels:
+        - groupByLabels
+        - groupByLabels
+        totalMetric:
+          prometheusMetric: prometheusMetric
+          type: type
+      properties:
+        failureMetric:
+          $ref: '#/components/schemas/slo.v0_0.MetricDef'
+        groupByLabels:
+          items:
+            type: string
+          type: array
+        totalMetric:
+          $ref: '#/components/schemas/slo.v0_0.MetricDef'
+      required:
+      - failureMetric
+      - totalMetric
     slo.v0_0.Folder:
       additionalProperties: false
       example:
@@ -533,35 +547,6 @@ components:
           type: string
       required:
       - query
-    slo.v0_0.HistogramQuery:
-      additionalProperties: false
-      example:
-        percentile: 1.4658129805029452
-        metric:
-          prometheusMetric: prometheusMetric
-          type: type
-        groupByLabels:
-        - groupByLabels
-        - groupByLabels
-        threshold:
-          value: 5.962133916683182
-          operator: <
-      properties:
-        groupByLabels:
-          items:
-            type: string
-          type: array
-        metric:
-          $ref: '#/components/schemas/slo.v0_0.MetricDef'
-        percentile:
-          format: double
-          type: number
-        threshold:
-          $ref: '#/components/schemas/slo.v0_0.Threshold'
-      required:
-      - metric
-      - percentile
-      - threshold
     slo.v0_0.Label:
       additionalProperties: false
       example:
@@ -604,29 +589,23 @@ components:
     slo.v0_0.Query:
       additionalProperties: false
       example:
-        histogram:
-          percentile: 1.4658129805029452
-          metric:
-            prometheusMetric: prometheusMetric
-            type: type
-          groupByLabels:
-          - groupByLabels
-          - groupByLabels
-          threshold:
-            value: 5.962133916683182
-            operator: <
         freeform:
           query: query
-        threshold:
-          metric:
+        failureRatio:
+          failureMetric:
             prometheusMetric: prometheusMetric
             type: type
           groupByLabels:
           - groupByLabels
           - groupByLabels
+          totalMetric:
+            prometheusMetric: prometheusMetric
+            type: type
+        threshold:
           threshold:
-            value: 5.962133916683182
+            value: 1.4658129805029452
             operator: <
+          thresholdExpression: thresholdExpression
         type: freeform
         ratio:
           successMetric:
@@ -639,10 +618,10 @@ components:
             prometheusMetric: prometheusMetric
             type: type
       properties:
+        failureRatio:
+          $ref: '#/components/schemas/slo.v0_0.FailureRatioQuery'
         freeform:
           $ref: '#/components/schemas/slo.v0_0.FreeformQuery'
-        histogram:
-          $ref: '#/components/schemas/slo.v0_0.HistogramQuery'
         ratio:
           $ref: '#/components/schemas/slo.v0_0.RatioQuery'
         threshold:
@@ -701,30 +680,25 @@ components:
       example:
         folder:
           uid: uid
+        assertsEntitySearch: assertsEntitySearch
         query:
-          histogram:
-            percentile: 1.4658129805029452
-            metric:
-              prometheusMetric: prometheusMetric
-              type: type
-            groupByLabels:
-            - groupByLabels
-            - groupByLabels
-            threshold:
-              value: 5.962133916683182
-              operator: <
           freeform:
             query: query
-          threshold:
-            metric:
+          failureRatio:
+            failureMetric:
               prometheusMetric: prometheusMetric
               type: type
             groupByLabels:
             - groupByLabels
             - groupByLabels
+            totalMetric:
+              prometheusMetric: prometheusMetric
+              type: type
+          threshold:
             threshold:
-              value: 5.962133916683182
+              value: 1.4658129805029452
               operator: <
+            thresholdExpression: thresholdExpression
           type: freeform
           ratio:
             successMetric:
@@ -785,6 +759,8 @@ components:
       properties:
         alerting:
           $ref: '#/components/schemas/slo.v0_0.Alerting'
+        assertsEntitySearch:
+          type: string
         description:
           type: string
         destinationDatasource:
@@ -836,7 +812,7 @@ components:
     slo.v0_0.Threshold:
       additionalProperties: false
       example:
-        value: 5.962133916683182
+        value: 1.4658129805029452
         operator: <
       properties:
         operator:
@@ -856,27 +832,18 @@ components:
     slo.v0_0.ThresholdQuery:
       additionalProperties: false
       example:
-        metric:
-          prometheusMetric: prometheusMetric
-          type: type
-        groupByLabels:
-        - groupByLabels
-        - groupByLabels
         threshold:
-          value: 5.962133916683182
+          value: 1.4658129805029452
           operator: <
+        thresholdExpression: thresholdExpression
       properties:
-        groupByLabels:
-          items:
-            type: string
-          type: array
-        metric:
-          $ref: '#/components/schemas/slo.v0_0.MetricDef'
         threshold:
           $ref: '#/components/schemas/slo.v0_0.Threshold'
+        thresholdExpression:
+          type: string
       required:
-      - metric
       - threshold
+      - thresholdExpression
   securitySchemes:
     bearerAuth:
       scheme: bearer

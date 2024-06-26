@@ -22,6 +22,7 @@ var _ MappedNullable = &SloV00Slo{}
 // SloV00Slo struct for SloV00Slo
 type SloV00Slo struct {
 	Alerting *SloV00Alerting `json:"alerting,omitempty"`
+	AssertsEntitySearch *string `json:"assertsEntitySearch,omitempty"`
 	Description string `json:"description"`
 	DestinationDatasource *SloV00DestinationDatasource `json:"destinationDatasource,omitempty"`
 	Folder *SloV00Folder `json:"folder,omitempty"`
@@ -87,6 +88,38 @@ func (o *SloV00Slo) HasAlerting() bool {
 // SetAlerting gets a reference to the given SloV00Alerting and assigns it to the Alerting field.
 func (o *SloV00Slo) SetAlerting(v SloV00Alerting) {
 	o.Alerting = &v
+}
+
+// GetAssertsEntitySearch returns the AssertsEntitySearch field value if set, zero value otherwise.
+func (o *SloV00Slo) GetAssertsEntitySearch() string {
+	if o == nil || IsNil(o.AssertsEntitySearch) {
+		var ret string
+		return ret
+	}
+	return *o.AssertsEntitySearch
+}
+
+// GetAssertsEntitySearchOk returns a tuple with the AssertsEntitySearch field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00Slo) GetAssertsEntitySearchOk() (*string, bool) {
+	if o == nil || IsNil(o.AssertsEntitySearch) {
+		return nil, false
+	}
+	return o.AssertsEntitySearch, true
+}
+
+// HasAssertsEntitySearch returns a boolean if a field has been set.
+func (o *SloV00Slo) HasAssertsEntitySearch() bool {
+	if o != nil && !IsNil(o.AssertsEntitySearch) {
+		return true
+	}
+
+	return false
+}
+
+// SetAssertsEntitySearch gets a reference to the given string and assigns it to the AssertsEntitySearch field.
+func (o *SloV00Slo) SetAssertsEntitySearch(v string) {
+	o.AssertsEntitySearch = &v
 }
 
 // GetDescription returns the Description field value
@@ -349,6 +382,9 @@ func (o SloV00Slo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Alerting) {
 		toSerialize["alerting"] = o.Alerting
+	}
+	if !IsNil(o.AssertsEntitySearch) {
+		toSerialize["assertsEntitySearch"] = o.AssertsEntitySearch
 	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.DestinationDatasource) {

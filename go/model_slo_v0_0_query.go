@@ -21,8 +21,8 @@ var _ MappedNullable = &SloV00Query{}
 
 // SloV00Query struct for SloV00Query
 type SloV00Query struct {
+	FailureRatio *SloV00FailureRatioQuery `json:"failureRatio,omitempty"`
 	Freeform *SloV00FreeformQuery `json:"freeform,omitempty"`
-	Histogram *SloV00HistogramQuery `json:"histogram,omitempty"`
 	Ratio *SloV00RatioQuery `json:"ratio,omitempty"`
 	Threshold *SloV00ThresholdQuery `json:"threshold,omitempty"`
 	Type string `json:"type"`
@@ -46,6 +46,38 @@ func NewSloV00Query(type_ string) *SloV00Query {
 func NewSloV00QueryWithDefaults() *SloV00Query {
 	this := SloV00Query{}
 	return &this
+}
+
+// GetFailureRatio returns the FailureRatio field value if set, zero value otherwise.
+func (o *SloV00Query) GetFailureRatio() SloV00FailureRatioQuery {
+	if o == nil || IsNil(o.FailureRatio) {
+		var ret SloV00FailureRatioQuery
+		return ret
+	}
+	return *o.FailureRatio
+}
+
+// GetFailureRatioOk returns a tuple with the FailureRatio field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00Query) GetFailureRatioOk() (*SloV00FailureRatioQuery, bool) {
+	if o == nil || IsNil(o.FailureRatio) {
+		return nil, false
+	}
+	return o.FailureRatio, true
+}
+
+// HasFailureRatio returns a boolean if a field has been set.
+func (o *SloV00Query) HasFailureRatio() bool {
+	if o != nil && !IsNil(o.FailureRatio) {
+		return true
+	}
+
+	return false
+}
+
+// SetFailureRatio gets a reference to the given SloV00FailureRatioQuery and assigns it to the FailureRatio field.
+func (o *SloV00Query) SetFailureRatio(v SloV00FailureRatioQuery) {
+	o.FailureRatio = &v
 }
 
 // GetFreeform returns the Freeform field value if set, zero value otherwise.
@@ -78,38 +110,6 @@ func (o *SloV00Query) HasFreeform() bool {
 // SetFreeform gets a reference to the given SloV00FreeformQuery and assigns it to the Freeform field.
 func (o *SloV00Query) SetFreeform(v SloV00FreeformQuery) {
 	o.Freeform = &v
-}
-
-// GetHistogram returns the Histogram field value if set, zero value otherwise.
-func (o *SloV00Query) GetHistogram() SloV00HistogramQuery {
-	if o == nil || IsNil(o.Histogram) {
-		var ret SloV00HistogramQuery
-		return ret
-	}
-	return *o.Histogram
-}
-
-// GetHistogramOk returns a tuple with the Histogram field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SloV00Query) GetHistogramOk() (*SloV00HistogramQuery, bool) {
-	if o == nil || IsNil(o.Histogram) {
-		return nil, false
-	}
-	return o.Histogram, true
-}
-
-// HasHistogram returns a boolean if a field has been set.
-func (o *SloV00Query) HasHistogram() bool {
-	if o != nil && !IsNil(o.Histogram) {
-		return true
-	}
-
-	return false
-}
-
-// SetHistogram gets a reference to the given SloV00HistogramQuery and assigns it to the Histogram field.
-func (o *SloV00Query) SetHistogram(v SloV00HistogramQuery) {
-	o.Histogram = &v
 }
 
 // GetRatio returns the Ratio field value if set, zero value otherwise.
@@ -210,11 +210,11 @@ func (o SloV00Query) MarshalJSON() ([]byte, error) {
 
 func (o SloV00Query) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.FailureRatio) {
+		toSerialize["failureRatio"] = o.FailureRatio
+	}
 	if !IsNil(o.Freeform) {
 		toSerialize["freeform"] = o.Freeform
-	}
-	if !IsNil(o.Histogram) {
-		toSerialize["histogram"] = o.Histogram
 	}
 	if !IsNil(o.Ratio) {
 		toSerialize["ratio"] = o.Ratio

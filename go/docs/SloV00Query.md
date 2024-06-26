@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**FailureRatio** | Pointer to [**SloV00FailureRatioQuery**](SloV00FailureRatioQuery.md) |  | [optional] 
 **Freeform** | Pointer to [**SloV00FreeformQuery**](SloV00FreeformQuery.md) |  | [optional] 
-**Histogram** | Pointer to [**SloV00HistogramQuery**](SloV00HistogramQuery.md) |  | [optional] 
 **Ratio** | Pointer to [**SloV00RatioQuery**](SloV00RatioQuery.md) |  | [optional] 
 **Threshold** | Pointer to [**SloV00ThresholdQuery**](SloV00ThresholdQuery.md) |  | [optional] 
 **Type** | **string** |  | 
@@ -28,6 +28,31 @@ will change when the set of required properties is changed
 NewSloV00QueryWithDefaults instantiates a new SloV00Query object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetFailureRatio
+
+`func (o *SloV00Query) GetFailureRatio() SloV00FailureRatioQuery`
+
+GetFailureRatio returns the FailureRatio field if non-nil, zero value otherwise.
+
+### GetFailureRatioOk
+
+`func (o *SloV00Query) GetFailureRatioOk() (*SloV00FailureRatioQuery, bool)`
+
+GetFailureRatioOk returns a tuple with the FailureRatio field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFailureRatio
+
+`func (o *SloV00Query) SetFailureRatio(v SloV00FailureRatioQuery)`
+
+SetFailureRatio sets FailureRatio field to given value.
+
+### HasFailureRatio
+
+`func (o *SloV00Query) HasFailureRatio() bool`
+
+HasFailureRatio returns a boolean if a field has been set.
 
 ### GetFreeform
 
@@ -53,31 +78,6 @@ SetFreeform sets Freeform field to given value.
 `func (o *SloV00Query) HasFreeform() bool`
 
 HasFreeform returns a boolean if a field has been set.
-
-### GetHistogram
-
-`func (o *SloV00Query) GetHistogram() SloV00HistogramQuery`
-
-GetHistogram returns the Histogram field if non-nil, zero value otherwise.
-
-### GetHistogramOk
-
-`func (o *SloV00Query) GetHistogramOk() (*SloV00HistogramQuery, bool)`
-
-GetHistogramOk returns a tuple with the Histogram field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHistogram
-
-`func (o *SloV00Query) SetHistogram(v SloV00HistogramQuery)`
-
-SetHistogram sets Histogram field to given value.
-
-### HasHistogram
-
-`func (o *SloV00Query) HasHistogram() bool`
-
-HasHistogram returns a boolean if a field has been set.
 
 ### GetRatio
 
