@@ -86,6 +86,21 @@ components:
         uid:
           type: string
       type: object
+    slo.v0_0.FailureRatioQuery:
+      additionalProperties: false
+      properties:
+        failureMetric:
+          $ref: '#/components/schemas/slo.v0_0.MetricDef'
+        groupByLabels:
+          items:
+            type: string
+          type: array
+        totalMetric:
+          $ref: '#/components/schemas/slo.v0_0.MetricDef'
+      required:
+      - failureMetric
+      - totalMetric
+      type: object
     slo.v0_0.Folder:
       additionalProperties: false
       properties:
@@ -99,25 +114,6 @@ components:
           type: string
       required:
       - query
-      type: object
-    slo.v0_0.HistogramQuery:
-      additionalProperties: false
-      properties:
-        groupByLabels:
-          items:
-            type: string
-          type: array
-        metric:
-          $ref: '#/components/schemas/slo.v0_0.MetricDef'
-        percentile:
-          format: double
-          type: number
-        threshold:
-          $ref: '#/components/schemas/slo.v0_0.Threshold'
-      required:
-      - metric
-      - percentile
-      - threshold
       type: object
     slo.v0_0.Label:
       additionalProperties: false
@@ -155,10 +151,10 @@ components:
     slo.v0_0.Query:
       additionalProperties: false
       properties:
+        failureRatio:
+          $ref: '#/components/schemas/slo.v0_0.FailureRatioQuery'
         freeform:
           $ref: '#/components/schemas/slo.v0_0.FreeformQuery'
-        histogram:
-          $ref: '#/components/schemas/slo.v0_0.HistogramQuery'
         ratio:
           $ref: '#/components/schemas/slo.v0_0.RatioQuery'
         threshold:
@@ -203,6 +199,8 @@ components:
       properties:
         alerting:
           $ref: '#/components/schemas/slo.v0_0.Alerting'
+        assertsEntitySearch:
+          type: string
         description:
           type: string
         destinationDatasource:
@@ -271,17 +269,13 @@ components:
     slo.v0_0.ThresholdQuery:
       additionalProperties: false
       properties:
-        groupByLabels:
-          items:
-            type: string
-          type: array
-        metric:
-          $ref: '#/components/schemas/slo.v0_0.MetricDef'
         threshold:
           $ref: '#/components/schemas/slo.v0_0.Threshold'
+        thresholdExpression:
+          type: string
       required:
-      - metric
       - threshold
+      - thresholdExpression
       type: object
   securitySchemes:
     bearerAuth:
