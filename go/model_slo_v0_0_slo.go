@@ -22,7 +22,6 @@ var _ MappedNullable = &SloV00Slo{}
 // SloV00Slo struct for SloV00Slo
 type SloV00Slo struct {
 	Alerting *SloV00Alerting `json:"alerting,omitempty"`
-	AssertsEntitySearch *string `json:"assertsEntitySearch,omitempty"`
 	Description string `json:"description"`
 	DestinationDatasource *SloV00DestinationDatasource `json:"destinationDatasource,omitempty"`
 	Folder *SloV00Folder `json:"folder,omitempty"`
@@ -31,6 +30,7 @@ type SloV00Slo struct {
 	Objectives []SloV00Objective `json:"objectives"`
 	Query SloV00Query `json:"query"`
 	ReadOnly *SloV00ReadOnly `json:"readOnly,omitempty"`
+	SearchExpression *string `json:"searchExpression,omitempty"`
 	Uuid string `json:"uuid"`
 }
 
@@ -88,38 +88,6 @@ func (o *SloV00Slo) HasAlerting() bool {
 // SetAlerting gets a reference to the given SloV00Alerting and assigns it to the Alerting field.
 func (o *SloV00Slo) SetAlerting(v SloV00Alerting) {
 	o.Alerting = &v
-}
-
-// GetAssertsEntitySearch returns the AssertsEntitySearch field value if set, zero value otherwise.
-func (o *SloV00Slo) GetAssertsEntitySearch() string {
-	if o == nil || IsNil(o.AssertsEntitySearch) {
-		var ret string
-		return ret
-	}
-	return *o.AssertsEntitySearch
-}
-
-// GetAssertsEntitySearchOk returns a tuple with the AssertsEntitySearch field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SloV00Slo) GetAssertsEntitySearchOk() (*string, bool) {
-	if o == nil || IsNil(o.AssertsEntitySearch) {
-		return nil, false
-	}
-	return o.AssertsEntitySearch, true
-}
-
-// HasAssertsEntitySearch returns a boolean if a field has been set.
-func (o *SloV00Slo) HasAssertsEntitySearch() bool {
-	if o != nil && !IsNil(o.AssertsEntitySearch) {
-		return true
-	}
-
-	return false
-}
-
-// SetAssertsEntitySearch gets a reference to the given string and assigns it to the AssertsEntitySearch field.
-func (o *SloV00Slo) SetAssertsEntitySearch(v string) {
-	o.AssertsEntitySearch = &v
 }
 
 // GetDescription returns the Description field value
@@ -346,6 +314,38 @@ func (o *SloV00Slo) SetReadOnly(v SloV00ReadOnly) {
 	o.ReadOnly = &v
 }
 
+// GetSearchExpression returns the SearchExpression field value if set, zero value otherwise.
+func (o *SloV00Slo) GetSearchExpression() string {
+	if o == nil || IsNil(o.SearchExpression) {
+		var ret string
+		return ret
+	}
+	return *o.SearchExpression
+}
+
+// GetSearchExpressionOk returns a tuple with the SearchExpression field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00Slo) GetSearchExpressionOk() (*string, bool) {
+	if o == nil || IsNil(o.SearchExpression) {
+		return nil, false
+	}
+	return o.SearchExpression, true
+}
+
+// HasSearchExpression returns a boolean if a field has been set.
+func (o *SloV00Slo) HasSearchExpression() bool {
+	if o != nil && !IsNil(o.SearchExpression) {
+		return true
+	}
+
+	return false
+}
+
+// SetSearchExpression gets a reference to the given string and assigns it to the SearchExpression field.
+func (o *SloV00Slo) SetSearchExpression(v string) {
+	o.SearchExpression = &v
+}
+
 // GetUuid returns the Uuid field value
 func (o *SloV00Slo) GetUuid() string {
 	if o == nil {
@@ -383,9 +383,6 @@ func (o SloV00Slo) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Alerting) {
 		toSerialize["alerting"] = o.Alerting
 	}
-	if !IsNil(o.AssertsEntitySearch) {
-		toSerialize["assertsEntitySearch"] = o.AssertsEntitySearch
-	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.DestinationDatasource) {
 		toSerialize["destinationDatasource"] = o.DestinationDatasource
@@ -401,6 +398,9 @@ func (o SloV00Slo) ToMap() (map[string]interface{}, error) {
 	toSerialize["query"] = o.Query
 	if !IsNil(o.ReadOnly) {
 		toSerialize["readOnly"] = o.ReadOnly
+	}
+	if !IsNil(o.SearchExpression) {
+		toSerialize["searchExpression"] = o.SearchExpression
 	}
 	toSerialize["uuid"] = o.Uuid
 	return toSerialize, nil

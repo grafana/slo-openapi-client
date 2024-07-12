@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Alerting** | Pointer to [**SloV00Alerting**](SloV00Alerting.md) |  | [optional] 
-**AssertsEntitySearch** | Pointer to **string** |  | [optional] 
 **Description** | **string** |  | 
 **DestinationDatasource** | Pointer to [**SloV00DestinationDatasource**](SloV00DestinationDatasource.md) |  | [optional] 
 **Folder** | Pointer to [**SloV00Folder**](SloV00Folder.md) |  | [optional] 
@@ -14,6 +13,7 @@ Name | Type | Description | Notes
 **Objectives** | [**[]SloV00Objective**](SloV00Objective.md) |  | 
 **Query** | [**SloV00Query**](SloV00Query.md) |  | 
 **ReadOnly** | Pointer to [**SloV00ReadOnly**](SloV00ReadOnly.md) |  | [optional] 
+**SearchExpression** | Pointer to **string** |  | [optional] 
 **Uuid** | **string** |  | 
 
 ## Methods
@@ -59,31 +59,6 @@ SetAlerting sets Alerting field to given value.
 `func (o *SloV00Slo) HasAlerting() bool`
 
 HasAlerting returns a boolean if a field has been set.
-
-### GetAssertsEntitySearch
-
-`func (o *SloV00Slo) GetAssertsEntitySearch() string`
-
-GetAssertsEntitySearch returns the AssertsEntitySearch field if non-nil, zero value otherwise.
-
-### GetAssertsEntitySearchOk
-
-`func (o *SloV00Slo) GetAssertsEntitySearchOk() (*string, bool)`
-
-GetAssertsEntitySearchOk returns a tuple with the AssertsEntitySearch field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAssertsEntitySearch
-
-`func (o *SloV00Slo) SetAssertsEntitySearch(v string)`
-
-SetAssertsEntitySearch sets AssertsEntitySearch field to given value.
-
-### HasAssertsEntitySearch
-
-`func (o *SloV00Slo) HasAssertsEntitySearch() bool`
-
-HasAssertsEntitySearch returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -264,6 +239,31 @@ SetReadOnly sets ReadOnly field to given value.
 `func (o *SloV00Slo) HasReadOnly() bool`
 
 HasReadOnly returns a boolean if a field has been set.
+
+### GetSearchExpression
+
+`func (o *SloV00Slo) GetSearchExpression() string`
+
+GetSearchExpression returns the SearchExpression field if non-nil, zero value otherwise.
+
+### GetSearchExpressionOk
+
+`func (o *SloV00Slo) GetSearchExpressionOk() (*string, bool)`
+
+GetSearchExpressionOk returns a tuple with the SearchExpression field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSearchExpression
+
+`func (o *SloV00Slo) SetSearchExpression(v string)`
+
+SetSearchExpression sets SearchExpression field to given value.
+
+### HasSearchExpression
+
+`func (o *SloV00Slo) HasSearchExpression() bool`
+
+HasSearchExpression returns a boolean if a field has been set.
 
 ### GetUuid
 

@@ -261,9 +261,9 @@ components:
       additionalProperties: false
       example:
         slos:
-        - folder:
+        - searchExpression: searchExpression
+          folder:
             uid: uid
-          assertsEntitySearch: assertsEntitySearch
           query:
             freeform:
               query: query
@@ -339,9 +339,9 @@ components:
             key: key
           - value: value
             key: key
-        - folder:
+        - searchExpression: searchExpression
+          folder:
             uid: uid
-          assertsEntitySearch: assertsEntitySearch
           query:
             freeform:
               query: query
@@ -678,9 +678,9 @@ components:
     slo.v0_0.Slo:
       additionalProperties: false
       example:
+        searchExpression: searchExpression
         folder:
           uid: uid
-        assertsEntitySearch: assertsEntitySearch
         query:
           freeform:
             query: query
@@ -759,8 +759,6 @@ components:
       properties:
         alerting:
           $ref: '#/components/schemas/slo.v0_0.Alerting'
-        assertsEntitySearch:
-          type: string
         description:
           type: string
         destinationDatasource:
@@ -781,6 +779,8 @@ components:
           $ref: '#/components/schemas/slo.v0_0.Query'
         readOnly:
           $ref: '#/components/schemas/slo.v0_0.ReadOnly'
+        searchExpression:
+          type: string
         uuid:
           type: string
       required:
