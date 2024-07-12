@@ -199,8 +199,6 @@ components:
       properties:
         alerting:
           $ref: '#/components/schemas/slo.v0_0.Alerting'
-        assertsEntitySearch:
-          type: string
         description:
           type: string
         destinationDatasource:
@@ -221,6 +219,8 @@ components:
           $ref: '#/components/schemas/slo.v0_0.Query'
         readOnly:
           $ref: '#/components/schemas/slo.v0_0.ReadOnly'
+        searchExpression:
+          type: string
         uuid:
           type: string
       required:
