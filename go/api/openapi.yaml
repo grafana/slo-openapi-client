@@ -302,6 +302,9 @@ components:
             value: 6.027456183070403
           readOnly:
             provenance: provenance
+            allowedActions:
+            - allowedActions
+            - allowedActions
             drillDownDashboardRef:
               UID: UID
             status:
@@ -380,6 +383,9 @@ components:
             value: 6.027456183070403
           readOnly:
             provenance: provenance
+            allowedActions:
+            - allowedActions
+            - allowedActions
             drillDownDashboardRef:
               UID: UID
             status:
@@ -663,12 +669,19 @@ components:
       additionalProperties: false
       example:
         provenance: provenance
+        allowedActions:
+        - allowedActions
+        - allowedActions
         drillDownDashboardRef:
           UID: UID
         status:
           message: message
           type: created
       properties:
+        allowedActions:
+          items:
+            type: string
+          type: array
         drillDownDashboardRef:
           $ref: '#/components/schemas/slo.v0_0.DashboardRef'
         provenance:
@@ -719,6 +732,9 @@ components:
           value: 6.027456183070403
         readOnly:
           provenance: provenance
+          allowedActions:
+          - allowedActions
+          - allowedActions
           drillDownDashboardRef:
             UID: UID
           status:

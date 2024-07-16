@@ -19,6 +19,7 @@ var _ MappedNullable = &SloV00ReadOnly{}
 
 // SloV00ReadOnly struct for SloV00ReadOnly
 type SloV00ReadOnly struct {
+	AllowedActions []string `json:"allowedActions,omitempty"`
 	DrillDownDashboardRef *SloV00DashboardRef `json:"drillDownDashboardRef,omitempty"`
 	Provenance *string `json:"provenance,omitempty"`
 	Status *SloV00Status `json:"status,omitempty"`
@@ -39,6 +40,38 @@ func NewSloV00ReadOnly() *SloV00ReadOnly {
 func NewSloV00ReadOnlyWithDefaults() *SloV00ReadOnly {
 	this := SloV00ReadOnly{}
 	return &this
+}
+
+// GetAllowedActions returns the AllowedActions field value if set, zero value otherwise.
+func (o *SloV00ReadOnly) GetAllowedActions() []string {
+	if o == nil || IsNil(o.AllowedActions) {
+		var ret []string
+		return ret
+	}
+	return o.AllowedActions
+}
+
+// GetAllowedActionsOk returns a tuple with the AllowedActions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00ReadOnly) GetAllowedActionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.AllowedActions) {
+		return nil, false
+	}
+	return o.AllowedActions, true
+}
+
+// HasAllowedActions returns a boolean if a field has been set.
+func (o *SloV00ReadOnly) HasAllowedActions() bool {
+	if o != nil && !IsNil(o.AllowedActions) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowedActions gets a reference to the given []string and assigns it to the AllowedActions field.
+func (o *SloV00ReadOnly) SetAllowedActions(v []string) {
+	o.AllowedActions = v
 }
 
 // GetDrillDownDashboardRef returns the DrillDownDashboardRef field value if set, zero value otherwise.
@@ -147,6 +180,9 @@ func (o SloV00ReadOnly) MarshalJSON() ([]byte, error) {
 
 func (o SloV00ReadOnly) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AllowedActions) {
+		toSerialize["allowedActions"] = o.AllowedActions
+	}
 	if !IsNil(o.DrillDownDashboardRef) {
 		toSerialize["drillDownDashboardRef"] = o.DrillDownDashboardRef
 	}

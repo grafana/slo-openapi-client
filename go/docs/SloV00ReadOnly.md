@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllowedActions** | Pointer to **[]string** |  | [optional] 
 **DrillDownDashboardRef** | Pointer to [**SloV00DashboardRef**](SloV00DashboardRef.md) |  | [optional] 
 **Provenance** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to [**SloV00Status**](SloV00Status.md) |  | [optional] 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewSloV00ReadOnlyWithDefaults instantiates a new SloV00ReadOnly object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAllowedActions
+
+`func (o *SloV00ReadOnly) GetAllowedActions() []string`
+
+GetAllowedActions returns the AllowedActions field if non-nil, zero value otherwise.
+
+### GetAllowedActionsOk
+
+`func (o *SloV00ReadOnly) GetAllowedActionsOk() (*[]string, bool)`
+
+GetAllowedActionsOk returns a tuple with the AllowedActions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedActions
+
+`func (o *SloV00ReadOnly) SetAllowedActions(v []string)`
+
+SetAllowedActions sets AllowedActions field to given value.
+
+### HasAllowedActions
+
+`func (o *SloV00ReadOnly) HasAllowedActions() bool`
+
+HasAllowedActions returns a boolean if a field has been set.
 
 ### GetDrillDownDashboardRef
 
