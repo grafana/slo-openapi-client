@@ -187,6 +187,10 @@ components:
     slo.v0_0.ReadOnly:
       additionalProperties: false
       properties:
+        allowedActions:
+          items:
+            type: string
+          type: array
         drillDownDashboardRef:
           $ref: '#/components/schemas/slo.v0_0.DashboardRef'
         provenance:
