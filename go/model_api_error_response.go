@@ -11,8 +11,9 @@ API version: 1.0.0
 package slo
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiErrorResponse type satisfies the MappedNullable interface at compile time
@@ -20,7 +21,7 @@ var _ MappedNullable = &ApiErrorResponse{}
 
 // ApiErrorResponse struct for ApiErrorResponse
 type ApiErrorResponse struct {
-	Code  int64  `json:"code"`
+	Code int64 `json:"code"`
 	Error string `json:"error"`
 }
 
@@ -94,7 +95,7 @@ func (o *ApiErrorResponse) SetError(v string) {
 }
 
 func (o ApiErrorResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,7 +115,7 @@ func (o *ApiErrorResponse) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
 	varApiErrorResponse := _ApiErrorResponse{}
@@ -166,3 +167,5 @@ func (v *NullableApiErrorResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -11,8 +11,9 @@ API version: 1.0.0
 package slo
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SloV00Slo type satisfies the MappedNullable interface at compile time
@@ -20,17 +21,17 @@ var _ MappedNullable = &SloV00Slo{}
 
 // SloV00Slo struct for SloV00Slo
 type SloV00Slo struct {
-	Alerting              *SloV00Alerting              `json:"alerting,omitempty"`
-	Description           string                       `json:"description"`
+	Alerting *SloV00Alerting `json:"alerting,omitempty"`
+	Description string `json:"description"`
 	DestinationDatasource *SloV00DestinationDatasource `json:"destinationDatasource,omitempty"`
-	Folder                *SloV00Folder                `json:"folder,omitempty"`
-	Labels                []SloV00Label                `json:"labels,omitempty"`
-	Name                  string                       `json:"name"`
-	Objectives            []SloV00Objective            `json:"objectives"`
-	Query                 SloV00Query                  `json:"query"`
-	ReadOnly              *SloV00ReadOnly              `json:"readOnly,omitempty"`
-	SearchExpression      *string                      `json:"searchExpression,omitempty"`
-	Uuid                  string                       `json:"uuid"`
+	Folder *SloV00Folder `json:"folder,omitempty"`
+	Labels []SloV00Label `json:"labels,omitempty"`
+	Name string `json:"name"`
+	Objectives []SloV00Objective `json:"objectives"`
+	Query SloV00Query `json:"query"`
+	ReadOnly *SloV00ReadOnly `json:"readOnly,omitempty"`
+	SearchExpression *string `json:"searchExpression,omitempty"`
+	Uuid string `json:"uuid"`
 }
 
 type _SloV00Slo SloV00Slo
@@ -370,7 +371,7 @@ func (o *SloV00Slo) SetUuid(v string) {
 }
 
 func (o SloV00Slo) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -411,7 +412,7 @@ func (o *SloV00Slo) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
 	varSloV00Slo := _SloV00Slo{}
@@ -463,3 +464,5 @@ func (v *NullableSloV00Slo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

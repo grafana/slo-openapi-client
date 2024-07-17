@@ -20,7 +20,7 @@ var _ MappedNullable = &SloV00DestinationDatasource{}
 // SloV00DestinationDatasource struct for SloV00DestinationDatasource
 type SloV00DestinationDatasource struct {
 	Type *string `json:"type,omitempty"`
-	Uid  *string `json:"uid,omitempty"`
+	Uid *string `json:"uid,omitempty"`
 }
 
 // NewSloV00DestinationDatasource instantiates a new SloV00DestinationDatasource object
@@ -105,7 +105,7 @@ func (o *SloV00DestinationDatasource) SetUid(v string) {
 }
 
 func (o SloV00DestinationDatasource) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableSloV00DestinationDatasource) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

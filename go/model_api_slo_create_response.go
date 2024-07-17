@@ -11,8 +11,9 @@ API version: 1.0.0
 package slo
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiSLOCreateResponse type satisfies the MappedNullable interface at compile time
@@ -21,7 +22,7 @@ var _ MappedNullable = &ApiSLOCreateResponse{}
 // ApiSLOCreateResponse struct for ApiSLOCreateResponse
 type ApiSLOCreateResponse struct {
 	Message string `json:"message"`
-	Uuid    string `json:"uuid"`
+	Uuid string `json:"uuid"`
 }
 
 type _ApiSLOCreateResponse ApiSLOCreateResponse
@@ -94,7 +95,7 @@ func (o *ApiSLOCreateResponse) SetUuid(v string) {
 }
 
 func (o ApiSLOCreateResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,7 +115,7 @@ func (o *ApiSLOCreateResponse) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
 	varApiSLOCreateResponse := _ApiSLOCreateResponse{}
@@ -166,3 +167,5 @@ func (v *NullableApiSLOCreateResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
