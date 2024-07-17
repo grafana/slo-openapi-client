@@ -11,9 +11,8 @@ API version: 1.0.0
 package slo
 
 import (
-	"encoding/json"
 	"bytes"
-	"fmt"
+	"encoding/json"
 )
 
 // checks if the SloV00MetricDef type satisfies the MappedNullable interface at compile time
@@ -21,8 +20,8 @@ var _ MappedNullable = &SloV00MetricDef{}
 
 // SloV00MetricDef struct for SloV00MetricDef
 type SloV00MetricDef struct {
-	PrometheusMetric string `json:"prometheusMetric"`
-	Type *string `json:"type,omitempty"`
+	PrometheusMetric string  `json:"prometheusMetric"`
+	Type             *string `json:"type,omitempty"`
 }
 
 type _SloV00MetricDef SloV00MetricDef
@@ -102,7 +101,7 @@ func (o *SloV00MetricDef) SetType(v string) {
 }
 
 func (o SloV00MetricDef) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -124,7 +123,7 @@ func (o *SloV00MetricDef) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
 	varSloV00MetricDef := _SloV00MetricDef{}
@@ -176,5 +175,3 @@ func (v *NullableSloV00MetricDef) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

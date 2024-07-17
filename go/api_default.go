@@ -19,12 +19,11 @@ import (
 	"strings"
 )
 
-
 // DefaultAPIService DefaultAPI service
 type DefaultAPIService service
 
 type ApiV1SloGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DefaultAPIService
 }
 
@@ -41,7 +40,7 @@ V1SloGet Method for V1SloGet
 func (a *DefaultAPIService) V1SloGet(ctx context.Context) ApiV1SloGetRequest {
 	return ApiV1SloGetRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -49,10 +48,10 @@ func (a *DefaultAPIService) V1SloGet(ctx context.Context) ApiV1SloGetRequest {
 //  @return ApiSLOListResponse
 func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*ApiSLOListResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiSLOListResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiSLOListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.V1SloGet")
@@ -112,8 +111,8 @@ func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*ApiSLOListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -123,8 +122,8 @@ func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*ApiSLOListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -142,9 +141,9 @@ func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*ApiSLOListRe
 }
 
 type ApiV1SloIdDeleteRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DefaultAPIService
-	id string
+	id         string
 }
 
 func (r ApiV1SloIdDeleteRequest) Execute() (*http.Response, error) {
@@ -161,17 +160,17 @@ V1SloIdDelete Method for V1SloIdDelete
 func (a *DefaultAPIService) V1SloIdDelete(ctx context.Context, id string) ApiV1SloIdDeleteRequest {
 	return ApiV1SloIdDeleteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *DefaultAPIService) V1SloIdDeleteExecute(r ApiV1SloIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.V1SloIdDelete")
@@ -232,8 +231,8 @@ func (a *DefaultAPIService) V1SloIdDeleteExecute(r ApiV1SloIdDeleteRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -243,8 +242,8 @@ func (a *DefaultAPIService) V1SloIdDeleteExecute(r ApiV1SloIdDeleteRequest) (*ht
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -253,9 +252,9 @@ func (a *DefaultAPIService) V1SloIdDeleteExecute(r ApiV1SloIdDeleteRequest) (*ht
 }
 
 type ApiV1SloIdGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DefaultAPIService
-	id string
+	id         string
 }
 
 func (r ApiV1SloIdGetRequest) Execute() (*SloV00Slo, *http.Response, error) {
@@ -272,8 +271,8 @@ V1SloIdGet Method for V1SloIdGet
 func (a *DefaultAPIService) V1SloIdGet(ctx context.Context, id string) ApiV1SloIdGetRequest {
 	return ApiV1SloIdGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -281,10 +280,10 @@ func (a *DefaultAPIService) V1SloIdGet(ctx context.Context, id string) ApiV1SloI
 //  @return SloV00Slo
 func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*SloV00Slo, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SloV00Slo
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SloV00Slo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.V1SloIdGet")
@@ -345,8 +344,8 @@ func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*SloV00Sl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -356,8 +355,8 @@ func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*SloV00Sl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -375,10 +374,10 @@ func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*SloV00Sl
 }
 
 type ApiV1SloIdPutRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DefaultAPIService
-	id string
-	sloV00Slo *SloV00Slo
+	id         string
+	sloV00Slo  *SloV00Slo
 }
 
 func (r ApiV1SloIdPutRequest) SloV00Slo(sloV00Slo SloV00Slo) ApiV1SloIdPutRequest {
@@ -400,17 +399,17 @@ V1SloIdPut Method for V1SloIdPut
 func (a *DefaultAPIService) V1SloIdPut(ctx context.Context, id string) ApiV1SloIdPutRequest {
 	return ApiV1SloIdPutRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.V1SloIdPut")
@@ -476,8 +475,8 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -487,8 +486,8 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -497,9 +496,9 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 }
 
 type ApiV1SloPostRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DefaultAPIService
-	sloV00Slo *SloV00Slo
+	sloV00Slo  *SloV00Slo
 }
 
 func (r ApiV1SloPostRequest) SloV00Slo(sloV00Slo SloV00Slo) ApiV1SloPostRequest {
@@ -520,7 +519,7 @@ V1SloPost Method for V1SloPost
 func (a *DefaultAPIService) V1SloPost(ctx context.Context) ApiV1SloPostRequest {
 	return ApiV1SloPostRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -528,10 +527,10 @@ func (a *DefaultAPIService) V1SloPost(ctx context.Context) ApiV1SloPostRequest {
 //  @return ApiSLOCreateResponse
 func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*ApiSLOCreateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiSLOCreateResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiSLOCreateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.V1SloPost")
@@ -596,8 +595,8 @@ func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*ApiSLOCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -607,8 +606,8 @@ func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*ApiSLOCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -11,9 +11,8 @@ API version: 1.0.0
 package slo
 
 import (
-	"encoding/json"
 	"bytes"
-	"fmt"
+	"encoding/json"
 )
 
 // checks if the SloV00FreeformQuery type satisfies the MappedNullable interface at compile time
@@ -69,7 +68,7 @@ func (o *SloV00FreeformQuery) SetQuery(v string) {
 }
 
 func (o SloV00FreeformQuery) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -88,7 +87,7 @@ func (o *SloV00FreeformQuery) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
 	varSloV00FreeformQuery := _SloV00FreeformQuery{}
@@ -140,5 +139,3 @@ func (v *NullableSloV00FreeformQuery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

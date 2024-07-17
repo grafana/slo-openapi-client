@@ -11,9 +11,8 @@ API version: 1.0.0
 package slo
 
 import (
-	"encoding/json"
 	"bytes"
-	"fmt"
+	"encoding/json"
 )
 
 // checks if the SloV00Label type satisfies the MappedNullable interface at compile time
@@ -21,7 +20,7 @@ var _ MappedNullable = &SloV00Label{}
 
 // SloV00Label struct for SloV00Label
 type SloV00Label struct {
-	Key string `json:"key"`
+	Key   string `json:"key"`
 	Value string `json:"value"`
 }
 
@@ -95,7 +94,7 @@ func (o *SloV00Label) SetValue(v string) {
 }
 
 func (o SloV00Label) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -115,7 +114,7 @@ func (o *SloV00Label) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
 	varSloV00Label := _SloV00Label{}
@@ -167,5 +166,3 @@ func (v *NullableSloV00Label) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

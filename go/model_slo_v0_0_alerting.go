@@ -19,11 +19,11 @@ var _ MappedNullable = &SloV00Alerting{}
 
 // SloV00Alerting struct for SloV00Alerting
 type SloV00Alerting struct {
-	AdvancedOptions *SloV00AdvancedOptions `json:"advancedOptions,omitempty"`
-	Annotations []SloV00Label `json:"annotations,omitempty"`
-	FastBurn *SloV00AlertingMetadata `json:"fastBurn,omitempty"`
-	Labels interface{} `json:"labels,omitempty"`
-	SlowBurn *SloV00AlertingMetadata `json:"slowBurn,omitempty"`
+	AdvancedOptions *SloV00AdvancedOptions  `json:"advancedOptions,omitempty"`
+	Annotations     []SloV00Label           `json:"annotations,omitempty"`
+	FastBurn        *SloV00AlertingMetadata `json:"fastBurn,omitempty"`
+	Labels          interface{}             `json:"labels,omitempty"`
+	SlowBurn        *SloV00AlertingMetadata `json:"slowBurn,omitempty"`
 }
 
 // NewSloV00Alerting instantiates a new SloV00Alerting object
@@ -205,7 +205,7 @@ func (o *SloV00Alerting) SetSlowBurn(v SloV00AlertingMetadata) {
 }
 
 func (o SloV00Alerting) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,5 +267,3 @@ func (v *NullableSloV00Alerting) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
