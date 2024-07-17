@@ -11,10 +11,11 @@ package slo
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/grafana/slo-openapi-client/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/grafana/slo-openapi-client/go"
 )
 
 func Test_slo_DefaultAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_slo_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService V1SloGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.V1SloGet(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_slo_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService V1SloIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -49,7 +50,7 @@ func Test_slo_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService V1SloIdGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -63,7 +64,7 @@ func Test_slo_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService V1SloIdPut", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -76,11 +77,12 @@ func Test_slo_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService V1SloPost", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
-		httpRes, err := apiClient.DefaultAPI.V1SloPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DefaultAPI.V1SloPost(context.Background()).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

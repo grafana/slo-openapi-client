@@ -11,9 +11,8 @@ API version: 1.0.0
 package slo
 
 import (
-	"encoding/json"
 	"bytes"
-	"fmt"
+	"encoding/json"
 )
 
 // checks if the ApiErrorResponse type satisfies the MappedNullable interface at compile time
@@ -21,7 +20,7 @@ var _ MappedNullable = &ApiErrorResponse{}
 
 // ApiErrorResponse struct for ApiErrorResponse
 type ApiErrorResponse struct {
-	Code int64 `json:"code"`
+	Code  int64  `json:"code"`
 	Error string `json:"error"`
 }
 
@@ -95,7 +94,7 @@ func (o *ApiErrorResponse) SetError(v string) {
 }
 
 func (o ApiErrorResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -110,32 +109,17 @@ func (o ApiErrorResponse) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *ApiErrorResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"code",
-		"error",
-	}
-
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
+		return err
 	}
 
 	varApiErrorResponse := _ApiErrorResponse{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varApiErrorResponse)
 
 	if err != nil {
@@ -182,5 +166,3 @@ func (v *NullableApiErrorResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
