@@ -11,8 +11,9 @@ API version: 1.0.0
 package slo
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SloV00Objective type satisfies the MappedNullable interface at compile time
@@ -20,8 +21,8 @@ var _ MappedNullable = &SloV00Objective{}
 
 // SloV00Objective struct for SloV00Objective
 type SloV00Objective struct {
-	Value  float64 `json:"value"`
-	Window string  `json:"window"`
+	Value float64 `json:"value"`
+	Window string `json:"window"`
 }
 
 type _SloV00Objective SloV00Objective
@@ -94,7 +95,7 @@ func (o *SloV00Objective) SetWindow(v string) {
 }
 
 func (o SloV00Objective) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,7 +115,7 @@ func (o *SloV00Objective) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
 	varSloV00Objective := _SloV00Objective{}
@@ -166,3 +167,5 @@ func (v *NullableSloV00Objective) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

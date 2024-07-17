@@ -11,8 +11,9 @@ API version: 1.0.0
 package slo
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SloV00ThresholdQuery type satisfies the MappedNullable interface at compile time
@@ -20,8 +21,8 @@ var _ MappedNullable = &SloV00ThresholdQuery{}
 
 // SloV00ThresholdQuery struct for SloV00ThresholdQuery
 type SloV00ThresholdQuery struct {
-	Threshold           SloV00Threshold `json:"threshold"`
-	ThresholdExpression string          `json:"thresholdExpression"`
+	Threshold SloV00Threshold `json:"threshold"`
+	ThresholdExpression string `json:"thresholdExpression"`
 }
 
 type _SloV00ThresholdQuery SloV00ThresholdQuery
@@ -94,7 +95,7 @@ func (o *SloV00ThresholdQuery) SetThresholdExpression(v string) {
 }
 
 func (o SloV00ThresholdQuery) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,7 +115,7 @@ func (o *SloV00ThresholdQuery) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
 	varSloV00ThresholdQuery := _SloV00ThresholdQuery{}
@@ -166,3 +167,5 @@ func (v *NullableSloV00ThresholdQuery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

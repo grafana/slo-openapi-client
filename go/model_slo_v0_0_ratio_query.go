@@ -11,8 +11,9 @@ API version: 1.0.0
 package slo
 
 import (
-	"bytes"
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SloV00RatioQuery type satisfies the MappedNullable interface at compile time
@@ -20,9 +21,9 @@ var _ MappedNullable = &SloV00RatioQuery{}
 
 // SloV00RatioQuery struct for SloV00RatioQuery
 type SloV00RatioQuery struct {
-	GroupByLabels []string        `json:"groupByLabels,omitempty"`
+	GroupByLabels []string `json:"groupByLabels,omitempty"`
 	SuccessMetric SloV00MetricDef `json:"successMetric"`
-	TotalMetric   SloV00MetricDef `json:"totalMetric"`
+	TotalMetric SloV00MetricDef `json:"totalMetric"`
 }
 
 type _SloV00RatioQuery SloV00RatioQuery
@@ -127,7 +128,7 @@ func (o *SloV00RatioQuery) SetTotalMetric(v SloV00MetricDef) {
 }
 
 func (o SloV00RatioQuery) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -150,7 +151,7 @@ func (o *SloV00RatioQuery) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
 	varSloV00RatioQuery := _SloV00RatioQuery{}
@@ -202,3 +203,5 @@ func (v *NullableSloV00RatioQuery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

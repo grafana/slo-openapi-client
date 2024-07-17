@@ -20,7 +20,7 @@ var _ MappedNullable = &SloV00AlertingMetadata{}
 // SloV00AlertingMetadata struct for SloV00AlertingMetadata
 type SloV00AlertingMetadata struct {
 	Annotations []SloV00Label `json:"annotations,omitempty"`
-	Labels      interface{}   `json:"labels,omitempty"`
+	Labels interface{} `json:"labels,omitempty"`
 }
 
 // NewSloV00AlertingMetadata instantiates a new SloV00AlertingMetadata object
@@ -106,7 +106,7 @@ func (o *SloV00AlertingMetadata) SetLabels(v interface{}) {
 }
 
 func (o SloV00AlertingMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,3 +159,5 @@ func (v *NullableSloV00AlertingMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
