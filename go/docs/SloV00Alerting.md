@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **AdvancedOptions** | Pointer to [**SloV00AdvancedOptions**](SloV00AdvancedOptions.md) |  | [optional] 
 **Annotations** | Pointer to [**[]SloV00Label**](SloV00Label.md) |  | [optional] 
 **FastBurn** | Pointer to [**SloV00AlertingMetadata**](SloV00AlertingMetadata.md) |  | [optional] 
-**Labels** | Pointer to **interface{}** |  | [optional] 
+**Labels** | Pointer to [**[]SloV00Label**](SloV00Label.md) |  | [optional] 
 **SlowBurn** | Pointer to [**SloV00AlertingMetadata**](SloV00AlertingMetadata.md) |  | [optional] 
 
 ## Methods
@@ -106,20 +106,20 @@ HasFastBurn returns a boolean if a field has been set.
 
 ### GetLabels
 
-`func (o *SloV00Alerting) GetLabels() interface{}`
+`func (o *SloV00Alerting) GetLabels() []SloV00Label`
 
 GetLabels returns the Labels field if non-nil, zero value otherwise.
 
 ### GetLabelsOk
 
-`func (o *SloV00Alerting) GetLabelsOk() (*interface{}, bool)`
+`func (o *SloV00Alerting) GetLabelsOk() (*[]SloV00Label, bool)`
 
 GetLabelsOk returns a tuple with the Labels field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLabels
 
-`func (o *SloV00Alerting) SetLabels(v interface{})`
+`func (o *SloV00Alerting) SetLabels(v []SloV00Label)`
 
 SetLabels sets Labels field to given value.
 
@@ -129,16 +129,6 @@ SetLabels sets Labels field to given value.
 
 HasLabels returns a boolean if a field has been set.
 
-### SetLabelsNil
-
-`func (o *SloV00Alerting) SetLabelsNil(b bool)`
-
- SetLabelsNil sets the value for Labels to be an explicit nil
-
-### UnsetLabels
-`func (o *SloV00Alerting) UnsetLabels()`
-
-UnsetLabels ensures that no value is present for Labels, not even an explicit nil
 ### GetSlowBurn
 
 `func (o *SloV00Alerting) GetSlowBurn() SloV00AlertingMetadata`

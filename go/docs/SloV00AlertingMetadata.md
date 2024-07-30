@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Annotations** | Pointer to [**[]SloV00Label**](SloV00Label.md) |  | [optional] 
-**Labels** | Pointer to **interface{}** |  | [optional] 
+**Labels** | Pointer to [**[]SloV00Label**](SloV00Label.md) |  | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasAnnotations returns a boolean if a field has been set.
 
 ### GetLabels
 
-`func (o *SloV00AlertingMetadata) GetLabels() interface{}`
+`func (o *SloV00AlertingMetadata) GetLabels() []SloV00Label`
 
 GetLabels returns the Labels field if non-nil, zero value otherwise.
 
 ### GetLabelsOk
 
-`func (o *SloV00AlertingMetadata) GetLabelsOk() (*interface{}, bool)`
+`func (o *SloV00AlertingMetadata) GetLabelsOk() (*[]SloV00Label, bool)`
 
 GetLabelsOk returns a tuple with the Labels field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLabels
 
-`func (o *SloV00AlertingMetadata) SetLabels(v interface{})`
+`func (o *SloV00AlertingMetadata) SetLabels(v []SloV00Label)`
 
 SetLabels sets Labels field to given value.
 
@@ -76,16 +76,6 @@ SetLabels sets Labels field to given value.
 
 HasLabels returns a boolean if a field has been set.
 
-### SetLabelsNil
-
-`func (o *SloV00AlertingMetadata) SetLabelsNil(b bool)`
-
- SetLabelsNil sets the value for Labels to be an explicit nil
-
-### UnsetLabels
-`func (o *SloV00AlertingMetadata) UnsetLabels()`
-
-UnsetLabels ensures that no value is present for Labels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

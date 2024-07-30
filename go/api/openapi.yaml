@@ -235,6 +235,9 @@ components:
   schemas:
     api.ErrorResponse:
       additionalProperties: false
+      example:
+        code: 5
+        error: error
       properties:
         code:
           format: int64
@@ -328,15 +331,27 @@ components:
                 key: key
               - value: value
                 key: key
-              labels: ""
+              labels:
+              - value: value
+                key: key
+              - value: value
+                key: key
             fastBurn:
               annotations:
               - value: value
                 key: key
               - value: value
                 key: key
-              labels: ""
-            labels: ""
+              labels:
+              - value: value
+                key: key
+              - value: value
+                key: key
+            labels:
+            - value: value
+              key: key
+            - value: value
+              key: key
           labels:
           - value: value
             key: key
@@ -409,15 +424,27 @@ components:
                 key: key
               - value: value
                 key: key
-              labels: ""
+              labels:
+              - value: value
+                key: key
+              - value: value
+                key: key
             fastBurn:
               annotations:
               - value: value
                 key: key
               - value: value
                 key: key
-              labels: ""
-            labels: ""
+              labels:
+              - value: value
+                key: key
+              - value: value
+                key: key
+            labels:
+            - value: value
+              key: key
+            - value: value
+              key: key
           labels:
           - value: value
             key: key
@@ -454,15 +481,27 @@ components:
             key: key
           - value: value
             key: key
-          labels: ""
+          labels:
+          - value: value
+            key: key
+          - value: value
+            key: key
         fastBurn:
           annotations:
           - value: value
             key: key
           - value: value
             key: key
-          labels: ""
-        labels: ""
+          labels:
+          - value: value
+            key: key
+          - value: value
+            key: key
+        labels:
+        - value: value
+          key: key
+        - value: value
+          key: key
       properties:
         advancedOptions:
           $ref: '#/components/schemas/slo.v0_0.AdvancedOptions'
@@ -475,6 +514,7 @@ components:
         labels:
           items:
             $ref: '#/components/schemas/slo.v0_0.Label'
+          type: array
         slowBurn:
           $ref: '#/components/schemas/slo.v0_0.AlertingMetadata'
     slo.v0_0.AlertingMetadata:
@@ -485,7 +525,11 @@ components:
           key: key
         - value: value
           key: key
-        labels: ""
+        labels:
+        - value: value
+          key: key
+        - value: value
+          key: key
       properties:
         annotations:
           items:
@@ -494,6 +538,7 @@ components:
         labels:
           items:
             $ref: '#/components/schemas/slo.v0_0.Label'
+          type: array
     slo.v0_0.DashboardRef:
       additionalProperties: false
       example:
@@ -758,15 +803,27 @@ components:
               key: key
             - value: value
               key: key
-            labels: ""
+            labels:
+            - value: value
+              key: key
+            - value: value
+              key: key
           fastBurn:
             annotations:
             - value: value
               key: key
             - value: value
               key: key
-            labels: ""
-          labels: ""
+            labels:
+            - value: value
+              key: key
+            - value: value
+              key: key
+          labels:
+          - value: value
+            key: key
+          - value: value
+            key: key
         labels:
         - value: value
           key: key

@@ -22,7 +22,7 @@ type SloV00Alerting struct {
 	AdvancedOptions *SloV00AdvancedOptions  `json:"advancedOptions,omitempty"`
 	Annotations     []SloV00Label           `json:"annotations,omitempty"`
 	FastBurn        *SloV00AlertingMetadata `json:"fastBurn,omitempty"`
-	Labels          interface{}             `json:"labels,omitempty"`
+	Labels          []SloV00Label           `json:"labels,omitempty"`
 	SlowBurn        *SloV00AlertingMetadata `json:"slowBurn,omitempty"`
 }
 
@@ -139,10 +139,10 @@ func (o *SloV00Alerting) SetFastBurn(v SloV00AlertingMetadata) {
 	o.FastBurn = &v
 }
 
-// GetLabels returns the Labels field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SloV00Alerting) GetLabels() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetLabels returns the Labels field value if set, zero value otherwise.
+func (o *SloV00Alerting) GetLabels() []SloV00Label {
+	if o == nil || IsNil(o.Labels) {
+		var ret []SloV00Label
 		return ret
 	}
 	return o.Labels
@@ -150,25 +150,24 @@ func (o *SloV00Alerting) GetLabels() interface{} {
 
 // GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SloV00Alerting) GetLabelsOk() (*interface{}, bool) {
+func (o *SloV00Alerting) GetLabelsOk() ([]SloV00Label, bool) {
 	if o == nil || IsNil(o.Labels) {
 		return nil, false
 	}
-	return &o.Labels, true
+	return o.Labels, true
 }
 
 // HasLabels returns a boolean if a field has been set.
 func (o *SloV00Alerting) HasLabels() bool {
-	if o != nil && IsNil(o.Labels) {
+	if o != nil && !IsNil(o.Labels) {
 		return true
 	}
 
 	return false
 }
 
-// SetLabels gets a reference to the given interface{} and assigns it to the Labels field.
-func (o *SloV00Alerting) SetLabels(v interface{}) {
+// SetLabels gets a reference to the given []SloV00Label and assigns it to the Labels field.
+func (o *SloV00Alerting) SetLabels(v []SloV00Label) {
 	o.Labels = v
 }
 
@@ -223,7 +222,7 @@ func (o SloV00Alerting) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FastBurn) {
 		toSerialize["fastBurn"] = o.FastBurn
 	}
-	if o.Labels != nil {
+	if !IsNil(o.Labels) {
 		toSerialize["labels"] = o.Labels
 	}
 	if !IsNil(o.SlowBurn) {
