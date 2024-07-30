@@ -13,11 +13,13 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-go@v4
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
         with:
           go-version: 1.18
-      - run: make generate-clients
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Generate Client
+        uses: julienduchesne/shared-workflows/actions/generate-openapi-clients@julienduchesne/openapi-action # TODO: Switch to main branch
         with:
-          commit_message: Update clients and publish
+          package-name: slo
+          spec-path: openapi.yaml
+
