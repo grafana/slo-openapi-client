@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -17,7 +20,7 @@ jobs:
         with:
           go-version: 1.18
       - name: Generate Client
-        uses: grafana/shared-workflows/actions/generate-openapi-clients@main
+        uses: grafana/shared-workflows/actions/generate-openapi-clients@julienduchesne/modify-spec-script
         with:
           package-name: slo
           spec-path: openapi.yaml
