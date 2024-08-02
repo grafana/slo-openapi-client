@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
  - [SloV00DashboardRef](docs/SloV00DashboardRef.md)
  - [SloV00DestinationDatasource](docs/SloV00DestinationDatasource.md)
  - [SloV00FailureRatioQuery](docs/SloV00FailureRatioQuery.md)
+ - [SloV00FailureThresholdQuery](docs/SloV00FailureThresholdQuery.md)
  - [SloV00Folder](docs/SloV00Folder.md)
  - [SloV00FreeformQuery](docs/SloV00FreeformQuery.md)
  - [SloV00Label](docs/SloV00Label.md)

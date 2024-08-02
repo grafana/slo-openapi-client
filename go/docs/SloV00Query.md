@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FailureRatio** | Pointer to [**SloV00FailureRatioQuery**](SloV00FailureRatioQuery.md) |  | [optional] 
+**FailureThreshold** | Pointer to [**SloV00FailureThresholdQuery**](SloV00FailureThresholdQuery.md) |  | [optional] 
 **Freeform** | Pointer to [**SloV00FreeformQuery**](SloV00FreeformQuery.md) |  | [optional] 
 **Ratio** | Pointer to [**SloV00RatioQuery**](SloV00RatioQuery.md) |  | [optional] 
 **Threshold** | Pointer to [**SloV00ThresholdQuery**](SloV00ThresholdQuery.md) |  | [optional] 
@@ -53,6 +54,31 @@ SetFailureRatio sets FailureRatio field to given value.
 `func (o *SloV00Query) HasFailureRatio() bool`
 
 HasFailureRatio returns a boolean if a field has been set.
+
+### GetFailureThreshold
+
+`func (o *SloV00Query) GetFailureThreshold() SloV00FailureThresholdQuery`
+
+GetFailureThreshold returns the FailureThreshold field if non-nil, zero value otherwise.
+
+### GetFailureThresholdOk
+
+`func (o *SloV00Query) GetFailureThresholdOk() (*SloV00FailureThresholdQuery, bool)`
+
+GetFailureThresholdOk returns a tuple with the FailureThreshold field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFailureThreshold
+
+`func (o *SloV00Query) SetFailureThreshold(v SloV00FailureThresholdQuery)`
+
+SetFailureThreshold sets FailureThreshold field to given value.
+
+### HasFailureThreshold
+
+`func (o *SloV00Query) HasFailureThreshold() bool`
+
+HasFailureThreshold returns a boolean if a field has been set.
 
 ### GetFreeform
 

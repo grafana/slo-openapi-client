@@ -16,6 +16,7 @@ docs/SloV00AlertingMetadata.md
 docs/SloV00DashboardRef.md
 docs/SloV00DestinationDatasource.md
 docs/SloV00FailureRatioQuery.md
+docs/SloV00FailureThresholdQuery.md
 docs/SloV00Folder.md
 docs/SloV00FreeformQuery.md
 docs/SloV00Label.md
@@ -40,6 +41,7 @@ model_slo_v0_0_alerting_metadata.go
 model_slo_v0_0_dashboard_ref.go
 model_slo_v0_0_destination_datasource.go
 model_slo_v0_0_failure_ratio_query.go
+model_slo_v0_0_failure_threshold_query.go
 model_slo_v0_0_folder.go
 model_slo_v0_0_freeform_query.go
 model_slo_v0_0_label.go

@@ -20,6 +20,7 @@ var _ MappedNullable = &SloV00ThresholdQuery{}
 
 // SloV00ThresholdQuery struct for SloV00ThresholdQuery
 type SloV00ThresholdQuery struct {
+	GroupByLabels       []string        `json:"groupByLabels,omitempty"`
 	Threshold           SloV00Threshold `json:"threshold"`
 	ThresholdExpression string          `json:"thresholdExpression"`
 }
@@ -43,6 +44,38 @@ func NewSloV00ThresholdQuery(threshold SloV00Threshold, thresholdExpression stri
 func NewSloV00ThresholdQueryWithDefaults() *SloV00ThresholdQuery {
 	this := SloV00ThresholdQuery{}
 	return &this
+}
+
+// GetGroupByLabels returns the GroupByLabels field value if set, zero value otherwise.
+func (o *SloV00ThresholdQuery) GetGroupByLabels() []string {
+	if o == nil || IsNil(o.GroupByLabels) {
+		var ret []string
+		return ret
+	}
+	return o.GroupByLabels
+}
+
+// GetGroupByLabelsOk returns a tuple with the GroupByLabels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00ThresholdQuery) GetGroupByLabelsOk() ([]string, bool) {
+	if o == nil || IsNil(o.GroupByLabels) {
+		return nil, false
+	}
+	return o.GroupByLabels, true
+}
+
+// HasGroupByLabels returns a boolean if a field has been set.
+func (o *SloV00ThresholdQuery) HasGroupByLabels() bool {
+	if o != nil && !IsNil(o.GroupByLabels) {
+		return true
+	}
+
+	return false
+}
+
+// SetGroupByLabels gets a reference to the given []string and assigns it to the GroupByLabels field.
+func (o *SloV00ThresholdQuery) SetGroupByLabels(v []string) {
+	o.GroupByLabels = v
 }
 
 // GetThreshold returns the Threshold field value
@@ -103,6 +136,9 @@ func (o SloV00ThresholdQuery) MarshalJSON() ([]byte, error) {
 
 func (o SloV00ThresholdQuery) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.GroupByLabels) {
+		toSerialize["groupByLabels"] = o.GroupByLabels
+	}
 	toSerialize["threshold"] = o.Threshold
 	toSerialize["thresholdExpression"] = o.ThresholdExpression
 	return toSerialize, nil

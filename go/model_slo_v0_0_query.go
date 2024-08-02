@@ -20,11 +20,12 @@ var _ MappedNullable = &SloV00Query{}
 
 // SloV00Query struct for SloV00Query
 type SloV00Query struct {
-	FailureRatio *SloV00FailureRatioQuery `json:"failureRatio,omitempty"`
-	Freeform     *SloV00FreeformQuery     `json:"freeform,omitempty"`
-	Ratio        *SloV00RatioQuery        `json:"ratio,omitempty"`
-	Threshold    *SloV00ThresholdQuery    `json:"threshold,omitempty"`
-	Type         string                   `json:"type"`
+	FailureRatio     *SloV00FailureRatioQuery     `json:"failureRatio,omitempty"`
+	FailureThreshold *SloV00FailureThresholdQuery `json:"failureThreshold,omitempty"`
+	Freeform         *SloV00FreeformQuery         `json:"freeform,omitempty"`
+	Ratio            *SloV00RatioQuery            `json:"ratio,omitempty"`
+	Threshold        *SloV00ThresholdQuery        `json:"threshold,omitempty"`
+	Type             string                       `json:"type"`
 }
 
 type _SloV00Query SloV00Query
@@ -77,6 +78,38 @@ func (o *SloV00Query) HasFailureRatio() bool {
 // SetFailureRatio gets a reference to the given SloV00FailureRatioQuery and assigns it to the FailureRatio field.
 func (o *SloV00Query) SetFailureRatio(v SloV00FailureRatioQuery) {
 	o.FailureRatio = &v
+}
+
+// GetFailureThreshold returns the FailureThreshold field value if set, zero value otherwise.
+func (o *SloV00Query) GetFailureThreshold() SloV00FailureThresholdQuery {
+	if o == nil || IsNil(o.FailureThreshold) {
+		var ret SloV00FailureThresholdQuery
+		return ret
+	}
+	return *o.FailureThreshold
+}
+
+// GetFailureThresholdOk returns a tuple with the FailureThreshold field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00Query) GetFailureThresholdOk() (*SloV00FailureThresholdQuery, bool) {
+	if o == nil || IsNil(o.FailureThreshold) {
+		return nil, false
+	}
+	return o.FailureThreshold, true
+}
+
+// HasFailureThreshold returns a boolean if a field has been set.
+func (o *SloV00Query) HasFailureThreshold() bool {
+	if o != nil && !IsNil(o.FailureThreshold) {
+		return true
+	}
+
+	return false
+}
+
+// SetFailureThreshold gets a reference to the given SloV00FailureThresholdQuery and assigns it to the FailureThreshold field.
+func (o *SloV00Query) SetFailureThreshold(v SloV00FailureThresholdQuery) {
+	o.FailureThreshold = &v
 }
 
 // GetFreeform returns the Freeform field value if set, zero value otherwise.
@@ -211,6 +244,9 @@ func (o SloV00Query) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.FailureRatio) {
 		toSerialize["failureRatio"] = o.FailureRatio
+	}
+	if !IsNil(o.FailureThreshold) {
+		toSerialize["failureThreshold"] = o.FailureThreshold
 	}
 	if !IsNil(o.Freeform) {
 		toSerialize["freeform"] = o.Freeform

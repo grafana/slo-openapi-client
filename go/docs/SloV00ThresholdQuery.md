@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**GroupByLabels** | Pointer to **[]string** |  | [optional] 
 **Threshold** | [**SloV00Threshold**](SloV00Threshold.md) |  | 
 **ThresholdExpression** | **string** |  | 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewSloV00ThresholdQueryWithDefaults instantiates a new SloV00ThresholdQuery object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetGroupByLabels
+
+`func (o *SloV00ThresholdQuery) GetGroupByLabels() []string`
+
+GetGroupByLabels returns the GroupByLabels field if non-nil, zero value otherwise.
+
+### GetGroupByLabelsOk
+
+`func (o *SloV00ThresholdQuery) GetGroupByLabelsOk() (*[]string, bool)`
+
+GetGroupByLabelsOk returns a tuple with the GroupByLabels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroupByLabels
+
+`func (o *SloV00ThresholdQuery) SetGroupByLabels(v []string)`
+
+SetGroupByLabels sets GroupByLabels field to given value.
+
+### HasGroupByLabels
+
+`func (o *SloV00ThresholdQuery) HasGroupByLabels() bool`
+
+HasGroupByLabels returns a boolean if a field has been set.
 
 ### GetThreshold
 

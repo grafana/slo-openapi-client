@@ -268,6 +268,14 @@ components:
           folder:
             uid: uid
           query:
+            failureThreshold:
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: <
+              failureThresholdExpression: failureThresholdExpression
             freeform:
               query: query
             failureRatio:
@@ -281,6 +289,9 @@ components:
                 prometheusMetric: prometheusMetric
                 type: type
             threshold:
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
               threshold:
                 value: 1.4658129805029452
                 operator: <
@@ -361,6 +372,14 @@ components:
           folder:
             uid: uid
           query:
+            failureThreshold:
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
+              threshold:
+                value: 1.4658129805029452
+                operator: <
+              failureThresholdExpression: failureThresholdExpression
             freeform:
               query: query
             failureRatio:
@@ -374,6 +393,9 @@ components:
                 prometheusMetric: prometheusMetric
                 type: type
             threshold:
+              groupByLabels:
+              - groupByLabels
+              - groupByLabels
               threshold:
                 value: 1.4658129805029452
                 operator: <
@@ -582,6 +604,28 @@ components:
       required:
       - failureMetric
       - totalMetric
+    slo.v0_0.FailureThresholdQuery:
+      additionalProperties: false
+      example:
+        groupByLabels:
+        - groupByLabels
+        - groupByLabels
+        threshold:
+          value: 1.4658129805029452
+          operator: <
+        failureThresholdExpression: failureThresholdExpression
+      properties:
+        failureThresholdExpression:
+          type: string
+        groupByLabels:
+          items:
+            type: string
+          type: array
+        threshold:
+          $ref: '#/components/schemas/slo.v0_0.Threshold'
+      required:
+      - failureThresholdExpression
+      - threshold
     slo.v0_0.Folder:
       additionalProperties: false
       example:
@@ -640,6 +684,14 @@ components:
     slo.v0_0.Query:
       additionalProperties: false
       example:
+        failureThreshold:
+          groupByLabels:
+          - groupByLabels
+          - groupByLabels
+          threshold:
+            value: 1.4658129805029452
+            operator: <
+          failureThresholdExpression: failureThresholdExpression
         freeform:
           query: query
         failureRatio:
@@ -653,6 +705,9 @@ components:
             prometheusMetric: prometheusMetric
             type: type
         threshold:
+          groupByLabels:
+          - groupByLabels
+          - groupByLabels
           threshold:
             value: 1.4658129805029452
             operator: <
@@ -671,6 +726,8 @@ components:
       properties:
         failureRatio:
           $ref: '#/components/schemas/slo.v0_0.FailureRatioQuery'
+        failureThreshold:
+          $ref: '#/components/schemas/slo.v0_0.FailureThresholdQuery'
         freeform:
           $ref: '#/components/schemas/slo.v0_0.FreeformQuery'
         ratio:
@@ -680,9 +737,9 @@ components:
         type:
           enum:
           - freeform
-          - histogram
           - ratio
           - threshold
+          - failureThreshold
           type: string
       required:
       - type
@@ -740,6 +797,14 @@ components:
         folder:
           uid: uid
         query:
+          failureThreshold:
+            groupByLabels:
+            - groupByLabels
+            - groupByLabels
+            threshold:
+              value: 1.4658129805029452
+              operator: <
+            failureThresholdExpression: failureThresholdExpression
           freeform:
             query: query
           failureRatio:
@@ -753,6 +818,9 @@ components:
               prometheusMetric: prometheusMetric
               type: type
           threshold:
+            groupByLabels:
+            - groupByLabels
+            - groupByLabels
             threshold:
               value: 1.4658129805029452
               operator: <
@@ -906,11 +974,18 @@ components:
     slo.v0_0.ThresholdQuery:
       additionalProperties: false
       example:
+        groupByLabels:
+        - groupByLabels
+        - groupByLabels
         threshold:
           value: 1.4658129805029452
           operator: <
         thresholdExpression: thresholdExpression
       properties:
+        groupByLabels:
+          items:
+            type: string
+          type: array
         threshold:
           $ref: '#/components/schemas/slo.v0_0.Threshold'
         thresholdExpression:
