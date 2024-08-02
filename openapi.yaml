@@ -101,6 +101,21 @@ components:
       - failureMetric
       - totalMetric
       type: object
+    slo.v0_0.FailureThresholdQuery:
+      additionalProperties: false
+      properties:
+        failureThresholdExpression:
+          type: string
+        groupByLabels:
+          items:
+            type: string
+          type: array
+        threshold:
+          $ref: '#/components/schemas/slo.v0_0.Threshold'
+      required:
+      - failureThresholdExpression
+      - threshold
+      type: object
     slo.v0_0.Folder:
       additionalProperties: false
       properties:
@@ -153,6 +168,8 @@ components:
       properties:
         failureRatio:
           $ref: '#/components/schemas/slo.v0_0.FailureRatioQuery'
+        failureThreshold:
+          $ref: '#/components/schemas/slo.v0_0.FailureThresholdQuery'
         freeform:
           $ref: '#/components/schemas/slo.v0_0.FreeformQuery'
         ratio:
@@ -162,9 +179,9 @@ components:
         type:
           enum:
           - freeform
-          - histogram
           - ratio
           - threshold
+          - failureThreshold
           type: string
       required:
       - type
@@ -274,6 +291,10 @@ components:
     slo.v0_0.ThresholdQuery:
       additionalProperties: false
       properties:
+        groupByLabels:
+          items:
+            type: string
+          type: array
         threshold:
           $ref: '#/components/schemas/slo.v0_0.Threshold'
         thresholdExpression:
