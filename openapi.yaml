@@ -212,6 +212,8 @@ components:
           $ref: '#/components/schemas/slo.v0_0.DashboardRef'
         provenance:
           type: string
+        sourceDatasource:
+          $ref: '#/components/schemas/slo.v0_0.DestinationDatasource'
         status:
           $ref: '#/components/schemas/slo.v0_0.Status'
       type: object
