@@ -325,34 +325,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.SLOListResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.SLOListResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.SLOListResponse'
           description: OK
         "400":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
@@ -362,23 +344,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/slo.v0_0.Slo'
-          application/x-yaml:
-            schema:
-              $ref: '#/components/schemas/slo.v0_0.Slo'
-          application/yaml:
-            schema:
-              $ref: '#/components/schemas/slo.v0_0.Slo'
         required: true
       responses:
         "202":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.SLOCreateResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.SLOCreateResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.SLOCreateResponse'
           description: Accepted
@@ -387,22 +357,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
@@ -422,22 +380,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
@@ -454,34 +400,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/slo.v0_0.Slo'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/slo.v0_0.Slo'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/slo.v0_0.Slo'
           description: OK
         "400":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
@@ -497,12 +425,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/slo.v0_0.Slo'
-          application/x-yaml:
-            schema:
-              $ref: '#/components/schemas/slo.v0_0.Slo'
-          application/yaml:
-            schema:
-              $ref: '#/components/schemas/slo.v0_0.Slo'
         required: true
       responses:
         "202":
@@ -512,22 +434,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
