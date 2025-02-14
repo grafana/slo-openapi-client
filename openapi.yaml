@@ -130,6 +130,17 @@ components:
       required:
       - query
       type: object
+    slo.v0_0.GrafanaQueries:
+      additionalProperties: false
+      properties:
+        grafanaQueries:
+          items:
+            additionalProperties: {}
+            type: object
+          type: array
+      required:
+      - grafanaQueries
+      type: object
     slo.v0_0.Label:
       additionalProperties: false
       properties:
@@ -172,6 +183,8 @@ components:
           $ref: '#/components/schemas/slo.v0_0.FailureThresholdQuery'
         freeform:
           $ref: '#/components/schemas/slo.v0_0.FreeformQuery'
+        grafanaQueries:
+          $ref: '#/components/schemas/slo.v0_0.GrafanaQueries'
         ratio:
           $ref: '#/components/schemas/slo.v0_0.RatioQuery'
         threshold:
