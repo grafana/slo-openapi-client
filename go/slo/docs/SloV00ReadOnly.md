@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AllowedActions** | Pointer to **[]string** |  | [optional] 
 **DrillDownDashboardRef** | Pointer to [**SloV00DashboardRef**](SloV00DashboardRef.md) |  | [optional] 
 **Provenance** | Pointer to **string** |  | [optional] 
+**SourceDatasource** | Pointer to [**SloV00DestinationDatasource**](SloV00DestinationDatasource.md) |  | [optional] 
 **Status** | Pointer to [**SloV00Status**](SloV00Status.md) |  | [optional] 
 
 ## Methods
@@ -102,6 +103,31 @@ SetProvenance sets Provenance field to given value.
 `func (o *SloV00ReadOnly) HasProvenance() bool`
 
 HasProvenance returns a boolean if a field has been set.
+
+### GetSourceDatasource
+
+`func (o *SloV00ReadOnly) GetSourceDatasource() SloV00DestinationDatasource`
+
+GetSourceDatasource returns the SourceDatasource field if non-nil, zero value otherwise.
+
+### GetSourceDatasourceOk
+
+`func (o *SloV00ReadOnly) GetSourceDatasourceOk() (*SloV00DestinationDatasource, bool)`
+
+GetSourceDatasourceOk returns a tuple with the SourceDatasource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceDatasource
+
+`func (o *SloV00ReadOnly) SetSourceDatasource(v SloV00DestinationDatasource)`
+
+SetSourceDatasource sets SourceDatasource field to given value.
+
+### HasSourceDatasource
+
+`func (o *SloV00ReadOnly) HasSourceDatasource() bool`
+
+HasSourceDatasource returns a boolean if a field has been set.
 
 ### GetStatus
 

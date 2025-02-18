@@ -34,8 +34,8 @@ func (r ApiV1SloGetRequest) Execute() (*ApiSLOListResponse, *http.Response, erro
 /*
 V1SloGet Method for V1SloGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiV1SloGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiV1SloGetRequest
 */
 func (a *DefaultAPIService) V1SloGet(ctx context.Context) ApiV1SloGetRequest {
 	return ApiV1SloGetRequest{
@@ -45,7 +45,8 @@ func (a *DefaultAPIService) V1SloGet(ctx context.Context) ApiV1SloGetRequest {
 }
 
 // Execute executes the request
-//  @return ApiSLOListResponse
+//
+//	@return ApiSLOListResponse
 func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*ApiSLOListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -75,7 +76,7 @@ func (a *DefaultAPIService) V1SloGetExecute(r ApiV1SloGetRequest) (*ApiSLOListRe
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/x-yaml", "application/yaml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -153,9 +154,9 @@ func (r ApiV1SloIdDeleteRequest) Execute() (*http.Response, error) {
 /*
 V1SloIdDelete Method for V1SloIdDelete
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiV1SloIdDeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiV1SloIdDeleteRequest
 */
 func (a *DefaultAPIService) V1SloIdDelete(ctx context.Context, id string) ApiV1SloIdDeleteRequest {
 	return ApiV1SloIdDeleteRequest{
@@ -195,7 +196,7 @@ func (a *DefaultAPIService) V1SloIdDeleteExecute(r ApiV1SloIdDeleteRequest) (*ht
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/x-yaml", "application/yaml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -264,9 +265,9 @@ func (r ApiV1SloIdGetRequest) Execute() (*SloV00Slo, *http.Response, error) {
 /*
 V1SloIdGet Method for V1SloIdGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiV1SloIdGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiV1SloIdGetRequest
 */
 func (a *DefaultAPIService) V1SloIdGet(ctx context.Context, id string) ApiV1SloIdGetRequest {
 	return ApiV1SloIdGetRequest{
@@ -277,7 +278,8 @@ func (a *DefaultAPIService) V1SloIdGet(ctx context.Context, id string) ApiV1SloI
 }
 
 // Execute executes the request
-//  @return SloV00Slo
+//
+//	@return SloV00Slo
 func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*SloV00Slo, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -308,7 +310,7 @@ func (a *DefaultAPIService) V1SloIdGetExecute(r ApiV1SloIdGetRequest) (*SloV00Sl
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/x-yaml", "application/yaml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -392,9 +394,9 @@ func (r ApiV1SloIdPutRequest) Execute() (*http.Response, error) {
 /*
 V1SloIdPut Method for V1SloIdPut
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiV1SloIdPutRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiV1SloIdPutRequest
 */
 func (a *DefaultAPIService) V1SloIdPut(ctx context.Context, id string) ApiV1SloIdPutRequest {
 	return ApiV1SloIdPutRequest{
@@ -428,7 +430,7 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "application/x-yaml", "application/yaml"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -437,7 +439,7 @@ func (a *DefaultAPIService) V1SloIdPutExecute(r ApiV1SloIdPutRequest) (*http.Res
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/x-yaml", "application/yaml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -513,8 +515,8 @@ func (r ApiV1SloPostRequest) Execute() (*ApiSLOCreateResponse, *http.Response, e
 /*
 V1SloPost Method for V1SloPost
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiV1SloPostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiV1SloPostRequest
 */
 func (a *DefaultAPIService) V1SloPost(ctx context.Context) ApiV1SloPostRequest {
 	return ApiV1SloPostRequest{
@@ -524,7 +526,8 @@ func (a *DefaultAPIService) V1SloPost(ctx context.Context) ApiV1SloPostRequest {
 }
 
 // Execute executes the request
-//  @return ApiSLOCreateResponse
+//
+//	@return ApiSLOCreateResponse
 func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*ApiSLOCreateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -548,7 +551,7 @@ func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*ApiSLOCrea
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "application/x-yaml", "application/yaml"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -557,7 +560,7 @@ func (a *DefaultAPIService) V1SloPostExecute(r ApiV1SloPostRequest) (*ApiSLOCrea
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/x-yaml", "application/yaml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

@@ -19,34 +19,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.SLOListResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.SLOListResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.SLOListResponse'
           description: OK
         "400":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
@@ -56,23 +38,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/slo.v0_0.Slo'
-          application/x-yaml:
-            schema:
-              $ref: '#/components/schemas/slo.v0_0.Slo'
-          application/yaml:
-            schema:
-              $ref: '#/components/schemas/slo.v0_0.Slo'
         required: true
       responses:
         "202":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.SLOCreateResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.SLOCreateResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.SLOCreateResponse'
           description: Accepted
@@ -81,22 +51,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
@@ -118,22 +76,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
@@ -152,34 +98,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/slo.v0_0.Slo'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/slo.v0_0.Slo'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/slo.v0_0.Slo'
           description: OK
         "400":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
@@ -197,12 +125,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/slo.v0_0.Slo'
-          application/x-yaml:
-            schema:
-              $ref: '#/components/schemas/slo.v0_0.Slo'
-          application/yaml:
-            schema:
-              $ref: '#/components/schemas/slo.v0_0.Slo'
         required: true
       responses:
         "202":
@@ -212,22 +134,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
           description: Bad Request
         "500":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/api.ErrorResponse'
-            application/yaml:
               schema:
                 $ref: '#/components/schemas/api.ErrorResponse'
           description: Internal Server Error
@@ -278,6 +188,10 @@ components:
               failureThresholdExpression: failureThresholdExpression
             freeform:
               query: query
+            grafanaQueries:
+              grafanaQueries:
+              - "{}"
+              - "{}"
             failureRatio:
               failureMetric:
                 prometheusMetric: prometheusMetric
@@ -315,6 +229,9 @@ components:
           - window: window
             value: 6.027456183070403
           readOnly:
+            sourceDatasource:
+              uid: uid
+              type: type
             provenance: provenance
             allowedActions:
             - allowedActions
@@ -382,6 +299,10 @@ components:
               failureThresholdExpression: failureThresholdExpression
             freeform:
               query: query
+            grafanaQueries:
+              grafanaQueries:
+              - "{}"
+              - "{}"
             failureRatio:
               failureMetric:
                 prometheusMetric: prometheusMetric
@@ -419,6 +340,9 @@ components:
           - window: window
             value: 6.027456183070403
           readOnly:
+            sourceDatasource:
+              uid: uid
+              type: type
             provenance: provenance
             allowedActions:
             - allowedActions
@@ -642,6 +566,18 @@ components:
           type: string
       required:
       - query
+    slo.v0_0.GrafanaQueries:
+      additionalProperties: {}
+      example:
+        grafanaQueries:
+        - "{}"
+        - "{}"
+      properties:
+        grafanaQueries:
+          items:
+            additionalProperties: false
+      required:
+      - grafanaQueries
     slo.v0_0.Label:
       additionalProperties: false
       example:
@@ -694,6 +630,10 @@ components:
           failureThresholdExpression: failureThresholdExpression
         freeform:
           query: query
+        grafanaQueries:
+          grafanaQueries:
+          - "{}"
+          - "{}"
         failureRatio:
           failureMetric:
             prometheusMetric: prometheusMetric
@@ -730,6 +670,8 @@ components:
           $ref: '#/components/schemas/slo.v0_0.FailureThresholdQuery'
         freeform:
           $ref: '#/components/schemas/slo.v0_0.FreeformQuery'
+        grafanaQueries:
+          $ref: '#/components/schemas/slo.v0_0.GrafanaQueries'
         ratio:
           $ref: '#/components/schemas/slo.v0_0.RatioQuery'
         threshold:
@@ -770,6 +712,9 @@ components:
     slo.v0_0.ReadOnly:
       additionalProperties: false
       example:
+        sourceDatasource:
+          uid: uid
+          type: type
         provenance: provenance
         allowedActions:
         - allowedActions
@@ -788,6 +733,8 @@ components:
           $ref: '#/components/schemas/slo.v0_0.DashboardRef'
         provenance:
           type: string
+        sourceDatasource:
+          $ref: '#/components/schemas/slo.v0_0.DestinationDatasource'
         status:
           $ref: '#/components/schemas/slo.v0_0.Status'
     slo.v0_0.Slo:
@@ -807,6 +754,10 @@ components:
             failureThresholdExpression: failureThresholdExpression
           freeform:
             query: query
+          grafanaQueries:
+            grafanaQueries:
+            - "{}"
+            - "{}"
           failureRatio:
             failureMetric:
               prometheusMetric: prometheusMetric
@@ -844,6 +795,9 @@ components:
         - window: window
           value: 6.027456183070403
         readOnly:
+          sourceDatasource:
+            uid: uid
+            type: type
           provenance: provenance
           allowedActions:
           - allowedActions

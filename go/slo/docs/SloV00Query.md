@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **FailureRatio** | Pointer to [**SloV00FailureRatioQuery**](SloV00FailureRatioQuery.md) |  | [optional] 
 **FailureThreshold** | Pointer to [**SloV00FailureThresholdQuery**](SloV00FailureThresholdQuery.md) |  | [optional] 
 **Freeform** | Pointer to [**SloV00FreeformQuery**](SloV00FreeformQuery.md) |  | [optional] 
+**GrafanaQueries** | Pointer to [**SloV00GrafanaQueries**](SloV00GrafanaQueries.md) |  | [optional] 
 **Ratio** | Pointer to [**SloV00RatioQuery**](SloV00RatioQuery.md) |  | [optional] 
 **Threshold** | Pointer to [**SloV00ThresholdQuery**](SloV00ThresholdQuery.md) |  | [optional] 
 **Type** | **string** |  | 
@@ -104,6 +105,31 @@ SetFreeform sets Freeform field to given value.
 `func (o *SloV00Query) HasFreeform() bool`
 
 HasFreeform returns a boolean if a field has been set.
+
+### GetGrafanaQueries
+
+`func (o *SloV00Query) GetGrafanaQueries() SloV00GrafanaQueries`
+
+GetGrafanaQueries returns the GrafanaQueries field if non-nil, zero value otherwise.
+
+### GetGrafanaQueriesOk
+
+`func (o *SloV00Query) GetGrafanaQueriesOk() (*SloV00GrafanaQueries, bool)`
+
+GetGrafanaQueriesOk returns a tuple with the GrafanaQueries field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGrafanaQueries
+
+`func (o *SloV00Query) SetGrafanaQueries(v SloV00GrafanaQueries)`
+
+SetGrafanaQueries sets GrafanaQueries field to given value.
+
+### HasGrafanaQueries
+
+`func (o *SloV00Query) HasGrafanaQueries() bool`
+
+HasGrafanaQueries returns a boolean if a field has been set.
 
 ### GetRatio
 

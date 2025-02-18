@@ -19,10 +19,11 @@ var _ MappedNullable = &SloV00ReadOnly{}
 
 // SloV00ReadOnly struct for SloV00ReadOnly
 type SloV00ReadOnly struct {
-	AllowedActions        []string            `json:"allowedActions,omitempty"`
-	DrillDownDashboardRef *SloV00DashboardRef `json:"drillDownDashboardRef,omitempty"`
-	Provenance            *string             `json:"provenance,omitempty"`
-	Status                *SloV00Status       `json:"status,omitempty"`
+	AllowedActions        []string                     `json:"allowedActions,omitempty"`
+	DrillDownDashboardRef *SloV00DashboardRef          `json:"drillDownDashboardRef,omitempty"`
+	Provenance            *string                      `json:"provenance,omitempty"`
+	SourceDatasource      *SloV00DestinationDatasource `json:"sourceDatasource,omitempty"`
+	Status                *SloV00Status                `json:"status,omitempty"`
 }
 
 // NewSloV00ReadOnly instantiates a new SloV00ReadOnly object
@@ -138,6 +139,38 @@ func (o *SloV00ReadOnly) SetProvenance(v string) {
 	o.Provenance = &v
 }
 
+// GetSourceDatasource returns the SourceDatasource field value if set, zero value otherwise.
+func (o *SloV00ReadOnly) GetSourceDatasource() SloV00DestinationDatasource {
+	if o == nil || IsNil(o.SourceDatasource) {
+		var ret SloV00DestinationDatasource
+		return ret
+	}
+	return *o.SourceDatasource
+}
+
+// GetSourceDatasourceOk returns a tuple with the SourceDatasource field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00ReadOnly) GetSourceDatasourceOk() (*SloV00DestinationDatasource, bool) {
+	if o == nil || IsNil(o.SourceDatasource) {
+		return nil, false
+	}
+	return o.SourceDatasource, true
+}
+
+// HasSourceDatasource returns a boolean if a field has been set.
+func (o *SloV00ReadOnly) HasSourceDatasource() bool {
+	if o != nil && !IsNil(o.SourceDatasource) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceDatasource gets a reference to the given SloV00DestinationDatasource and assigns it to the SourceDatasource field.
+func (o *SloV00ReadOnly) SetSourceDatasource(v SloV00DestinationDatasource) {
+	o.SourceDatasource = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *SloV00ReadOnly) GetStatus() SloV00Status {
 	if o == nil || IsNil(o.Status) {
@@ -188,6 +221,9 @@ func (o SloV00ReadOnly) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Provenance) {
 		toSerialize["provenance"] = o.Provenance
+	}
+	if !IsNil(o.SourceDatasource) {
+		toSerialize["sourceDatasource"] = o.SourceDatasource
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status

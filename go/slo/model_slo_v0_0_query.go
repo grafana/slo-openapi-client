@@ -23,6 +23,7 @@ type SloV00Query struct {
 	FailureRatio     *SloV00FailureRatioQuery     `json:"failureRatio,omitempty"`
 	FailureThreshold *SloV00FailureThresholdQuery `json:"failureThreshold,omitempty"`
 	Freeform         *SloV00FreeformQuery         `json:"freeform,omitempty"`
+	GrafanaQueries   *SloV00GrafanaQueries        `json:"grafanaQueries,omitempty"`
 	Ratio            *SloV00RatioQuery            `json:"ratio,omitempty"`
 	Threshold        *SloV00ThresholdQuery        `json:"threshold,omitempty"`
 	Type             string                       `json:"type"`
@@ -144,6 +145,38 @@ func (o *SloV00Query) SetFreeform(v SloV00FreeformQuery) {
 	o.Freeform = &v
 }
 
+// GetGrafanaQueries returns the GrafanaQueries field value if set, zero value otherwise.
+func (o *SloV00Query) GetGrafanaQueries() SloV00GrafanaQueries {
+	if o == nil || IsNil(o.GrafanaQueries) {
+		var ret SloV00GrafanaQueries
+		return ret
+	}
+	return *o.GrafanaQueries
+}
+
+// GetGrafanaQueriesOk returns a tuple with the GrafanaQueries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00Query) GetGrafanaQueriesOk() (*SloV00GrafanaQueries, bool) {
+	if o == nil || IsNil(o.GrafanaQueries) {
+		return nil, false
+	}
+	return o.GrafanaQueries, true
+}
+
+// HasGrafanaQueries returns a boolean if a field has been set.
+func (o *SloV00Query) HasGrafanaQueries() bool {
+	if o != nil && !IsNil(o.GrafanaQueries) {
+		return true
+	}
+
+	return false
+}
+
+// SetGrafanaQueries gets a reference to the given SloV00GrafanaQueries and assigns it to the GrafanaQueries field.
+func (o *SloV00Query) SetGrafanaQueries(v SloV00GrafanaQueries) {
+	o.GrafanaQueries = &v
+}
+
 // GetRatio returns the Ratio field value if set, zero value otherwise.
 func (o *SloV00Query) GetRatio() SloV00RatioQuery {
 	if o == nil || IsNil(o.Ratio) {
@@ -250,6 +283,9 @@ func (o SloV00Query) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Freeform) {
 		toSerialize["freeform"] = o.Freeform
+	}
+	if !IsNil(o.GrafanaQueries) {
+		toSerialize["grafanaQueries"] = o.GrafanaQueries
 	}
 	if !IsNil(o.Ratio) {
 		toSerialize["ratio"] = o.Ratio
