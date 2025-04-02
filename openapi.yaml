@@ -12,6 +12,27 @@ components:
       - code
       - error
       type: object
+    api.ReportCreateResponse:
+      additionalProperties: false
+      properties:
+        message:
+          type: string
+        uuid:
+          type: string
+      required:
+      - message
+      - uuid
+      type: object
+    api.ReportListResponse:
+      additionalProperties: false
+      properties:
+        reports:
+          items:
+            $ref: '#/components/schemas/report.v1.Report'
+          type: array
+      required:
+      - reports
+      type: object
     api.SLOCreateResponse:
       additionalProperties: false
       properties:
@@ -32,6 +53,59 @@ components:
           type: array
       required:
       - slos
+      type: object
+    report.v1.Label:
+      additionalProperties: false
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      required:
+      - key
+      - value
+      type: object
+    report.v1.Report:
+      additionalProperties: false
+      properties:
+        description:
+          type: string
+        labels:
+          items:
+            $ref: '#/components/schemas/report.v1.Label'
+          type: array
+        name:
+          type: string
+        reportDefinition:
+          $ref: '#/components/schemas/report.v1.ReportDefinitionSloList'
+        timeSpan:
+          type: string
+        uuid:
+          type: string
+      required:
+      - description
+      - name
+      - reportDefinition
+      - timeSpan
+      - uuid
+      type: object
+    report.v1.ReportDefinitionSloList:
+      additionalProperties: false
+      properties:
+        slos:
+          items:
+            $ref: '#/components/schemas/report.v1.ReportSlo'
+          type: array
+      required:
+      - slos
+      type: object
+    report.v1.ReportSlo:
+      additionalProperties: false
+      properties:
+        sloUuid:
+          type: string
+      required:
+      - sloUuid
       type: object
     slo.v0_0.AdvancedOptions:
       additionalProperties: false
@@ -330,6 +404,130 @@ info:
   version: 1.0.0
 openapi: 3.1.0
 paths:
+  /v1/report:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ReportListResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report.v1.Report'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ReportCreateResponse'
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
+  /v1/report/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/report.v1.Report'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report.v1.Report'
+        required: true
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
   /v1/slo:
     get:
       responses:
