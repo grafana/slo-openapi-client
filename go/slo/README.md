@@ -79,6 +79,11 @@ All URIs are relative to *http://localhost/api/plugins/grafana-slo-app/resources
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultAPI* | [**V1ReportGet**](docs/DefaultAPI.md#v1reportget) | **Get** /v1/report | 
+*DefaultAPI* | [**V1ReportIdDelete**](docs/DefaultAPI.md#v1reportiddelete) | **Delete** /v1/report/{id} | 
+*DefaultAPI* | [**V1ReportIdGet**](docs/DefaultAPI.md#v1reportidget) | **Get** /v1/report/{id} | 
+*DefaultAPI* | [**V1ReportIdPut**](docs/DefaultAPI.md#v1reportidput) | **Put** /v1/report/{id} | 
+*DefaultAPI* | [**V1ReportPost**](docs/DefaultAPI.md#v1reportpost) | **Post** /v1/report | 
 *DefaultAPI* | [**V1SloGet**](docs/DefaultAPI.md#v1sloget) | **Get** /v1/slo | 
 *DefaultAPI* | [**V1SloIdDelete**](docs/DefaultAPI.md#v1sloiddelete) | **Delete** /v1/slo/{id} | 
 *DefaultAPI* | [**V1SloIdGet**](docs/DefaultAPI.md#v1sloidget) | **Get** /v1/slo/{id} | 
@@ -89,8 +94,14 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [ApiErrorResponse](docs/ApiErrorResponse.md)
+ - [ApiReportCreateResponse](docs/ApiReportCreateResponse.md)
+ - [ApiReportListResponse](docs/ApiReportListResponse.md)
  - [ApiSLOCreateResponse](docs/ApiSLOCreateResponse.md)
  - [ApiSLOListResponse](docs/ApiSLOListResponse.md)
+ - [ReportV1Label](docs/ReportV1Label.md)
+ - [ReportV1Report](docs/ReportV1Report.md)
+ - [ReportV1ReportDefinitionSloList](docs/ReportV1ReportDefinitionSloList.md)
+ - [ReportV1ReportSlo](docs/ReportV1ReportSlo.md)
  - [SloV00AdvancedOptions](docs/SloV00AdvancedOptions.md)
  - [SloV00Alerting](docs/SloV00Alerting.md)
  - [SloV00AlertingMetadata](docs/SloV00AlertingMetadata.md)

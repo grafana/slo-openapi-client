@@ -11,6 +11,136 @@ servers:
 security:
 - bearerAuth: []
 paths:
+  /v1/report:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ReportListResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report.v1.Report'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ReportCreateResponse'
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
+  /v1/report/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/report.v1.Report'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report.v1.Report'
+        required: true
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+          description: Internal Server Error
   /v1/slo:
     get:
       responses:
@@ -146,7 +276,7 @@ components:
     api.ErrorResponse:
       additionalProperties: false
       example:
-        code: 5
+        code: 0
         error: error
       properties:
         code:
@@ -157,6 +287,56 @@ components:
       required:
       - code
       - error
+    api.ReportCreateResponse:
+      additionalProperties: false
+      example:
+        message: message
+        uuid: uuid
+      properties:
+        message:
+          type: string
+        uuid:
+          type: string
+      required:
+      - message
+      - uuid
+    api.ReportListResponse:
+      additionalProperties: false
+      example:
+        reports:
+        - reportDefinition:
+            slos:
+            - sloUuid: sloUuid
+            - sloUuid: sloUuid
+          name: name
+          description: description
+          timeSpan: timeSpan
+          uuid: uuid
+          labels:
+          - value: value
+            key: key
+          - value: value
+            key: key
+        - reportDefinition:
+            slos:
+            - sloUuid: sloUuid
+            - sloUuid: sloUuid
+          name: name
+          description: description
+          timeSpan: timeSpan
+          uuid: uuid
+          labels:
+          - value: value
+            key: key
+          - value: value
+            key: key
+      properties:
+        reports:
+          items:
+            $ref: '#/components/schemas/report.v1.Report'
+          type: array
+      required:
+      - reports
     api.SLOCreateResponse:
       additionalProperties: false
       example:
@@ -403,6 +583,78 @@ components:
           type: array
       required:
       - slos
+    report.v1.Label:
+      additionalProperties: false
+      example:
+        value: value
+        key: key
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      required:
+      - key
+      - value
+    report.v1.Report:
+      additionalProperties: false
+      example:
+        reportDefinition:
+          slos:
+          - sloUuid: sloUuid
+          - sloUuid: sloUuid
+        name: name
+        description: description
+        timeSpan: timeSpan
+        uuid: uuid
+        labels:
+        - value: value
+          key: key
+        - value: value
+          key: key
+      properties:
+        description:
+          type: string
+        labels:
+          items:
+            $ref: '#/components/schemas/report.v1.Label'
+          type: array
+        name:
+          type: string
+        reportDefinition:
+          $ref: '#/components/schemas/report.v1.ReportDefinitionSloList'
+        timeSpan:
+          type: string
+        uuid:
+          type: string
+      required:
+      - description
+      - name
+      - reportDefinition
+      - timeSpan
+      - uuid
+    report.v1.ReportDefinitionSloList:
+      additionalProperties: false
+      example:
+        slos:
+        - sloUuid: sloUuid
+        - sloUuid: sloUuid
+      properties:
+        slos:
+          items:
+            $ref: '#/components/schemas/report.v1.ReportSlo'
+          type: array
+      required:
+      - slos
+    report.v1.ReportSlo:
+      additionalProperties: false
+      example:
+        sloUuid: sloUuid
+      properties:
+        sloUuid:
+          type: string
+      required:
+      - sloUuid
     slo.v0_0.AdvancedOptions:
       additionalProperties: false
       example:
