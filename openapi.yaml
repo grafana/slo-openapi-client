@@ -295,6 +295,9 @@ components:
           items:
             type: string
           type: array
+        creationTimestamp:
+          format: int64
+          type: integer
         drillDownDashboardRef:
           $ref: '#/components/schemas/slo.v0_0.DashboardRef'
         provenance:
@@ -303,6 +306,8 @@ components:
           $ref: '#/components/schemas/slo.v0_0.DestinationDatasource'
         status:
           $ref: '#/components/schemas/slo.v0_0.Status'
+      required:
+      - creationTimestamp
       type: object
     slo.v0_0.Slo:
       additionalProperties: false
