@@ -300,6 +300,8 @@ components:
           type: integer
         drillDownDashboardRef:
           $ref: '#/components/schemas/slo.v0_0.DashboardRef'
+        parsesAsRatio:
+          type: boolean
         provenance:
           type: string
         sourceDatasource:
