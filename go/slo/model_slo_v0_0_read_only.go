@@ -11,6 +11,7 @@ API version: 1.0.0
 package slo
 
 import (
+	"bytes"
 	"encoding/json"
 )
 
@@ -20,18 +21,23 @@ var _ MappedNullable = &SloV00ReadOnly{}
 // SloV00ReadOnly struct for SloV00ReadOnly
 type SloV00ReadOnly struct {
 	AllowedActions        []string                     `json:"allowedActions,omitempty"`
+	CreationTimestamp     int64                        `json:"creationTimestamp"`
 	DrillDownDashboardRef *SloV00DashboardRef          `json:"drillDownDashboardRef,omitempty"`
+	ParsesAsRatio         *bool                        `json:"parsesAsRatio,omitempty"`
 	Provenance            *string                      `json:"provenance,omitempty"`
 	SourceDatasource      *SloV00DestinationDatasource `json:"sourceDatasource,omitempty"`
 	Status                *SloV00Status                `json:"status,omitempty"`
 }
 
+type _SloV00ReadOnly SloV00ReadOnly
+
 // NewSloV00ReadOnly instantiates a new SloV00ReadOnly object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSloV00ReadOnly() *SloV00ReadOnly {
+func NewSloV00ReadOnly(creationTimestamp int64) *SloV00ReadOnly {
 	this := SloV00ReadOnly{}
+	this.CreationTimestamp = creationTimestamp
 	return &this
 }
 
@@ -75,6 +81,30 @@ func (o *SloV00ReadOnly) SetAllowedActions(v []string) {
 	o.AllowedActions = v
 }
 
+// GetCreationTimestamp returns the CreationTimestamp field value
+func (o *SloV00ReadOnly) GetCreationTimestamp() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.CreationTimestamp
+}
+
+// GetCreationTimestampOk returns a tuple with the CreationTimestamp field value
+// and a boolean to check if the value has been set.
+func (o *SloV00ReadOnly) GetCreationTimestampOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreationTimestamp, true
+}
+
+// SetCreationTimestamp sets field value
+func (o *SloV00ReadOnly) SetCreationTimestamp(v int64) {
+	o.CreationTimestamp = v
+}
+
 // GetDrillDownDashboardRef returns the DrillDownDashboardRef field value if set, zero value otherwise.
 func (o *SloV00ReadOnly) GetDrillDownDashboardRef() SloV00DashboardRef {
 	if o == nil || IsNil(o.DrillDownDashboardRef) {
@@ -105,6 +135,38 @@ func (o *SloV00ReadOnly) HasDrillDownDashboardRef() bool {
 // SetDrillDownDashboardRef gets a reference to the given SloV00DashboardRef and assigns it to the DrillDownDashboardRef field.
 func (o *SloV00ReadOnly) SetDrillDownDashboardRef(v SloV00DashboardRef) {
 	o.DrillDownDashboardRef = &v
+}
+
+// GetParsesAsRatio returns the ParsesAsRatio field value if set, zero value otherwise.
+func (o *SloV00ReadOnly) GetParsesAsRatio() bool {
+	if o == nil || IsNil(o.ParsesAsRatio) {
+		var ret bool
+		return ret
+	}
+	return *o.ParsesAsRatio
+}
+
+// GetParsesAsRatioOk returns a tuple with the ParsesAsRatio field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00ReadOnly) GetParsesAsRatioOk() (*bool, bool) {
+	if o == nil || IsNil(o.ParsesAsRatio) {
+		return nil, false
+	}
+	return o.ParsesAsRatio, true
+}
+
+// HasParsesAsRatio returns a boolean if a field has been set.
+func (o *SloV00ReadOnly) HasParsesAsRatio() bool {
+	if o != nil && !IsNil(o.ParsesAsRatio) {
+		return true
+	}
+
+	return false
+}
+
+// SetParsesAsRatio gets a reference to the given bool and assigns it to the ParsesAsRatio field.
+func (o *SloV00ReadOnly) SetParsesAsRatio(v bool) {
+	o.ParsesAsRatio = &v
 }
 
 // GetProvenance returns the Provenance field value if set, zero value otherwise.
@@ -216,8 +278,12 @@ func (o SloV00ReadOnly) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AllowedActions) {
 		toSerialize["allowedActions"] = o.AllowedActions
 	}
+	toSerialize["creationTimestamp"] = o.CreationTimestamp
 	if !IsNil(o.DrillDownDashboardRef) {
 		toSerialize["drillDownDashboardRef"] = o.DrillDownDashboardRef
+	}
+	if !IsNil(o.ParsesAsRatio) {
+		toSerialize["parsesAsRatio"] = o.ParsesAsRatio
 	}
 	if !IsNil(o.Provenance) {
 		toSerialize["provenance"] = o.Provenance
@@ -229,6 +295,29 @@ func (o SloV00ReadOnly) ToMap() (map[string]interface{}, error) {
 		toSerialize["status"] = o.Status
 	}
 	return toSerialize, nil
+}
+
+func (o *SloV00ReadOnly) UnmarshalJSON(data []byte) (err error) {
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	varSloV00ReadOnly := _SloV00ReadOnly{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	err = decoder.Decode(&varSloV00ReadOnly)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SloV00ReadOnly(varSloV00ReadOnly)
+
+	return err
 }
 
 type NullableSloV00ReadOnly struct {

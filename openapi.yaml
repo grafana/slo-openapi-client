@@ -114,6 +114,14 @@ components:
           format: int64
           type: integer
       type: object
+    slo.v0_0.AlertEnrichment:
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+      required:
+      - type
+      type: object
     slo.v0_0.Alerting:
       additionalProperties: false
       properties:
@@ -138,6 +146,10 @@ components:
         annotations:
           items:
             $ref: '#/components/schemas/slo.v0_0.Label'
+          type: array
+        enrichments:
+          items:
+            $ref: '#/components/schemas/slo.v0_0.AlertEnrichment'
           type: array
         labels:
           items:

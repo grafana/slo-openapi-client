@@ -416,8 +416,10 @@ components:
             allowedActions:
             - allowedActions
             - allowedActions
+            creationTimestamp: 5
             drillDownDashboardRef:
               UID: UID
+            parsesAsRatio: true
             status:
               message: message
               type: created
@@ -439,6 +441,9 @@ components:
                 key: key
               - value: value
                 key: key
+              enrichments:
+              - type: type
+              - type: type
               labels:
               - value: value
                 key: key
@@ -450,6 +455,9 @@ components:
                 key: key
               - value: value
                 key: key
+              enrichments:
+              - type: type
+              - type: type
               labels:
               - value: value
                 key: key
@@ -527,8 +535,10 @@ components:
             allowedActions:
             - allowedActions
             - allowedActions
+            creationTimestamp: 5
             drillDownDashboardRef:
               UID: UID
+            parsesAsRatio: true
             status:
               message: message
               type: created
@@ -550,6 +560,9 @@ components:
                 key: key
               - value: value
                 key: key
+              enrichments:
+              - type: type
+              - type: type
               labels:
               - value: value
                 key: key
@@ -561,6 +574,9 @@ components:
                 key: key
               - value: value
                 key: key
+              enrichments:
+              - type: type
+              - type: type
               labels:
               - value: value
                 key: key
@@ -663,6 +679,15 @@ components:
         minFailures:
           format: int64
           type: integer
+    slo.v0_0.AlertEnrichment:
+      additionalProperties: false
+      example:
+        type: type
+      properties:
+        type:
+          type: string
+      required:
+      - type
     slo.v0_0.Alerting:
       additionalProperties: false
       example:
@@ -679,6 +704,9 @@ components:
             key: key
           - value: value
             key: key
+          enrichments:
+          - type: type
+          - type: type
           labels:
           - value: value
             key: key
@@ -690,6 +718,9 @@ components:
             key: key
           - value: value
             key: key
+          enrichments:
+          - type: type
+          - type: type
           labels:
           - value: value
             key: key
@@ -723,6 +754,9 @@ components:
           key: key
         - value: value
           key: key
+        enrichments:
+        - type: type
+        - type: type
         labels:
         - value: value
           key: key
@@ -732,6 +766,10 @@ components:
         annotations:
           items:
             $ref: '#/components/schemas/slo.v0_0.Label'
+          type: array
+        enrichments:
+          items:
+            $ref: '#/components/schemas/slo.v0_0.AlertEnrichment'
           type: array
         labels:
           items:
@@ -971,8 +1009,10 @@ components:
         allowedActions:
         - allowedActions
         - allowedActions
+        creationTimestamp: 5
         drillDownDashboardRef:
           UID: UID
+        parsesAsRatio: true
         status:
           message: message
           type: created
@@ -981,14 +1021,21 @@ components:
           items:
             type: string
           type: array
+        creationTimestamp:
+          format: int64
+          type: integer
         drillDownDashboardRef:
           $ref: '#/components/schemas/slo.v0_0.DashboardRef'
+        parsesAsRatio:
+          type: boolean
         provenance:
           type: string
         sourceDatasource:
           $ref: '#/components/schemas/slo.v0_0.DestinationDatasource'
         status:
           $ref: '#/components/schemas/slo.v0_0.Status'
+      required:
+      - creationTimestamp
     slo.v0_0.Slo:
       additionalProperties: false
       example:
@@ -1054,8 +1101,10 @@ components:
           allowedActions:
           - allowedActions
           - allowedActions
+          creationTimestamp: 5
           drillDownDashboardRef:
             UID: UID
+          parsesAsRatio: true
           status:
             message: message
             type: created
@@ -1077,6 +1126,9 @@ components:
               key: key
             - value: value
               key: key
+            enrichments:
+            - type: type
+            - type: type
             labels:
             - value: value
               key: key
@@ -1088,6 +1140,9 @@ components:
               key: key
             - value: value
               key: key
+            enrichments:
+            - type: type
+            - type: type
             labels:
             - value: value
               key: key
@@ -1165,8 +1220,8 @@ components:
         operator:
           enum:
           - <
-          - ==
           - <=
+          - ==
           - '!='
           - '>='
           - '>'

@@ -5,21 +5,34 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
+permissions: {}
 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    env:
+      REPO_NAME: slo-openapi-client
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          persist-credentials: false
-      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
+          persist-credentials: true
+      - uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
         with:
-          go-version: '1.23'
+          go-version: '1.26.1'
       - name: Generate Client
-        uses: grafana/shared-workflows/actions/generate-openapi-clients@fa48192dac470ae356b3f7007229f3ac28c48a25
+        uses: grafana/shared-workflows/actions/generate-openapi-clients@8ef55db5803bf7fc92e32ca4a4f488657f3f53fe # v1.1.0
         with:
           package-name: slo
           spec-path: openapi.yaml
+          commit-changes: "false"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7.0.11
+        with:
+          commit-message: "Update generated OpenAPI clients"
+          title: "Update OpenAPI clients"
+          body: "Auto-generated client update after OpenAPI spec change."
+          branch: auto/update-openapi-clients
