@@ -1,6 +1,6 @@
 module github.com/grafana/slo-openapi-client/go/slo
 
-go 1.18
+go 1.26.1
 
 require github.com/stretchr/testify v1.10.0
 
