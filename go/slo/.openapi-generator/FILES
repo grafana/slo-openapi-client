@@ -17,6 +17,7 @@ docs/ReportV1Report.md
 docs/ReportV1ReportDefinitionSloList.md
 docs/ReportV1ReportSlo.md
 docs/SloV00AdvancedOptions.md
+docs/SloV00AlertEnrichment.md
 docs/SloV00Alerting.md
 docs/SloV00AlertingMetadata.md
 docs/SloV00DashboardRef.md
@@ -49,6 +50,7 @@ model_report_v1_report.go
 model_report_v1_report_definition_slo_list.go
 model_report_v1_report_slo.go
 model_slo_v0_0_advanced_options.go
+model_slo_v0_0_alert_enrichment.go
 model_slo_v0_0_alerting.go
 model_slo_v0_0_alerting_metadata.go
 model_slo_v0_0_dashboard_ref.go
