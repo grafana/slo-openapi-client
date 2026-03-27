@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowedActions** | Pointer to **[]string** |  | [optional] 
+**CreationTimestamp** | **int64** |  | 
 **DrillDownDashboardRef** | Pointer to [**SloV00DashboardRef**](SloV00DashboardRef.md) |  | [optional] 
+**ParsesAsRatio** | Pointer to **bool** |  | [optional] 
 **Provenance** | Pointer to **string** |  | [optional] 
 **SourceDatasource** | Pointer to [**SloV00DestinationDatasource**](SloV00DestinationDatasource.md) |  | [optional] 
 **Status** | Pointer to [**SloV00Status**](SloV00Status.md) |  | [optional] 
@@ -14,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewSloV00ReadOnly
 
-`func NewSloV00ReadOnly() *SloV00ReadOnly`
+`func NewSloV00ReadOnly(creationTimestamp int64, ) *SloV00ReadOnly`
 
 NewSloV00ReadOnly instantiates a new SloV00ReadOnly object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +56,26 @@ SetAllowedActions sets AllowedActions field to given value.
 
 HasAllowedActions returns a boolean if a field has been set.
 
+### GetCreationTimestamp
+
+`func (o *SloV00ReadOnly) GetCreationTimestamp() int64`
+
+GetCreationTimestamp returns the CreationTimestamp field if non-nil, zero value otherwise.
+
+### GetCreationTimestampOk
+
+`func (o *SloV00ReadOnly) GetCreationTimestampOk() (*int64, bool)`
+
+GetCreationTimestampOk returns a tuple with the CreationTimestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreationTimestamp
+
+`func (o *SloV00ReadOnly) SetCreationTimestamp(v int64)`
+
+SetCreationTimestamp sets CreationTimestamp field to given value.
+
+
 ### GetDrillDownDashboardRef
 
 `func (o *SloV00ReadOnly) GetDrillDownDashboardRef() SloV00DashboardRef`
@@ -78,6 +100,31 @@ SetDrillDownDashboardRef sets DrillDownDashboardRef field to given value.
 `func (o *SloV00ReadOnly) HasDrillDownDashboardRef() bool`
 
 HasDrillDownDashboardRef returns a boolean if a field has been set.
+
+### GetParsesAsRatio
+
+`func (o *SloV00ReadOnly) GetParsesAsRatio() bool`
+
+GetParsesAsRatio returns the ParsesAsRatio field if non-nil, zero value otherwise.
+
+### GetParsesAsRatioOk
+
+`func (o *SloV00ReadOnly) GetParsesAsRatioOk() (*bool, bool)`
+
+GetParsesAsRatioOk returns a tuple with the ParsesAsRatio field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParsesAsRatio
+
+`func (o *SloV00ReadOnly) SetParsesAsRatio(v bool)`
+
+SetParsesAsRatio sets ParsesAsRatio field to given value.
+
+### HasParsesAsRatio
+
+`func (o *SloV00ReadOnly) HasParsesAsRatio() bool`
+
+HasParsesAsRatio returns a boolean if a field has been set.
 
 ### GetProvenance
 

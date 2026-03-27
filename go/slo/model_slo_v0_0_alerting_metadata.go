@@ -19,8 +19,9 @@ var _ MappedNullable = &SloV00AlertingMetadata{}
 
 // SloV00AlertingMetadata struct for SloV00AlertingMetadata
 type SloV00AlertingMetadata struct {
-	Annotations []SloV00Label `json:"annotations,omitempty"`
-	Labels      []SloV00Label `json:"labels,omitempty"`
+	Annotations []SloV00Label           `json:"annotations,omitempty"`
+	Enrichments []SloV00AlertEnrichment `json:"enrichments,omitempty"`
+	Labels      []SloV00Label           `json:"labels,omitempty"`
 }
 
 // NewSloV00AlertingMetadata instantiates a new SloV00AlertingMetadata object
@@ -72,6 +73,38 @@ func (o *SloV00AlertingMetadata) SetAnnotations(v []SloV00Label) {
 	o.Annotations = v
 }
 
+// GetEnrichments returns the Enrichments field value if set, zero value otherwise.
+func (o *SloV00AlertingMetadata) GetEnrichments() []SloV00AlertEnrichment {
+	if o == nil || IsNil(o.Enrichments) {
+		var ret []SloV00AlertEnrichment
+		return ret
+	}
+	return o.Enrichments
+}
+
+// GetEnrichmentsOk returns a tuple with the Enrichments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00AlertingMetadata) GetEnrichmentsOk() ([]SloV00AlertEnrichment, bool) {
+	if o == nil || IsNil(o.Enrichments) {
+		return nil, false
+	}
+	return o.Enrichments, true
+}
+
+// HasEnrichments returns a boolean if a field has been set.
+func (o *SloV00AlertingMetadata) HasEnrichments() bool {
+	if o != nil && !IsNil(o.Enrichments) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnrichments gets a reference to the given []SloV00AlertEnrichment and assigns it to the Enrichments field.
+func (o *SloV00AlertingMetadata) SetEnrichments(v []SloV00AlertEnrichment) {
+	o.Enrichments = v
+}
+
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *SloV00AlertingMetadata) GetLabels() []SloV00Label {
 	if o == nil || IsNil(o.Labels) {
@@ -116,6 +149,9 @@ func (o SloV00AlertingMetadata) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Annotations) {
 		toSerialize["annotations"] = o.Annotations
+	}
+	if !IsNil(o.Enrichments) {
+		toSerialize["enrichments"] = o.Enrichments
 	}
 	if !IsNil(o.Labels) {
 		toSerialize["labels"] = o.Labels

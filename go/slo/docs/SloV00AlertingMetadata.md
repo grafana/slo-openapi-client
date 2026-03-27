@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Annotations** | Pointer to [**[]SloV00Label**](SloV00Label.md) |  | [optional] 
+**Enrichments** | Pointer to [**[]SloV00AlertEnrichment**](SloV00AlertEnrichment.md) |  | [optional] 
 **Labels** | Pointer to [**[]SloV00Label**](SloV00Label.md) |  | [optional] 
 
 ## Methods
@@ -50,6 +51,31 @@ SetAnnotations sets Annotations field to given value.
 `func (o *SloV00AlertingMetadata) HasAnnotations() bool`
 
 HasAnnotations returns a boolean if a field has been set.
+
+### GetEnrichments
+
+`func (o *SloV00AlertingMetadata) GetEnrichments() []SloV00AlertEnrichment`
+
+GetEnrichments returns the Enrichments field if non-nil, zero value otherwise.
+
+### GetEnrichmentsOk
+
+`func (o *SloV00AlertingMetadata) GetEnrichmentsOk() (*[]SloV00AlertEnrichment, bool)`
+
+GetEnrichmentsOk returns a tuple with the Enrichments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnrichments
+
+`func (o *SloV00AlertingMetadata) SetEnrichments(v []SloV00AlertEnrichment)`
+
+SetEnrichments sets Enrichments field to given value.
+
+### HasEnrichments
+
+`func (o *SloV00AlertingMetadata) HasEnrichments() bool`
+
+HasEnrichments returns a boolean if a field has been set.
 
 ### GetLabels
 
