@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
       id-token: write
     env:
       REPO_NAME: slo-openapi-client
@@ -27,3 +28,11 @@ jobs:
         with:
           package-name: slo
           spec-path: openapi.yaml
+          commit-changes: "false"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7.0.11
+        with:
+          commit-message: "Update generated OpenAPI clients"
+          title: "Update OpenAPI clients"
+          body: "Auto-generated client update after OpenAPI spec change."
+          branch: auto/update-openapi-clients
