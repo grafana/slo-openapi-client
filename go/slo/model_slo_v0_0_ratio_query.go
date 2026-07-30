@@ -20,9 +20,10 @@ var _ MappedNullable = &SloV00RatioQuery{}
 
 // SloV00RatioQuery struct for SloV00RatioQuery
 type SloV00RatioQuery struct {
-	GroupByLabels []string        `json:"groupByLabels,omitempty"`
-	SuccessMetric SloV00MetricDef `json:"successMetric"`
-	TotalMetric   SloV00MetricDef `json:"totalMetric"`
+	GroupByLabels       []string        `json:"groupByLabels,omitempty"`
+	SourceDatasourceUid *string         `json:"sourceDatasourceUid,omitempty"`
+	SuccessMetric       SloV00MetricDef `json:"successMetric"`
+	TotalMetric         SloV00MetricDef `json:"totalMetric"`
 }
 
 type _SloV00RatioQuery SloV00RatioQuery
@@ -76,6 +77,38 @@ func (o *SloV00RatioQuery) HasGroupByLabels() bool {
 // SetGroupByLabels gets a reference to the given []string and assigns it to the GroupByLabels field.
 func (o *SloV00RatioQuery) SetGroupByLabels(v []string) {
 	o.GroupByLabels = v
+}
+
+// GetSourceDatasourceUid returns the SourceDatasourceUid field value if set, zero value otherwise.
+func (o *SloV00RatioQuery) GetSourceDatasourceUid() string {
+	if o == nil || IsNil(o.SourceDatasourceUid) {
+		var ret string
+		return ret
+	}
+	return *o.SourceDatasourceUid
+}
+
+// GetSourceDatasourceUidOk returns a tuple with the SourceDatasourceUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00RatioQuery) GetSourceDatasourceUidOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceDatasourceUid) {
+		return nil, false
+	}
+	return o.SourceDatasourceUid, true
+}
+
+// HasSourceDatasourceUid returns a boolean if a field has been set.
+func (o *SloV00RatioQuery) HasSourceDatasourceUid() bool {
+	if o != nil && !IsNil(o.SourceDatasourceUid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceDatasourceUid gets a reference to the given string and assigns it to the SourceDatasourceUid field.
+func (o *SloV00RatioQuery) SetSourceDatasourceUid(v string) {
+	o.SourceDatasourceUid = &v
 }
 
 // GetSuccessMetric returns the SuccessMetric field value
@@ -138,6 +171,9 @@ func (o SloV00RatioQuery) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.GroupByLabels) {
 		toSerialize["groupByLabels"] = o.GroupByLabels
+	}
+	if !IsNil(o.SourceDatasourceUid) {
+		toSerialize["sourceDatasourceUid"] = o.SourceDatasourceUid
 	}
 	toSerialize["successMetric"] = o.SuccessMetric
 	toSerialize["totalMetric"] = o.TotalMetric

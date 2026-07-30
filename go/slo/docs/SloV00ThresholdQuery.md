@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GroupByLabels** | Pointer to **[]string** |  | [optional] 
+**SourceDatasourceUid** | Pointer to **string** |  | [optional] 
 **Threshold** | [**SloV00Threshold**](SloV00Threshold.md) |  | 
 **ThresholdExpression** | **string** |  | 
 
@@ -51,6 +52,31 @@ SetGroupByLabels sets GroupByLabels field to given value.
 `func (o *SloV00ThresholdQuery) HasGroupByLabels() bool`
 
 HasGroupByLabels returns a boolean if a field has been set.
+
+### GetSourceDatasourceUid
+
+`func (o *SloV00ThresholdQuery) GetSourceDatasourceUid() string`
+
+GetSourceDatasourceUid returns the SourceDatasourceUid field if non-nil, zero value otherwise.
+
+### GetSourceDatasourceUidOk
+
+`func (o *SloV00ThresholdQuery) GetSourceDatasourceUidOk() (*string, bool)`
+
+GetSourceDatasourceUidOk returns a tuple with the SourceDatasourceUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceDatasourceUid
+
+`func (o *SloV00ThresholdQuery) SetSourceDatasourceUid(v string)`
+
+SetSourceDatasourceUid sets SourceDatasourceUid field to given value.
+
+### HasSourceDatasourceUid
+
+`func (o *SloV00ThresholdQuery) HasSourceDatasourceUid() bool`
+
+HasSourceDatasourceUid returns a boolean if a field has been set.
 
 ### GetThreshold
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AllowedActions** | Pointer to **[]string** |  | [optional] 
 **CreationTimestamp** | **int64** |  | 
 **DrillDownDashboardRef** | Pointer to [**SloV00DashboardRef**](SloV00DashboardRef.md) |  | [optional] 
+**MaintenanceEvents** | Pointer to [**[]SloV00MaintenanceEvent**](SloV00MaintenanceEvent.md) |  | [optional] 
 **ParsesAsRatio** | Pointer to **bool** |  | [optional] 
 **Provenance** | Pointer to **string** |  | [optional] 
 **SourceDatasource** | Pointer to [**SloV00DestinationDatasource**](SloV00DestinationDatasource.md) |  | [optional] 
@@ -100,6 +101,31 @@ SetDrillDownDashboardRef sets DrillDownDashboardRef field to given value.
 `func (o *SloV00ReadOnly) HasDrillDownDashboardRef() bool`
 
 HasDrillDownDashboardRef returns a boolean if a field has been set.
+
+### GetMaintenanceEvents
+
+`func (o *SloV00ReadOnly) GetMaintenanceEvents() []SloV00MaintenanceEvent`
+
+GetMaintenanceEvents returns the MaintenanceEvents field if non-nil, zero value otherwise.
+
+### GetMaintenanceEventsOk
+
+`func (o *SloV00ReadOnly) GetMaintenanceEventsOk() (*[]SloV00MaintenanceEvent, bool)`
+
+GetMaintenanceEventsOk returns a tuple with the MaintenanceEvents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintenanceEvents
+
+`func (o *SloV00ReadOnly) SetMaintenanceEvents(v []SloV00MaintenanceEvent)`
+
+SetMaintenanceEvents sets MaintenanceEvents field to given value.
+
+### HasMaintenanceEvents
+
+`func (o *SloV00ReadOnly) HasMaintenanceEvents() bool`
+
+HasMaintenanceEvents returns a boolean if a field has been set.
 
 ### GetParsesAsRatio
 

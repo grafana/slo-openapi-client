@@ -23,6 +23,7 @@ type SloV00ReadOnly struct {
 	AllowedActions        []string                     `json:"allowedActions,omitempty"`
 	CreationTimestamp     int64                        `json:"creationTimestamp"`
 	DrillDownDashboardRef *SloV00DashboardRef          `json:"drillDownDashboardRef,omitempty"`
+	MaintenanceEvents     []SloV00MaintenanceEvent     `json:"maintenanceEvents,omitempty"`
 	ParsesAsRatio         *bool                        `json:"parsesAsRatio,omitempty"`
 	Provenance            *string                      `json:"provenance,omitempty"`
 	SourceDatasource      *SloV00DestinationDatasource `json:"sourceDatasource,omitempty"`
@@ -135,6 +136,38 @@ func (o *SloV00ReadOnly) HasDrillDownDashboardRef() bool {
 // SetDrillDownDashboardRef gets a reference to the given SloV00DashboardRef and assigns it to the DrillDownDashboardRef field.
 func (o *SloV00ReadOnly) SetDrillDownDashboardRef(v SloV00DashboardRef) {
 	o.DrillDownDashboardRef = &v
+}
+
+// GetMaintenanceEvents returns the MaintenanceEvents field value if set, zero value otherwise.
+func (o *SloV00ReadOnly) GetMaintenanceEvents() []SloV00MaintenanceEvent {
+	if o == nil || IsNil(o.MaintenanceEvents) {
+		var ret []SloV00MaintenanceEvent
+		return ret
+	}
+	return o.MaintenanceEvents
+}
+
+// GetMaintenanceEventsOk returns a tuple with the MaintenanceEvents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00ReadOnly) GetMaintenanceEventsOk() ([]SloV00MaintenanceEvent, bool) {
+	if o == nil || IsNil(o.MaintenanceEvents) {
+		return nil, false
+	}
+	return o.MaintenanceEvents, true
+}
+
+// HasMaintenanceEvents returns a boolean if a field has been set.
+func (o *SloV00ReadOnly) HasMaintenanceEvents() bool {
+	if o != nil && !IsNil(o.MaintenanceEvents) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaintenanceEvents gets a reference to the given []SloV00MaintenanceEvent and assigns it to the MaintenanceEvents field.
+func (o *SloV00ReadOnly) SetMaintenanceEvents(v []SloV00MaintenanceEvent) {
+	o.MaintenanceEvents = v
 }
 
 // GetParsesAsRatio returns the ParsesAsRatio field value if set, zero value otherwise.
@@ -281,6 +314,9 @@ func (o SloV00ReadOnly) ToMap() (map[string]interface{}, error) {
 	toSerialize["creationTimestamp"] = o.CreationTimestamp
 	if !IsNil(o.DrillDownDashboardRef) {
 		toSerialize["drillDownDashboardRef"] = o.DrillDownDashboardRef
+	}
+	if !IsNil(o.MaintenanceEvents) {
+		toSerialize["maintenanceEvents"] = o.MaintenanceEvents
 	}
 	if !IsNil(o.ParsesAsRatio) {
 		toSerialize["parsesAsRatio"] = o.ParsesAsRatio

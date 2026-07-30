@@ -28,6 +28,7 @@ docs/SloV00Folder.md
 docs/SloV00FreeformQuery.md
 docs/SloV00GrafanaQueries.md
 docs/SloV00Label.md
+docs/SloV00MaintenanceEvent.md
 docs/SloV00MetricDef.md
 docs/SloV00Objective.md
 docs/SloV00Query.md
@@ -61,6 +62,7 @@ model_slo_v0_0_folder.go
 model_slo_v0_0_freeform_query.go
 model_slo_v0_0_grafana_queries.go
 model_slo_v0_0_label.go
+model_slo_v0_0_maintenance_event.go
 model_slo_v0_0_metric_def.go
 model_slo_v0_0_objective.go
 model_slo_v0_0_query.go
