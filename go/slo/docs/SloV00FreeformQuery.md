@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Query** | **string** |  | 
+**SourceDatasourceUid** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -44,6 +45,31 @@ and a boolean to check if the value has been set.
 
 SetQuery sets Query field to given value.
 
+
+### GetSourceDatasourceUid
+
+`func (o *SloV00FreeformQuery) GetSourceDatasourceUid() string`
+
+GetSourceDatasourceUid returns the SourceDatasourceUid field if non-nil, zero value otherwise.
+
+### GetSourceDatasourceUidOk
+
+`func (o *SloV00FreeformQuery) GetSourceDatasourceUidOk() (*string, bool)`
+
+GetSourceDatasourceUidOk returns a tuple with the SourceDatasourceUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceDatasourceUid
+
+`func (o *SloV00FreeformQuery) SetSourceDatasourceUid(v string)`
+
+SetSourceDatasourceUid sets SourceDatasourceUid field to given value.
+
+### HasSourceDatasourceUid
+
+`func (o *SloV00FreeformQuery) HasSourceDatasourceUid() bool`
+
+HasSourceDatasourceUid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

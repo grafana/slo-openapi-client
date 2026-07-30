@@ -20,9 +20,10 @@ var _ MappedNullable = &SloV00FailureRatioQuery{}
 
 // SloV00FailureRatioQuery struct for SloV00FailureRatioQuery
 type SloV00FailureRatioQuery struct {
-	FailureMetric SloV00MetricDef `json:"failureMetric"`
-	GroupByLabels []string        `json:"groupByLabels,omitempty"`
-	TotalMetric   SloV00MetricDef `json:"totalMetric"`
+	FailureMetric       SloV00MetricDef `json:"failureMetric"`
+	GroupByLabels       []string        `json:"groupByLabels,omitempty"`
+	SourceDatasourceUid *string         `json:"sourceDatasourceUid,omitempty"`
+	TotalMetric         SloV00MetricDef `json:"totalMetric"`
 }
 
 type _SloV00FailureRatioQuery SloV00FailureRatioQuery
@@ -102,6 +103,38 @@ func (o *SloV00FailureRatioQuery) SetGroupByLabels(v []string) {
 	o.GroupByLabels = v
 }
 
+// GetSourceDatasourceUid returns the SourceDatasourceUid field value if set, zero value otherwise.
+func (o *SloV00FailureRatioQuery) GetSourceDatasourceUid() string {
+	if o == nil || IsNil(o.SourceDatasourceUid) {
+		var ret string
+		return ret
+	}
+	return *o.SourceDatasourceUid
+}
+
+// GetSourceDatasourceUidOk returns a tuple with the SourceDatasourceUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00FailureRatioQuery) GetSourceDatasourceUidOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceDatasourceUid) {
+		return nil, false
+	}
+	return o.SourceDatasourceUid, true
+}
+
+// HasSourceDatasourceUid returns a boolean if a field has been set.
+func (o *SloV00FailureRatioQuery) HasSourceDatasourceUid() bool {
+	if o != nil && !IsNil(o.SourceDatasourceUid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceDatasourceUid gets a reference to the given string and assigns it to the SourceDatasourceUid field.
+func (o *SloV00FailureRatioQuery) SetSourceDatasourceUid(v string) {
+	o.SourceDatasourceUid = &v
+}
+
 // GetTotalMetric returns the TotalMetric field value
 func (o *SloV00FailureRatioQuery) GetTotalMetric() SloV00MetricDef {
 	if o == nil {
@@ -139,6 +172,9 @@ func (o SloV00FailureRatioQuery) ToMap() (map[string]interface{}, error) {
 	toSerialize["failureMetric"] = o.FailureMetric
 	if !IsNil(o.GroupByLabels) {
 		toSerialize["groupByLabels"] = o.GroupByLabels
+	}
+	if !IsNil(o.SourceDatasourceUid) {
+		toSerialize["sourceDatasourceUid"] = o.SourceDatasourceUid
 	}
 	toSerialize["totalMetric"] = o.TotalMetric
 	return toSerialize, nil

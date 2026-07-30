@@ -22,6 +22,7 @@ var _ MappedNullable = &SloV00FailureThresholdQuery{}
 type SloV00FailureThresholdQuery struct {
 	FailureThresholdExpression string          `json:"failureThresholdExpression"`
 	GroupByLabels              []string        `json:"groupByLabels,omitempty"`
+	SourceDatasourceUid        *string         `json:"sourceDatasourceUid,omitempty"`
 	Threshold                  SloV00Threshold `json:"threshold"`
 }
 
@@ -102,6 +103,38 @@ func (o *SloV00FailureThresholdQuery) SetGroupByLabels(v []string) {
 	o.GroupByLabels = v
 }
 
+// GetSourceDatasourceUid returns the SourceDatasourceUid field value if set, zero value otherwise.
+func (o *SloV00FailureThresholdQuery) GetSourceDatasourceUid() string {
+	if o == nil || IsNil(o.SourceDatasourceUid) {
+		var ret string
+		return ret
+	}
+	return *o.SourceDatasourceUid
+}
+
+// GetSourceDatasourceUidOk returns a tuple with the SourceDatasourceUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00FailureThresholdQuery) GetSourceDatasourceUidOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceDatasourceUid) {
+		return nil, false
+	}
+	return o.SourceDatasourceUid, true
+}
+
+// HasSourceDatasourceUid returns a boolean if a field has been set.
+func (o *SloV00FailureThresholdQuery) HasSourceDatasourceUid() bool {
+	if o != nil && !IsNil(o.SourceDatasourceUid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceDatasourceUid gets a reference to the given string and assigns it to the SourceDatasourceUid field.
+func (o *SloV00FailureThresholdQuery) SetSourceDatasourceUid(v string) {
+	o.SourceDatasourceUid = &v
+}
+
 // GetThreshold returns the Threshold field value
 func (o *SloV00FailureThresholdQuery) GetThreshold() SloV00Threshold {
 	if o == nil {
@@ -139,6 +172,9 @@ func (o SloV00FailureThresholdQuery) ToMap() (map[string]interface{}, error) {
 	toSerialize["failureThresholdExpression"] = o.FailureThresholdExpression
 	if !IsNil(o.GroupByLabels) {
 		toSerialize["groupByLabels"] = o.GroupByLabels
+	}
+	if !IsNil(o.SourceDatasourceUid) {
+		toSerialize["sourceDatasourceUid"] = o.SourceDatasourceUid
 	}
 	toSerialize["threshold"] = o.Threshold
 	return toSerialize, nil

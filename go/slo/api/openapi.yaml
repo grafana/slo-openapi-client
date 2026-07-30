@@ -359,6 +359,7 @@ components:
             uid: uid
           query:
             failureThreshold:
+              sourceDatasourceUid: sourceDatasourceUid
               groupByLabels:
               - groupByLabels
               - groupByLabels
@@ -367,6 +368,7 @@ components:
                 operator: <
               failureThresholdExpression: failureThresholdExpression
             freeform:
+              sourceDatasourceUid: sourceDatasourceUid
               query: query
             grafanaQueries:
               grafanaQueries:
@@ -376,6 +378,7 @@ components:
               failureMetric:
                 prometheusMetric: prometheusMetric
                 type: type
+              sourceDatasourceUid: sourceDatasourceUid
               groupByLabels:
               - groupByLabels
               - groupByLabels
@@ -383,6 +386,7 @@ components:
                 prometheusMetric: prometheusMetric
                 type: type
             threshold:
+              sourceDatasourceUid: sourceDatasourceUid
               groupByLabels:
               - groupByLabels
               - groupByLabels
@@ -395,6 +399,7 @@ components:
               successMetric:
                 prometheusMetric: prometheusMetric
                 type: type
+              sourceDatasourceUid: sourceDatasourceUid
               groupByLabels:
               - groupByLabels
               - groupByLabels
@@ -412,6 +417,13 @@ components:
             sourceDatasource:
               uid: uid
               type: type
+            maintenanceEvents:
+            - startTimeIso8601: startTimeIso8601
+              name: name
+              endTimeIso8601: endTimeIso8601
+            - startTimeIso8601: startTimeIso8601
+              name: name
+              endTimeIso8601: endTimeIso8601
             provenance: provenance
             allowedActions:
             - allowedActions
@@ -478,6 +490,7 @@ components:
             uid: uid
           query:
             failureThreshold:
+              sourceDatasourceUid: sourceDatasourceUid
               groupByLabels:
               - groupByLabels
               - groupByLabels
@@ -486,6 +499,7 @@ components:
                 operator: <
               failureThresholdExpression: failureThresholdExpression
             freeform:
+              sourceDatasourceUid: sourceDatasourceUid
               query: query
             grafanaQueries:
               grafanaQueries:
@@ -495,6 +509,7 @@ components:
               failureMetric:
                 prometheusMetric: prometheusMetric
                 type: type
+              sourceDatasourceUid: sourceDatasourceUid
               groupByLabels:
               - groupByLabels
               - groupByLabels
@@ -502,6 +517,7 @@ components:
                 prometheusMetric: prometheusMetric
                 type: type
             threshold:
+              sourceDatasourceUid: sourceDatasourceUid
               groupByLabels:
               - groupByLabels
               - groupByLabels
@@ -514,6 +530,7 @@ components:
               successMetric:
                 prometheusMetric: prometheusMetric
                 type: type
+              sourceDatasourceUid: sourceDatasourceUid
               groupByLabels:
               - groupByLabels
               - groupByLabels
@@ -531,6 +548,13 @@ components:
             sourceDatasource:
               uid: uid
               type: type
+            maintenanceEvents:
+            - startTimeIso8601: startTimeIso8601
+              name: name
+              endTimeIso8601: endTimeIso8601
+            - startTimeIso8601: startTimeIso8601
+              name: name
+              endTimeIso8601: endTimeIso8601
             provenance: provenance
             allowedActions:
             - allowedActions
@@ -800,6 +824,7 @@ components:
         failureMetric:
           prometheusMetric: prometheusMetric
           type: type
+        sourceDatasourceUid: sourceDatasourceUid
         groupByLabels:
         - groupByLabels
         - groupByLabels
@@ -813,6 +838,8 @@ components:
           items:
             type: string
           type: array
+        sourceDatasourceUid:
+          type: string
         totalMetric:
           $ref: '#/components/schemas/slo.v0_0.MetricDef'
       required:
@@ -821,6 +848,7 @@ components:
     slo.v0_0.FailureThresholdQuery:
       additionalProperties: false
       example:
+        sourceDatasourceUid: sourceDatasourceUid
         groupByLabels:
         - groupByLabels
         - groupByLabels
@@ -835,6 +863,8 @@ components:
           items:
             type: string
           type: array
+        sourceDatasourceUid:
+          type: string
         threshold:
           $ref: '#/components/schemas/slo.v0_0.Threshold'
       required:
@@ -850,9 +880,12 @@ components:
     slo.v0_0.FreeformQuery:
       additionalProperties: false
       example:
+        sourceDatasourceUid: sourceDatasourceUid
         query: query
       properties:
         query:
+          type: string
+        sourceDatasourceUid:
           type: string
       required:
       - query
@@ -881,6 +914,22 @@ components:
       required:
       - key
       - value
+    slo.v0_0.MaintenanceEvent:
+      additionalProperties: false
+      example:
+        startTimeIso8601: startTimeIso8601
+        name: name
+        endTimeIso8601: endTimeIso8601
+      properties:
+        endTimeIso8601:
+          type: string
+        name:
+          type: string
+        startTimeIso8601:
+          type: string
+      required:
+      - name
+      - startTimeIso8601
     slo.v0_0.MetricDef:
       additionalProperties: false
       example:
@@ -911,6 +960,7 @@ components:
       additionalProperties: false
       example:
         failureThreshold:
+          sourceDatasourceUid: sourceDatasourceUid
           groupByLabels:
           - groupByLabels
           - groupByLabels
@@ -919,6 +969,7 @@ components:
             operator: <
           failureThresholdExpression: failureThresholdExpression
         freeform:
+          sourceDatasourceUid: sourceDatasourceUid
           query: query
         grafanaQueries:
           grafanaQueries:
@@ -928,6 +979,7 @@ components:
           failureMetric:
             prometheusMetric: prometheusMetric
             type: type
+          sourceDatasourceUid: sourceDatasourceUid
           groupByLabels:
           - groupByLabels
           - groupByLabels
@@ -935,6 +987,7 @@ components:
             prometheusMetric: prometheusMetric
             type: type
         threshold:
+          sourceDatasourceUid: sourceDatasourceUid
           groupByLabels:
           - groupByLabels
           - groupByLabels
@@ -947,6 +1000,7 @@ components:
           successMetric:
             prometheusMetric: prometheusMetric
             type: type
+          sourceDatasourceUid: sourceDatasourceUid
           groupByLabels:
           - groupByLabels
           - groupByLabels
@@ -981,6 +1035,7 @@ components:
         successMetric:
           prometheusMetric: prometheusMetric
           type: type
+        sourceDatasourceUid: sourceDatasourceUid
         groupByLabels:
         - groupByLabels
         - groupByLabels
@@ -992,6 +1047,8 @@ components:
           items:
             type: string
           type: array
+        sourceDatasourceUid:
+          type: string
         successMetric:
           $ref: '#/components/schemas/slo.v0_0.MetricDef'
         totalMetric:
@@ -1005,6 +1062,13 @@ components:
         sourceDatasource:
           uid: uid
           type: type
+        maintenanceEvents:
+        - startTimeIso8601: startTimeIso8601
+          name: name
+          endTimeIso8601: endTimeIso8601
+        - startTimeIso8601: startTimeIso8601
+          name: name
+          endTimeIso8601: endTimeIso8601
         provenance: provenance
         allowedActions:
         - allowedActions
@@ -1026,6 +1090,10 @@ components:
           type: integer
         drillDownDashboardRef:
           $ref: '#/components/schemas/slo.v0_0.DashboardRef'
+        maintenanceEvents:
+          items:
+            $ref: '#/components/schemas/slo.v0_0.MaintenanceEvent'
+          type: array
         parsesAsRatio:
           type: boolean
         provenance:
@@ -1044,6 +1112,7 @@ components:
           uid: uid
         query:
           failureThreshold:
+            sourceDatasourceUid: sourceDatasourceUid
             groupByLabels:
             - groupByLabels
             - groupByLabels
@@ -1052,6 +1121,7 @@ components:
               operator: <
             failureThresholdExpression: failureThresholdExpression
           freeform:
+            sourceDatasourceUid: sourceDatasourceUid
             query: query
           grafanaQueries:
             grafanaQueries:
@@ -1061,6 +1131,7 @@ components:
             failureMetric:
               prometheusMetric: prometheusMetric
               type: type
+            sourceDatasourceUid: sourceDatasourceUid
             groupByLabels:
             - groupByLabels
             - groupByLabels
@@ -1068,6 +1139,7 @@ components:
               prometheusMetric: prometheusMetric
               type: type
           threshold:
+            sourceDatasourceUid: sourceDatasourceUid
             groupByLabels:
             - groupByLabels
             - groupByLabels
@@ -1080,6 +1152,7 @@ components:
             successMetric:
               prometheusMetric: prometheusMetric
               type: type
+            sourceDatasourceUid: sourceDatasourceUid
             groupByLabels:
             - groupByLabels
             - groupByLabels
@@ -1097,6 +1170,13 @@ components:
           sourceDatasource:
             uid: uid
             type: type
+          maintenanceEvents:
+          - startTimeIso8601: startTimeIso8601
+            name: name
+            endTimeIso8601: endTimeIso8601
+          - startTimeIso8601: startTimeIso8601
+            name: name
+            endTimeIso8601: endTimeIso8601
           provenance: provenance
           allowedActions:
           - allowedActions
@@ -1235,6 +1315,7 @@ components:
     slo.v0_0.ThresholdQuery:
       additionalProperties: false
       example:
+        sourceDatasourceUid: sourceDatasourceUid
         groupByLabels:
         - groupByLabels
         - groupByLabels
@@ -1247,6 +1328,8 @@ components:
           items:
             type: string
           type: array
+        sourceDatasourceUid:
+          type: string
         threshold:
           $ref: '#/components/schemas/slo.v0_0.Threshold'
         thresholdExpression:

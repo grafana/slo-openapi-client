@@ -181,6 +181,8 @@ components:
           items:
             type: string
           type: array
+        sourceDatasourceUid:
+          type: string
         totalMetric:
           $ref: '#/components/schemas/slo.v0_0.MetricDef'
       required:
@@ -196,6 +198,8 @@ components:
           items:
             type: string
           type: array
+        sourceDatasourceUid:
+          type: string
         threshold:
           $ref: '#/components/schemas/slo.v0_0.Threshold'
       required:
@@ -212,6 +216,8 @@ components:
       additionalProperties: false
       properties:
         query:
+          type: string
+        sourceDatasourceUid:
           type: string
       required:
       - query
@@ -237,6 +243,19 @@ components:
       required:
       - key
       - value
+      type: object
+    slo.v0_0.MaintenanceEvent:
+      additionalProperties: false
+      properties:
+        endTimeIso8601:
+          type: string
+        name:
+          type: string
+        startTimeIso8601:
+          type: string
+      required:
+      - name
+      - startTimeIso8601
       type: object
     slo.v0_0.MetricDef:
       additionalProperties: false
@@ -292,6 +311,8 @@ components:
           items:
             type: string
           type: array
+        sourceDatasourceUid:
+          type: string
         successMetric:
           $ref: '#/components/schemas/slo.v0_0.MetricDef'
         totalMetric:
@@ -312,6 +333,10 @@ components:
           type: integer
         drillDownDashboardRef:
           $ref: '#/components/schemas/slo.v0_0.DashboardRef'
+        maintenanceEvents:
+          items:
+            $ref: '#/components/schemas/slo.v0_0.MaintenanceEvent'
+          type: array
         parsesAsRatio:
           type: boolean
         provenance:
@@ -403,6 +428,8 @@ components:
           items:
             type: string
           type: array
+        sourceDatasourceUid:
+          type: string
         threshold:
           $ref: '#/components/schemas/slo.v0_0.Threshold'
         thresholdExpression:

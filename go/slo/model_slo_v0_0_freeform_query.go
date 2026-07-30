@@ -20,7 +20,8 @@ var _ MappedNullable = &SloV00FreeformQuery{}
 
 // SloV00FreeformQuery struct for SloV00FreeformQuery
 type SloV00FreeformQuery struct {
-	Query string `json:"query"`
+	Query               string  `json:"query"`
+	SourceDatasourceUid *string `json:"sourceDatasourceUid,omitempty"`
 }
 
 type _SloV00FreeformQuery SloV00FreeformQuery
@@ -67,6 +68,38 @@ func (o *SloV00FreeformQuery) SetQuery(v string) {
 	o.Query = v
 }
 
+// GetSourceDatasourceUid returns the SourceDatasourceUid field value if set, zero value otherwise.
+func (o *SloV00FreeformQuery) GetSourceDatasourceUid() string {
+	if o == nil || IsNil(o.SourceDatasourceUid) {
+		var ret string
+		return ret
+	}
+	return *o.SourceDatasourceUid
+}
+
+// GetSourceDatasourceUidOk returns a tuple with the SourceDatasourceUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SloV00FreeformQuery) GetSourceDatasourceUidOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceDatasourceUid) {
+		return nil, false
+	}
+	return o.SourceDatasourceUid, true
+}
+
+// HasSourceDatasourceUid returns a boolean if a field has been set.
+func (o *SloV00FreeformQuery) HasSourceDatasourceUid() bool {
+	if o != nil && !IsNil(o.SourceDatasourceUid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceDatasourceUid gets a reference to the given string and assigns it to the SourceDatasourceUid field.
+func (o *SloV00FreeformQuery) SetSourceDatasourceUid(v string) {
+	o.SourceDatasourceUid = &v
+}
+
 func (o SloV00FreeformQuery) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -78,6 +111,9 @@ func (o SloV00FreeformQuery) MarshalJSON() ([]byte, error) {
 func (o SloV00FreeformQuery) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["query"] = o.Query
+	if !IsNil(o.SourceDatasourceUid) {
+		toSerialize["sourceDatasourceUid"] = o.SourceDatasourceUid
+	}
 	return toSerialize, nil
 }
 

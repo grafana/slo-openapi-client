@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
  - [SloV00FreeformQuery](docs/SloV00FreeformQuery.md)
  - [SloV00GrafanaQueries](docs/SloV00GrafanaQueries.md)
  - [SloV00Label](docs/SloV00Label.md)
+ - [SloV00MaintenanceEvent](docs/SloV00MaintenanceEvent.md)
  - [SloV00MetricDef](docs/SloV00MetricDef.md)
  - [SloV00Objective](docs/SloV00Objective.md)
  - [SloV00Query](docs/SloV00Query.md)
