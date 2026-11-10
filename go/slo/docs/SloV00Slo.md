@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Alerting** | Pointer to [**SloV00Alerting**](SloV00Alerting.md) |  | [optional] 
+**CustomDashboardUid** | Pointer to **string** |  | [optional] 
 **Description** | **string** |  | 
 **DestinationDatasource** | Pointer to [**SloV00DestinationDatasource**](SloV00DestinationDatasource.md) |  | [optional] 
 **Folder** | Pointer to [**SloV00Folder**](SloV00Folder.md) |  | [optional] 
@@ -59,6 +60,31 @@ SetAlerting sets Alerting field to given value.
 `func (o *SloV00Slo) HasAlerting() bool`
 
 HasAlerting returns a boolean if a field has been set.
+
+### GetCustomDashboardUid
+
+`func (o *SloV00Slo) GetCustomDashboardUid() string`
+
+GetCustomDashboardUid returns the CustomDashboardUid field if non-nil, zero value otherwise.
+
+### GetCustomDashboardUidOk
+
+`func (o *SloV00Slo) GetCustomDashboardUidOk() (*string, bool)`
+
+GetCustomDashboardUidOk returns a tuple with the CustomDashboardUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomDashboardUid
+
+`func (o *SloV00Slo) SetCustomDashboardUid(v string)`
+
+SetCustomDashboardUid sets CustomDashboardUid field to given value.
+
+### HasCustomDashboardUid
+
+`func (o *SloV00Slo) HasCustomDashboardUid() bool`
+
+HasCustomDashboardUid returns a boolean if a field has been set.
 
 ### GetDescription
 

@@ -357,6 +357,7 @@ components:
         - searchExpression: searchExpression
           folder:
             uid: uid
+          customDashboardUid: customDashboardUid
           query:
             failureThreshold:
               sourceDatasourceUid: sourceDatasourceUid
@@ -488,6 +489,7 @@ components:
         - searchExpression: searchExpression
           folder:
             uid: uid
+          customDashboardUid: customDashboardUid
           query:
             failureThreshold:
               sourceDatasourceUid: sourceDatasourceUid
@@ -1110,6 +1112,7 @@ components:
         searchExpression: searchExpression
         folder:
           uid: uid
+        customDashboardUid: customDashboardUid
         query:
           failureThreshold:
             sourceDatasourceUid: sourceDatasourceUid
@@ -1241,6 +1244,8 @@ components:
       properties:
         alerting:
           $ref: '#/components/schemas/slo.v0_0.Alerting'
+        customDashboardUid:
+          type: string
         description:
           type: string
         destinationDatasource:

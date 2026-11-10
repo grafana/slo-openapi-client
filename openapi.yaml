@@ -353,6 +353,8 @@ components:
       properties:
         alerting:
           $ref: '#/components/schemas/slo.v0_0.Alerting'
+        customDashboardUid:
+          type: string
         description:
           type: string
         destinationDatasource:
